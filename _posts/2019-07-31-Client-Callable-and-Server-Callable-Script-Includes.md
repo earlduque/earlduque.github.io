@@ -77,7 +77,7 @@ function onChange(control, oldValue, newValue, isLoading) {
 	ga.addParam('<span style="color:purple">sysparm_x</span>', <span style="color:red">'Testing'</span>); 
 	ga.getXML(ResponseFunction); 
 	
-	function ValidateFormat(response) { 
+	function ResponseFunction(response) { 
 		var answer = response.responseXML.documentElement.getAttribute("answer"); 
 		var results = JSON.parse(answer);
 		alert(<span style="color:darkgray">results.message</span>);
