@@ -31,12 +31,14 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 	
     type: 'My_Functions'
 };
+
 </pre>
 
 Code that calls script include function:
 
 <pre>
 var y = new <span style="color:blue">My_Functions()</span>.<span style="color:green">log_info</span>(<span style="color:red">'Testing'</span>);
+
 </pre>
 
 - `y` would be set to <span style="color:orange">'success'</span>
@@ -59,6 +61,7 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 	
     type: 'My_Functions'
 });
+
 </pre>
 
 Code that calls the script include function:
@@ -80,6 +83,7 @@ function onChange(control, oldValue, newValue, isLoading) {
 		alert(<span style="color:darkgray">results.message</span>);
 	}
 }
+
 </pre>
 
 - An alert window would appear with the value of <span style="color:darkgray">results.message</span> which would be <span style="color:orange">'success'</span>
@@ -103,6 +107,7 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 	
     type: 'My_Functions'
 });
+
 </pre>
 
 Because of the small changes:
