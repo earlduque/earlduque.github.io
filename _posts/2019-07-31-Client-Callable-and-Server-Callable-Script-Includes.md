@@ -10,7 +10,7 @@ Script Includes in ServiceNow, in a very simplistic explanation, is a server sid
 
 Client callable script includes in ServiceNow are typically combined with an ServiceNow API method called GlideAjax. It's a method that handles the actual AJAX part of your script that sends and receives data between the client and the server.
 
-Often, it's easier to think of these things separately, but for ease of use, there's often times we'd want to combine them.
+Often, it's easier to think of these things separately, but for ease of use, there's often times we'd want to combine them.<!--endexcerpt-->
 
 <a href="#solution">Click here to jump straight to the solution</a>
 
@@ -86,7 +86,7 @@ function onChange(control, oldValue, newValue, isLoading) {
 - <span style="color:red">'Testing'</span> would be logged to the system (via gs.info())
 
 
-<span title="solution">### Example of a single combined Script include</span>
+### <span id="solution">Example of a single combined Script include</span>
 
 Script include (note the small changes in bold from the example client-callable script include):
 
