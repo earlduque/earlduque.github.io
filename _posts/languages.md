@@ -14,10 +14,10 @@
 - VBA
 - Markdown
 - AutoHotKey
+- Jelly
 
 ### Limited
 
-- Jelly
 - Spanish
 
 ### Familiar
