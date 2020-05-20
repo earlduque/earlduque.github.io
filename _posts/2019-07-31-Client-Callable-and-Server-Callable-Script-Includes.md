@@ -56,7 +56,7 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 		var <span style="color:red">x</span> = this.getParameter('<span style="color:purple">sysparm_x</span>');
 		gs.info(<span style="color:red">x</span>);
 		<span style="color:darkgray">results.message</span> = <span style="color:orange">'success'</span>;
-		return JSON.stringify(result);
+		return JSON.stringify(results);
 	},
 	
     type: 'My_Functions'
