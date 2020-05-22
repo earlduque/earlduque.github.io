@@ -30,7 +30,7 @@ I also did my first dive into building my first component with the NOW CLI and N
 
 The last half-day of the weekend, I spent entirely on making a presentation video. I always tell my colleagues: a successful developer can sell their product just as much as they can build it. I knew I had to stand out from all the entries, so I went my usual route... being weird:
 
-![Presentation video](https://www.youtube.com/watch?v=vEUxMH58Kvc)
+<iframe width="420" height="315" src="https://www.youtube.com/watch?v=vEUxMH58Kvc" frameborder="0" allowfullscreen></iframe>
 
 It was a lot of fun! I understandably lost my category to someone who made a more serious entry, but that's okay. I learned a lot and in the end that's what a lot of why I wanted to participate.
 
