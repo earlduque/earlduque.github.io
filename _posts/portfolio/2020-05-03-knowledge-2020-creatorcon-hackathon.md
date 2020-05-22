@@ -2,7 +2,7 @@
 layout: post
 title: Knowledge 2020 CreatorCon Hackathon
 img: "assets/img/portfolio/Adventure-Manufacturist-Cover.png.gif"
-date: May, 03 2019
+date: May, 03 2020
 tags: [Knowledge Conference,ServiceNow]
 ---
 
