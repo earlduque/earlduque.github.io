@@ -3,7 +3,7 @@ layout: post
 title: Knowledge 2020 CreatorCon Hackathon
 img: "assets/img/portfolio/Adventure-Manufacturist-Cover.png"
 date: May, 03 2020
-tags: [Knowledge Conference,ServiceNow]
+tags: [Knowledge Conference,Hackathon,ServiceNow]
 ---
 
 ![Cover photo of AdVenture Manufacturist game]({{ page.img | relative_url }})
