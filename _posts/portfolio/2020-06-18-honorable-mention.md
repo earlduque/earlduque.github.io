@@ -10,11 +10,11 @@ tags: [Knowledge Conference,Hackathon,ServiceNow]
 
 Back in May, I [posted about my Knowledge 2020 CreatorCon Hackathon entry](http://earlduque.com/2020/05/03/knowledge-2020-creatorcon-hackathon.html). While I didn't make finalist, a new [blog post](https://developer.servicenow.com/blog.do?p=/post/creatorcon-hackathon-2020-review/) on the official ServiceNow developer blog has revealed that I have received an honorable mention for my entry! <!--endexcerpt-->
 
-![It's Something Meme](assets/img/itssomething.jpg)
+![It's Something Meme](/assets/img/itssomething.jpg)
 
 I realized I never really talked about tips for anyone reading this that might want to participate in future hackathons. Seeing as I have made finalist once and honorable mention once...
 
-![Spider-man meme](assets/img/hackathonexpert.jpg)
+![Spider-man meme](/assets/img/hackathonexpert.jpg)
 
 - It's okay to enter as a solo entry but life will be easier as a group. I entered both times alone and not having to spend time delegating or convening was helpful, especially for a personality like me that wants to power through, but it gets overwhelming and exhausting doing it alone.
 - The submission video is almost just as or even more important than the development itself. I always tell my staff and colleagues that being able to sell the thing you made is as important as the thing you made. Good marketing can sell a bad product, if the product is good too then you're golden.
