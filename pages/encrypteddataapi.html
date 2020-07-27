@@ -88,7 +88,7 @@
                                             New values with server created keys <span class="lock-icon"></span>
                                         </div>
                                      </div>
-                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=server</div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=server&quit_on_error=false&test=false</div>
                                     
                                     <div class="description request-description">
                                         <p>Example POST that will generate a random key from the server for each value.
@@ -132,13 +132,13 @@ Objects optionally have an "id" property for your system to reference later, oth
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">quit_on_error</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="value col-md-9 col-xs-12">false</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will stop processing items the moment an error occurs.</p>
                                             </div>
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">test</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="value col-md-9 col-xs-12">false</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
                                             </div>
                                           </div>
@@ -302,7 +302,7 @@ POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?ke
                                             New values with client created keys <span class="lock-icon"></span>
                                         </div>
                                      </div>
-                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&client_additional=earlduque20200726</div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&client_additional=postman20200727&quit_on_error=false&test=false</div>
                                     
                                     <div class="description request-description">
                                         <p>Example POST that will generate a key based on provided key values from the caller.
@@ -345,19 +345,19 @@ Each method can optionally have an "id" property for your system to reference la
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">client_additional</div>
-                                            <div class="value col-md-9 col-xs-12">earlduque20200726</div>
+                                            <div class="value col-md-9 col-xs-12">postman20200727</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. If provided, the value will be appended to all keys in addition to any individual key provided for each value</p>
                                             </div>
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">quit_on_error</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="value col-md-9 col-xs-12">false</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will stop processing items the moment an error occurs.</p>
                                             </div>
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">test</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="value col-md-9 col-xs-12">false</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
                                             </div>
                                           </div>
@@ -413,13 +413,13 @@ Each method can optionally have an "id" property for your system to reference la
                                     <div class="responses-index">
                                         <div class="dropdown response-name">
                                             <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                              <span id="selected" class="response-name-label">POST new values with client created keys</span>
+                                              <span id="selected" class="response-name-label">New values with client created keys</span>
                                                 <span class="caret"></span>
 
                                             </button>
 
                                             <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
-                                                <li class="truncate" data-request-info="2" data-response-info="response_2">POST new values with client created keys</li>
+                                                <li class="truncate" data-request-info="2" data-response-info="response_2">New values with client created keys</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -427,9 +427,9 @@ Each method can optionally have an "id" property for your system to reference la
                                 <div class="formatted-requests " data-request-id="2"  data-id="response_2">
                                     <div class="request code-snippet">
                                         <div>
-                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="POST new values with client created keys">
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with client created keys">
                                                 <code class="is-highlighted">
-POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&client_additional=earlduque20200726
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&client_additional=postman20200727
 [
 
     {
@@ -471,20 +471,20 @@ POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?ke
                                         </div>
                                         <div class="responses code-snippet">
                                             <div>
-                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="POST new values with client created keys">
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with client created keys">
                                                     <code class="is-highlighted">
 {
     "0": {
         "value": "Bravo",
-        "key": "Alphaearlduque20200726"
+        "key": "Alphapostman20200727"
     },
     "1": {
         "value": "Delta",
-        "key": "Charlieearlduque20200726"
+        "key": "Charliepostman20200727"
     },
     "2nd Question": {
         "value": "Foxtrot",
-        "key": "Echoearlduque20200726"
+        "key": "Echopostman20200727"
     }
 }</code>
                                                 </pre>
@@ -505,7 +505,7 @@ POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?ke
                                             New values with both client and server created keys <span class="lock-icon"></span>
                                         </div>
                                      </div>
-                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=both</div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=both&client_additional=earlduque20200726&quit_on_error=false&test=false</div>
                                     
                                     <div class="description request-description">
                                         <p>Example POST that will generate a key based on provided key values from the caller combined with a randomly generated key from the server.
@@ -554,13 +554,13 @@ Each method can optionally have an "id" property for your system to reference la
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">quit_on_error</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="value col-md-9 col-xs-12">false</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to faulse if not provided. If set to true, will stop processing items the moment an error occurs.</p>
                                             </div>
                                           </div>
                                           <div class="param row">
                                             <div class="name col-md-3 col-xs-12">test</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="value col-md-9 col-xs-12">false</div>
                                             <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
                                             </div>
                                           </div>
