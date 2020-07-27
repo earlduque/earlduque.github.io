@@ -1243,7 +1243,7 @@ POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?ke
                                             Retrieve values <span class="lock-icon"></span>
                                         </div>
                                      </div>
-                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d&delete_keys=true</div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d</div>
                                     
                                     <div class="description request-description">
                                         <p>Method to retrieve values based on keys provided. For every key parameter provided in the query, the corresponding value will be returned.
@@ -1291,12 +1291,6 @@ Be aware that values will be URL decoded. Eg. "Hello%20World" will be interprett
                                             <div class="description col-md-9 col-xs-12"><p>None</p>
                                             </div>
                                           </div>
-                                          <div class="param row">
-                                            <div class="name col-md-3 col-xs-12">delete_keys</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
-                                            <div class="description col-md-9 col-xs-12"><p>Optional. If not provided, defaults to false. If provided, must be set to \"true\". Will delete the keys after the transaction ends.</p>
-                                            </div>
-                                          </div>
                                     </div>
                                     
                                 </div>
@@ -1325,7 +1319,7 @@ Be aware that values will be URL decoded. Eg. "Hello%20World" will be interprett
                                         <div>
                                             <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve values">
                                                 <code class="is-highlighted">
-GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d&delete_keys=true</code>
+GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d</code>
                                             </pre>
                                         </div>
                                     </div>
@@ -1340,17 +1334,12 @@ GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key
                                         </div>
                                         <div class="responses code-snippet">
                                             <div>
-                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Retrieve values">
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve values">
                                                     <code class="is-highlighted">
 {
     "Alpha": "Bravo",
     "Charlie": "Delta",
     "Echo235c2281db5adc100fbc87423996199d": "Foxtrot",
-    "keys_deleted": [
-        "Alpha",
-        "Charlie",
-        "Echo235c2281db5adc100fbc87423996199d"
-    ]
 }</code>
                                                 </pre>
                                             </div>
@@ -1404,12 +1393,6 @@ Be aware that values will be URL decoded. Eg. "Hello%20World" will be interprett
                                             <div class="name col-md-3 col-xs-12">key</div>
                                             <div class="value col-md-9 col-xs-12">[\"Alpha\",\"Charlie\",\"Echo\"]</div>
                                             <div class="description col-md-9 col-xs-12"><p>Required. Must be a JSON.stringify array of strings. If more than one key parameter is provided, this method is ignored and the standard method is used.</p>
-                                            </div>
-                                          </div>
-                                          <div class="param row">
-                                            <div class="name col-md-3 col-xs-12">delete_keys</div>
-                                            <div class="value col-md-9 col-xs-12">true</div>
-                                            <div class="description col-md-9 col-xs-12"><p>Optional. If not provided, defaults to false. If provided, must be set to \"true\". Will delete the keys after the transaction ends.</p>
                                             </div>
                                           </div>
                                     </div>
@@ -1471,6 +1454,234 @@ GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key
                             </div>
                             
                         </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="9">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="DELETE method" >DELETE</span>
+                                            Retrieve and destroy values <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Method to retrieve values based on keys provided. For every key parameter provided in the query, the corresponding value will be returned. **Any successfully returned values will subsequently be deleted from the database.**
+
+
+
+Be aware that values will be URL decoded. Eg. "Hello%20World" will be interpretted by the API as "Hello World"</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">Alpha</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required. As many separate key parameters can be provided</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">Charlie</div>
+                                            <div class="description col-md-9 col-xs-12"><p>None</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">Echo235c2281db5adc100fbc87423996199d</div>
+                                            <div class="description col-md-9 col-xs-12"><p>None</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Retrieve and destroy values</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="9" data-response-info="response_9">Retrieve and destroy values</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="9"  data-id="response_9">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve and destroy values">
+                                                <code class="is-highlighted">
+DELETE https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve and destroy values">
+                                                    <code class="is-highlighted">
+{
+    "Alpha": "Bravo",
+    "Charlie": "Delta",
+    "keys_deleted": [
+        "Alpha",
+        "Charlie"
+    ]
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="10">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="DELETE method" >DELETE</span>
+                                            Retrieve and destroy values - alternative <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=["Alpha","Charlie","Echo"]</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Alternative method to retrieve values based on keys provided. Instead of providing each key as a separate parameter, JSON.stringify an array of strings and set it to one key parameter. **Any successfully returned values will subsequently be deleted from the database.**
+
+
+
+Be aware that values will be URL decoded. Eg. "Hello%20World" will be interpretted by the API as "Hello World"</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">[\"Alpha\",\"Charlie\",\"Echo\"]</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required. Must be a JSON.stringify array of strings. If more than one key parameter is provided, this method is ignored and the standard method is used.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Retrieve and destroy values - alternative</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="10" data-response-info="response_10">Retrieve and destroy values - alternative</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="10"  data-id="response_10">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve and destroy values - alternative">
+                                                <code class="is-highlighted">
+DELETE https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=["Alpha","Charlie","Echo"]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve and destroy values - alternative">
+                                                    <code class="is-highlighted">
+{
+    "Alpha": "Bravo",
+    "Charlie": "Delta",
+    "Echo": "Foxtrot",
+    "keys_deleted": [
+        "Alpha",
+        "Charlie",
+        "Echo"
+    ]
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
                     </article>
                 </div>
             </div>
@@ -1488,7 +1699,7 @@ GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key
     <script src="js/bootstrap-treeview.js"></script>
     <script src="js/main.js"></script>
     <script type="application/javascript">
-        var data = [{'text': 'New values with server created keys', 'href': '#1', 'method': 'POST'}, {'text': 'New values with client created keys', 'href': '#2', 'method': 'POST'}, {'text': 'New values with both client and server created keys', 'href': '#3', 'method': 'POST'}, {'text': 'Example usages of the optional quit_on_error and test parameters', 'href': '#4', 'method': 'POST'}, {'text': 'Example of what occurs when the same id is used in the same request', 'href': '#5', 'method': 'POST'}, {'text': 'Other potential errors', 'href': '#6', 'method': 'POST'}, {'text': 'Retrieve values', 'href': '#7', 'method': 'GET'}, {'text': 'Retrieve values - alternative', 'href': '#8', 'method': 'GET'}]
+        var data = [{'text': 'New values with server created keys', 'href': '#1', 'method': 'POST'}, {'text': 'New values with client created keys', 'href': '#2', 'method': 'POST'}, {'text': 'New values with both client and server created keys', 'href': '#3', 'method': 'POST'}, {'text': 'Example usages of the optional quit_on_error and test parameters', 'href': '#4', 'method': 'POST'}, {'text': 'Example of what occurs when the same id is used in the same request', 'href': '#5', 'method': 'POST'}, {'text': 'Other potential errors', 'href': '#6', 'method': 'POST'}, {'text': 'Retrieve values', 'href': '#7', 'method': 'GET'}, {'text': 'Retrieve values - alternative', 'href': '#8', 'method': 'GET'}, {'text': 'Retrieve and destroy values', 'href': '#9', 'method': 'DELETE'}, {'text': 'Retrieve and destroy values - alternative', 'href': '#10', 'method': 'DELETE'}]
         $('#tree').treeview({
             data: data,
             levels: 10,
