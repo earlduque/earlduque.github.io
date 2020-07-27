@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free bootstrap documentation template">
+    <title>Encrypted Data API</title>
+    <!-- using online links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- using local links -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sidebar-themes.css">
+    <link rel="stylesheet" href="css/bootstrap-treeview.css">
+    <link rel="stylesheet" href="css/postman.css">
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" /> </head>
+
+<body>
+    <div class="page-wrapper toggled light-theme">
+        <div class="modal dark-background" id="snippetModal" tabindex="-1" role="dialog" aria-labelledby="documentation-response-modal" style="display: none;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-header">
+            <div class="title">Example Response</div>
+            <button type="button" class="close btn-circle" data-dismiss="modal" aria-label="Close">
+              <div>
+              <span id="closeModal" aria-hidden="true">×</span>
+              </div>
+            </button>
+          </div>
+          <div class="modal-content">
+            <div class="modal-body" style="width: 540.5px;">
+              <pre class="  language-javascript">
+                  <code class=" language-javascript"></code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <!-- sidebar-brand  -->
+                <div class="sidebar-item sidebar-brand text-white font-weight-bold">API Documentation</div>
+                <!-- sidebar-header  -->
+                <!-- sidebar-menu  -->
+                <div class=" sidebar-item sidebar-menu">
+                    <div id="tree"></div>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+        </nav>
+        <!-- page-content  -->
+        <main class="page-content">
+            <div id="overlay" class="overlay"></div>
+            <div class="container-fluid">
+                <div class="row d-flex align-items-center p-3 border-bottom">
+                    <div class="col-md-1">
+                        <a id="toggle-sidebar" class="btn rounded-0 p-3" href="#"> <i class="fas fa-bars"></i> </a>
+                    </div>
+                    <div class="col-md-8">
+
+                    </div>
+<!--                    <div class="col-md-3 text-left"> <a href="https://sharebootstrap.com/docu-free-bootstrap-4-documentation-theme/" class="btn btn-sm btn-primary btn-rounded">Free Download</a> </div>-->
+                </div>
+                <div class="row p-lg-4">
+                    <article class="main-content col-md-12 pr-lg-9" id="doc-body">
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="api-information">
+                                    <div class="collection-name">
+                                        <p>Encrypted Data API</p>
+                                    </div>
+                                    <div class="collection-description">
+                                        <p>REST methods that can be used to store data in the hosted server and retrieve the encrypted data at a later time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="1">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            New values with server created keys <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=server</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Example POST that will generate a random key from the server for each value.
+
+- API always expects an array consisting of strings and/or objects.
+
+Items in the array can be constructed in multiple ways:
+
+- A string value
+- an object with a single "property name":"this is the value" property. (The "property name will be ignored")
+- an object with a designated "value" property (other non-id properties are ignored)
+
+Objects optionally have an "id" property for your system to reference later, otherwise the "id" value will match the index of the object as it appears in the original array.</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key_type</div>
+                                            <div class="value col-md-9 col-xs-12">server</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">quit_on_error</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will stop processing items the moment an error occurs.</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">test</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with server created keys">
+                                                  <code>
+                                                    
+[
+    "Alpha",
+    "Bravo",
+    {
+        "Charlie":"Delta"
+    },
+    {
+        "key":"Echo",
+        "value":"Foxtrot"
+    },
+    {
+        "key":"Golf",
+        "value":"Hotel",
+        "id":"4th Question"
+    }
+]
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">New values with server created keys</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="1" data-response-info="response_1">New values with server created keys</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="1"  data-id="response_1">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with server created keys">
+                                                <code class="is-highlighted">
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=server
+[
+    "Alpha",
+    "Bravo",
+    {
+        "Charlie":"Delta"
+    },
+    {
+        "key":"Echo",
+        "value":"Foxtrot"
+    },
+    {
+        "key":"Golf",
+        "value":"Hotel",
+        "id":"4th Question"
+    }
+]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with server created keys">
+                                                    <code class="is-highlighted">
+{
+    "0": {
+        "value": "Alpha",
+        "key": "d95b2685dbd6dc100fbc874239961937"
+    },
+    "1": {
+        "value": "Bravo",
+        "key": "9d5b2685dbd6dc100fbc874239961937"
+    },
+    "2": {
+        "value": "Delta",
+        "key": "115b2685dbd6dc100fbc874239961938"
+    },
+    "3": {
+        "value": "Foxtrot",
+        "key": "915b2685dbd6dc100fbc874239961938"
+    },
+    "4th Question": {
+        "value": "Hotel",
+        "key": "155b2685dbd6dc100fbc874239961938"
+    }
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="2">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            New values with client created keys <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&client_additional=earlduque20200726</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Example POST that will generate a key based on provided key values from the caller.
+
+- API always expects an array of objects.
+
+Objects can be constructed in multiple ways:
+
+- an object with a single "this is the key":"this is the value" property
+- an object with separate "key" and "value" properties (other non-id properties are ignored)
+
+Each method can optionally have an "id" property for your system to reference later, otherwise the "id" value will match the index of the object as it appears in the original array.</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key_type</div>
+                                            <div class="value col-md-9 col-xs-12">client</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">client_additional</div>
+                                            <div class="value col-md-9 col-xs-12">earlduque20200726</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. If provided, the value will be appended to all keys in addition to any individual key provided for each value</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">quit_on_error</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will stop processing items the moment an error occurs.</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">test</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with client created keys">
+                                                  <code>
+                                                    
+[
+    {
+        "Alpha":"Bravo"
+    },
+    {
+        "key":"Charlie",
+        "value":"Delta"
+    },
+    {
+        "key":"Echo",
+        "value":"Foxtrot",
+        "id":"2nd Question"
+    }
+]
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">POST new values with client created keys</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="2" data-response-info="response_2">POST new values with client created keys</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="2"  data-id="response_2">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="POST new values with client created keys">
+                                                <code class="is-highlighted">
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&client_additional=earlduque20200726
+[
+    {
+        "Alpha":"Bravo"
+    },
+    {
+        "key":"Charlie",
+        "value":"Delta"
+    },
+    {
+        "key":"Echo",
+        "value":"Foxtrot",
+        "id":"2nd Question"
+    }
+]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="POST new values with client created keys">
+                                                    <code class="is-highlighted">
+{
+    "0": {
+        "value": "Bravo",
+        "key": "Alphaearlduque20200726"
+    },
+    "1": {
+        "value": "Delta",
+        "key": "Charlieearlduque20200726"
+    },
+    "2nd Question": {
+        "value": "Foxtrot",
+        "key": "Echoearlduque20200726"
+    }
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="3">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            New values with both client and server created keys <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=both</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Example POST that will generate a key based on provided key values from the caller combined with a randomly generated key from the server.
+
+- API always expects an array of objects.
+
+Objects can be constructed in multiple ways:
+
+- an object with a single "this is the key":"this is the value" property
+- an object with separate "key" and "value" properties (other non-id properties are ignored)
+
+Each method can optionally have an "id" property for your system to reference later, otherwise the "id" value will match the index of the object as it appears in the original array.</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key_type</div>
+                                            <div class="value col-md-9 col-xs-12">both</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">client_additional</div>
+                                            <div class="value col-md-9 col-xs-12">earlduque20200726</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. If provided, the value will be appended to all keys in addition to any individual key provided for each value</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">quit_on_error</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to faulse if not provided. If set to true, will stop processing items the moment an error occurs.</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">test</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with both client and server created keys">
+                                                  <code>
+                                                    
+[
+    {
+        "Alpha":"Bravo"
+    },
+    {
+        "key":"Charlie",
+        "value":"Delta"
+    },
+    {
+        "key":"Echo",
+        "value":"Foxtrot",
+        "id":"2nd Question"
+    }
+]
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">New values with both client and server created keys</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="3" data-response-info="response_3">New values with both client and server created keys</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="3"  data-id="response_3">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with both client and server created keys">
+                                                <code class="is-highlighted">
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=both
+[
+    {
+        "Alpha":"Bravo"
+    },
+    {
+        "key":"Charlie",
+        "value":"Delta"
+    },
+    {
+        "key":"Echo",
+        "value":"Foxtrot",
+        "id":"2nd Question"
+    }
+]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="New values with both client and server created keys">
+                                                    <code class="is-highlighted">
+{
+    "0": {
+        "value": "Bravo",
+        "key": "Alphaeb5c2281db5adc100fbc87423996199c"
+    },
+    "1": {
+        "value": "Delta",
+        "key": "Charlieaf5c2281db5adc100fbc87423996199c"
+    },
+    "2nd Question": {
+        "value": "Foxtrot",
+        "key": "Echo235c2281db5adc100fbc87423996199d"
+    }
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="4">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            Example usages of the optional quit_on_error and test parameters <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&quit_on_error=true&test=true</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>When not provided, the quit_on_error and test parameters are set to "false" when the API processes the request.
+
+Either can be set to "true" to better fit your process.</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key_type</div>
+                                            <div class="value col-md-9 col-xs-12">client</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">quit_on_error</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to faulse if not provided. If set to true, will stop processing items the moment an error occurs.</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">test</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. Defaults to false if not provided. If set to true, will provide a full response as if the records were created, but will not actually record the values to the database.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper " data-title="Example usages of the optional quit_on_error and test parameters">
+                                                  <code>
+                                                    
+[
+    {
+        "Alpha":"Bravo"
+    },
+    {
+        "Alpha":"Charlie"
+    },
+    {
+        "Delta":"Echo"
+    }
+]
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Example usages of the optional quit_on_error and test parameters</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="4" data-response-info="response_4">Example usages of the optional quit_on_error and test parameters</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="4"  data-id="response_4">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Example usages of the optional quit_on_error and test parameters">
+                                                <code class="is-highlighted">
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client&quit_on_error=true&test=true
+[
+    {
+        "Alpha":"Bravo"
+    },
+    {
+        "Alpha":"Charlie"
+    },
+    {
+        "Delta":"Echo"
+    }
+]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>206 - Partial Content</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Example usages of the optional quit_on_error and test parameters">
+                                                    <code class="is-highlighted">
+{
+    "0": {
+        "value": "Bravo",
+        "key": "Alpha"
+    },
+    "1": {
+        "id": 1,
+        "error_reason": "Key already has been used (Quitting on error)"
+    },
+    "test_results": "1 record successfully deleted."
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="5">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            Example of what occurs when the same id is used in the same request <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Objects can optionally have the "id" property. When provided, the response will name matching responses accordingly for your convenience. If no id is provided, the id is set to the index of where that object was in the provided array.
+
+If the same id is used for multiple objects, the first successful object will be given the id as named, all subsequent objects will have the index of where that object was in the provided array appended to the id.</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key_type</div>
+                                            <div class="value col-md-9 col-xs-12">client</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Example of what occurs when the same id is used in the same request">
+                                                  <code>
+                                                    
+[
+    {
+        "Alpha":"Bravo",
+        "id":"first question"
+    },
+    {
+        "Charlie":"Delta",
+        "id":"second question"
+    },
+    {
+        "Echo":"Foxtrot",
+        "id":"second question"
+    }
+]
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Example of what occurs when the same id is used in the same request</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="5" data-response-info="response_5">Example of what occurs when the same id is used in the same request</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="5"  data-id="response_5">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Example of what occurs when the same id is used in the same request">
+                                                <code class="is-highlighted">
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client
+[
+    {
+        "Alpha":"Bravo",
+        "id":"first question"
+    },
+    {
+        "Charlie":"Delta",
+        "id":"second question"
+    },
+    {
+        "Echo":"Foxtrot",
+        "id":"second question"
+    }
+]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Example of what occurs when the same id is used in the same request">
+                                                    <code class="is-highlighted">
+{
+    "first question": {
+        "value": "Bravo",
+        "key": "Alpha"
+    },
+    "second question": {
+        "value": "Delta",
+        "key": "Charlie"
+    },
+    "second question2": {
+        "value": "Foxtrot",
+        "key": "Echo"
+    }
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="6">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="POST method" >POST</span>
+                                            Other potential errors <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>- Providing a string value only when key_type is not set to "server"
+- Providing an object that is multiple properties but are missing the "key" and/or "value" properties.
+- Not provided a string or object in the array
+- Attempted to create a key that is already taken in the database.
+
+or generally, a malforned JSON object.</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">application/json</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key_type</div>
+                                            <div class="value col-md-9 col-xs-12">client</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">BODY <span class="body-type">raw</span></div>
+                                        <hr>
+                                            <div class="raw-body code-snippet">
+                                              <pre class="body-block click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Other potential errors">
+                                                  <code>
+                                                    
+[
+    "Alpha",
+    {
+        "key":"Bravo",
+        "id":"second question"
+    },
+    true,
+    {
+        "key":"Charlie",
+        "value":"Delta"
+    }
+]
+                                                  </code>
+                                              </pre>
+                                            </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Other potential errors</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="6" data-response-info="response_6">Other potential errors</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="6"  data-id="response_6">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Other potential errors">
+                                                <code class="is-highlighted">
+POST https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key_type=client
+[
+    "Alpha",
+    {
+        "key":"Bravo",
+        "id":"second question"
+    },
+    true,
+    {
+        "key":"Charlie",
+        "value":"Delta"
+    }
+]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Other potential errors">
+                                                    <code class="is-highlighted">
+{
+    "0": {
+        "id": 0,
+        "error_reason": "String value provided but key_type is not set to Server."
+    },
+    "2": {
+        "id": 2,
+        "error_reason": "Invalid input, expected object or string"
+    },
+    "3": {
+        "id": 3,
+        "error_reason": "Key already has been used"
+    },
+    "second question": {
+        "id": "second question",
+        "error_reason": "Invalid object, expected key and value properties or a single value."
+    }
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="7">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="GET method" >GET</span>
+                                            Retrieve values <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d&delete_keys=true</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Method to retrieve values based on keys provided. For every key parameter provided in the query, the corresponding value will be returned.
+
+Be aware that values will be URL decoded. Eg. "Hello%20World" will be interpretted by the API as "Hello World"</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">Alpha</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required. As many separate key parameters can be provided</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">Charlie</div>
+                                            <div class="description col-md-9 col-xs-12"><p>None</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">Echo235c2281db5adc100fbc87423996199d</div>
+                                            <div class="description col-md-9 col-xs-12"><p>None</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">delete_keys</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. If not provided, defaults to false. If provided, must be set to \"true\". Will delete the keys after the transaction ends.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Retrieve values</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="7" data-response-info="response_7">Retrieve values</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="7"  data-id="response_7">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve values">
+                                                <code class="is-highlighted">
+GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=Alpha&key=Charlie&key=Echo235c2281db5adc100fbc87423996199d&delete_keys=true</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper is-expandable" data-title="Retrieve values">
+                                                    <code class="is-highlighted">
+{
+    "Alpha": "Bravo",
+    "Charlie": "Delta",
+    "Echo235c2281db5adc100fbc87423996199d": "Foxtrot",
+    "keys_deleted": [
+        "Alpha",
+        "Charlie",
+        "Echo235c2281db5adc100fbc87423996199d"
+    ]
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row row-no-padding row-eq-height">
+                            <div class="col-md-6 col-xs-12 section">
+                                <div class="api-information" id="8">
+                                     <div class="heading">
+                                        <div class="name">
+                                            <span class="GET method" >GET</span>
+                                            Retrieve values - alternative <span class="lock-icon"></span>
+                                        </div>
+                                     </div>
+                                    <div class="url">https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=["Alpha","Charlie","Echo"]</div>
+                                    
+                                    <div class="description request-description">
+                                        <p>Alternative method to retrieve values based on keys provided. Instead of providing each key as a separate parameter, JSON.stringify an array of strings and set it to one key parameter.
+
+Be aware that values will be URL decoded. Eg. "Hello%20World" will be interpretted by the API as "Hello World"</p>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">HEADERS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Accept</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">Content-Type</div>
+                                            <div class="value col-md-9 col-xs-12">text/plain</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Assumed</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="request-body">
+                                        <div class="body-heading">PARAMS</div>
+                                        <hr>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">key</div>
+                                            <div class="value col-md-9 col-xs-12">[\"Alpha\",\"Charlie\",\"Echo\"]</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Required. Must be a JSON.stringify array of strings. If more than one key parameter is provided, this method is ignored and the standard method is used.</p>
+                                            </div>
+                                          </div>
+                                          <div class="param row">
+                                            <div class="name col-md-3 col-xs-12">delete_keys</div>
+                                            <div class="value col-md-9 col-xs-12">true</div>
+                                            <div class="description col-md-9 col-xs-12"><p>Optional. If not provided, defaults to false. If provided, must be set to \"true\". Will delete the keys after the transaction ends.</p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 examples">
+                                <div class="sample-request">
+                                    <div class="heading">
+                                        <span>Example Request</span>
+                                    </div>
+                                    <div class="responses-index">
+                                        <div class="dropdown response-name">
+                                            <button class="btn   responses-dropdown truncate" type="button" id="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                              <span id="selected" class="response-name-label">Retrieve values - alternative</span>
+                                                <span class="caret"></span>
+
+                                            </button>
+
+                                            <ul class="dropdown-menu" aria-labelledby="f678f251-1750-4e3a-b5d8-05b4c6b0fb37_dropdown">
+                                                <li class="truncate" data-request-info="8" data-response-info="response_8">Retrieve values - alternative</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="formatted-requests " data-request-id="8"  data-id="response_8">
+                                    <div class="request code-snippet">
+                                        <div>
+                                            <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve values - alternative">
+                                                <code class="is-highlighted">
+GET https://dev68039.service-now.com/api/x_165574_encrypt/data_encrypter_api?key=["Alpha","Charlie","Echo"]</code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="sample-response">
+                                        <div class="heading">
+                                            <span>Example Response</span>
+                                        </div>
+                                        <div class="responses-index">
+                                            <div class="response-status">
+                                                <span>200 - OK</span>
+                                            </div>
+                                        </div>
+                                        <div class="responses code-snippet">
+                                            <div>
+                                                <pre class="click-to-expand-wrapper is-snippet-wrapper " data-title="Retrieve values - alternative">
+                                                    <code class="is-highlighted">
+{
+    "Alpha": "Bravo",
+    "Charlie": "Delta",
+    "Echo": "Foxtrot"
+}</code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </main>
+        <!-- page-content" -->
+    </div>
+    <!-- page-wrapper -->
+    <!-- using online scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/bootstrap-treeview.js"></script>
+    <script src="js/main.js"></script>
+    <script type="application/javascript">
+        var data = [{'text': 'New values with server created keys', 'href': '#1', 'method': 'POST'}, {'text': 'New values with client created keys', 'href': '#2', 'method': 'POST'}, {'text': 'New values with both client and server created keys', 'href': '#3', 'method': 'POST'}, {'text': 'Example usages of the optional quit_on_error and test parameters', 'href': '#4', 'method': 'POST'}, {'text': 'Example of what occurs when the same id is used in the same request', 'href': '#5', 'method': 'POST'}, {'text': 'Other potential errors', 'href': '#6', 'method': 'POST'}, {'text': 'Retrieve values', 'href': '#7', 'method': 'GET'}, {'text': 'Retrieve values - alternative', 'href': '#8', 'method': 'GET'}]
+        $('#tree').treeview({
+            data: data,
+            levels: 10,
+            expandIcon: 'fas fa-caret-right',
+            collapseIcon: 'fas fa-caret-down',
+            enableLinks: true,
+            showIcon: true,
+            showMethod: true
+        });
+    </script>
+
+</body>
+
+</html>
