@@ -55,7 +55,7 @@ On the ticket form, ITIL users will see a number of things:
 - "Close my case" links in notification have three URL parameters included: case sys_id, case number (to avoid having to do additional querying, this is displayed in the modal window), and knowledge article sys_id
 - Widget on Service Portal homepage (no HTML widget) that checks for the three URL parameters, and if found, checks to see if the case is still open (if it isn't, displays the "already closed" modal window) and displays a mobile-friendly modal window informing the user that the case is closed.
 - The widget does this by creating an event (under newly added event in registry)
-- Event triggers newly added script action that in turn sets the case's status to "solution proposed," adds a work note, and sets resolution fields.
+- Event triggers newly added script action that in turn sets the case's status to "solution proposed," adds a work note, and sets resolution fields. **We do this via event** because we have to assume that the user has not logged in to ServiceNow yet. This is also the reason why we only query public knowledge articles.
 
 #### Email script ####
 
