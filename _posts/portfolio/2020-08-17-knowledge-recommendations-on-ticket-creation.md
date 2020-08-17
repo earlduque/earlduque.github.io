@@ -12,6 +12,8 @@ ServiceNow has [Contextual search for notifications](https://docs.servicenow.com
 
 1. functionality to be uniform between roled users and public users
 2. the ability to close the ticket immediately via links in the email
+3. group managers can determine themselves if they want to use this functionality or not
+4. group managers can co-opt this functionality to force specific articles to always appear ("Always this article because this month we know 90% of our tickets will be about this")
 
 Managers can choose to have ServiceNow determine which articles will show:
 
