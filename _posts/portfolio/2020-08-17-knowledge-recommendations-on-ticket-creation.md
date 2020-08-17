@@ -8,6 +8,11 @@ tags: [Enhancement,ServiceNow]
 
 To better aid customers in self-resolving their tickets, group managers can enable this feature so that users can receive an automatically generated list of Knowledge Base articles. Managers also have the ability to enforce certain articles to always appear in this list of these "recommended" articles. <!--endexcerpt-->
 
+ServiceNow has [Contextual search for notifications](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/contextual-search/task/define-email-configuration-for-cxs.html) but we wanted:
+
+1. functionality to be uniform between roled users and public users
+2. the ability to close the ticket immediately via links in the email
+
 Managers can choose to have ServiceNow determine which articles will show:
 
 ![Image of automatic knowledge inclusion feature]({{ page.img | relative_url }})
