@@ -21,7 +21,7 @@ ServiceNow uses an internal algorithm to rank the found articles by relevancy. T
 
 Or they can choose to manually include specific articles:
 
-![Image of manual knowledge inclusion feature](/assets/img/portfolio/ticket-knowledge-2.png.jpg)
+![Image of manual knowledge inclusion feature](/assets/img/portfolio/ticket-knowledge-2.png)
 
 Using this method, ServiceNow will follow the same exact steps noted above for the "automatic" method, but will intentionally place the manually chosen articles first.
 
@@ -59,7 +59,7 @@ On the ticket form, ITIL users will see a number of things:
 
 #### Email script ####
 
-Some code was simplified for readability.
+Most code was simplified for readability. The actual script is 63 monstrous lines.
 
 ```
 	if (/*feature is enabled for this ticket's group*/){
