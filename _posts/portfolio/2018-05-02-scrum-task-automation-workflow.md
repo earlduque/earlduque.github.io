@@ -2,6 +2,7 @@
 layout: post
 title: Scrum Task Automation Workflow
 img: "assets/img/portfolio/Scrum Task Workflow.PNG"
+thumbnail: "assets/img/portfolio/Scrum Task Workflow.PNG"
 tags: [ServiceNow,Workflow,Enhancement,QoL]
 ---
 

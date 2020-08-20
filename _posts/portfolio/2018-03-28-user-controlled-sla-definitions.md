@@ -2,6 +2,7 @@
 layout: post
 title: User-controlled SLA Definition Notifications
 img: "assets/img/portfolio/SLA Definition Workflow.PNG"
+thumbnail: "assets/img/portfolio/SLA Definition Workflow.PNG"
 tags: [ServiceNow,Enhancement,Workflow]
 ---
 

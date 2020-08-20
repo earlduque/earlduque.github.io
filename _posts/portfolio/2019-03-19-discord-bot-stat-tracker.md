@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Discord Bot Stat Tracker
+thumbnail: "assets/img/portfolio/Discord Bot.png"
 img: "assets/img/portfolio/Discord Bot.png"
 date: March, 19 2019
 tags: [Integration,App,ServiceNow]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Knowledge 2020 Speaker - Quality of Life items available on ServiceNow Share
+thumbnail: "assets/img/portfolio/k20-presentation.png"
 img: "assets/img/portfolio/k20-presentation.png"
 date: May, 28 2020
 tags: [Knowledge Conference,ServiceNow]

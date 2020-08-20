@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ServiceNow and Dicebear Avatars Integration
+thumbnail: "assets/img/portfolio/UserAvatars.gif"
 img: "assets/img/portfolio/UserAvatars.gif"
 tags: [ServiceNow,Integration,App]
 ---

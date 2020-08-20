@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Knowledge 2020 Hackathon Honorable Mention and tips for the future
+thumbnail: "assets/img/portfolio/Honorable Mention.png"
 img: "assets/img/portfolio/Honorable Mention.png"
 date: June, 18 2020
 tags: [Knowledge Conference,Hackathon,ServiceNow]

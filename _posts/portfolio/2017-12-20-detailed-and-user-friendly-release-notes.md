@@ -2,6 +2,7 @@
 layout: post
 title: Detailed and User Friendly Release Notes
 img: "assets/img/portfolio/Release Notes Scroll.gif"
+thumbnail: "assets/img/portfolio/Release Notes Scroll.gif"
 tags: [ServiceNow,Documentation]
 ---
 

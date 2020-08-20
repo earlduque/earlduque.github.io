@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Knowledge 2020 CreatorCon Hackathon
+thumbnail: "assets/img/portfolio/Adventure-Manufacturist-Cover.png"
 img: "assets/img/portfolio/Adventure-Manufacturist-Cover.png"
 date: May, 03 2020
 tags: [Knowledge Conference,Hackathon,ServiceNow]

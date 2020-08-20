@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Timed Approval Reminders
+thumbnail: "assets/img/portfolio/Timed Approval Reminders.PNG"
 img: "assets/img/portfolio/Timed Approval Reminders.PNG"
 tags: [ServiceNow,Workflow,Enhancement]
 ---

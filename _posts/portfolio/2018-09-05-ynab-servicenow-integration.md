@@ -1,6 +1,7 @@
 ---
 layout: post
 title: YNAB ServiceNow Integration
+thumbnail: "assets/img/portfolio/YNAB ServiceNow Integration.png"
 img: "assets/img/portfolio/YNAB ServiceNow Integration.png"
 tags: [ServiceNow,YNAB,Integration]
 ---

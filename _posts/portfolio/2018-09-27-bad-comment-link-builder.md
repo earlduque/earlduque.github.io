@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Bad Comment Link Builder
+thumbnail: "assets/img/portfolio/BadCommentLinkBuilder.gif"
 img: "assets/img/portfolio/BadCommentLinkBuilder.gif"
 date: September, 27 2018
 tags: [QoL,ServiceNow,Service Portal]

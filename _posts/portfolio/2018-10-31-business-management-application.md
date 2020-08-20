@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Business Management
+thumbnail: "assets/img/portfolio/Business Management Dashboard.png"
 img: "assets/img/portfolio/Business Management Dashboard.png"
 tags: [ServiceNow,App]
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: SEO Automatic Sitemap Generator
+thumbnail: "assets/img/portfolio/SEO Result.png"
 img: "assets/img/portfolio/SEO Result.png"
 tags: [ServiceNow,App,Scripted REST API,SEO]
 ---

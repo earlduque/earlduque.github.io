@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Copy Table
+thumbnail: "assets/img/portfolio/Copy Table.gif"
 img: "assets/img/portfolio/Copy Table.gif"
 date: April, 29 2019
 tags: [QoL,ServiceNow]

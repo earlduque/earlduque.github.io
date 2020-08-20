@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Slack Dark Theme
+thumbnail: "assets/img/portfolio/darktheme.png"
 img: "assets/img/portfolio/darktheme.png"
 date: June, 07 2018
 tags: [QoL,Slack]

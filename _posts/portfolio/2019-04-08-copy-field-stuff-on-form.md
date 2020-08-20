@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Copy Field Name, Value, and Display Value on Forms
+thumbnail: "assets/img/portfolio/copy field stuff.gif"
 img: "assets/img/portfolio/copy field stuff.gif"
 date: April, 08 2019
 tags: [QoL,ServiceNow]

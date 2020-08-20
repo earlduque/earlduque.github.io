@@ -2,6 +2,7 @@
 layout: post
 title: Create Dev Update Set from Story
 img: "assets/img/portfolio/Create Dev Update Set.gif"
+thumbnail: "assets/img/portfolio/Create Dev Update Set.gif"
 tags: [ServiceNow,QoL]
 ---
 

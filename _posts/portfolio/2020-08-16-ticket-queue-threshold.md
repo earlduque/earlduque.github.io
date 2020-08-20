@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ticket Queue Threshold Notifications
+thumbnail: "assets/img/portfolio/Ticket-Threshold-Notifications.png"
 img: "assets/img/portfolio/Ticket-Threshold-Notifications.png"
 date: August, 16 2020
 tags: [Enhancement,ServiceNow]

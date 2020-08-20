@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Random User Agent
+thumbnail: "assets/img/portfolio/Random User Agent.gif"
 img: "assets/img/portfolio/Random User Agent.gif"
 tags: [ServiceNow,App]
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 404 Adventure - Hackathon '18 Finalist
+thumbnail: "assets/img/portfolio/Hackathon18a.jpg"
 img: "assets/img/portfolio/Hackathon18a.jpg"
 date: May, 09 2018
 tags: [Knowledge Conference,Hackathon,ServiceNow,Service Portal]

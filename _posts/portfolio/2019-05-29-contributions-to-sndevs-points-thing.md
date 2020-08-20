@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Contributions to SNDevs Points Thing
+thumbnail: "assets/img/portfolio/Points Thing.PNG"
 img: "assets/img/portfolio/Points Thing.PNG"
 tags: [ServiceNow,Slack]
 ---

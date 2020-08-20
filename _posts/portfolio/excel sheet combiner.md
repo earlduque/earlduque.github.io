@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 
+thumbnail: 
 img: "assets/img/portfolio/game.webp"
 tags: [ServiceNow,Misc]
 ---

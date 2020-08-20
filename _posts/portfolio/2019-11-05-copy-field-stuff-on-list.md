@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Copy Field Name, Value, and Display Value on Lists
+thumbnail: "assets/img/portfolio/listcopyoptions.gif"
 img: "assets/img/portfolio/listcopyoptions.gif"
 date: November, 05 2019
 tags: [QoL,ServiceNow]

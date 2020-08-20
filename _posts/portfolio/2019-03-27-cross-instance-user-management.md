@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cross Instance User Management
+thumbnail: "assets/img/portfolio/Cross Instance User Management.PNG"
 img: "assets/img/portfolio/Cross Instance User Management.PNG"
 tags: [ServiceNow,Scripted REST API]
 ---

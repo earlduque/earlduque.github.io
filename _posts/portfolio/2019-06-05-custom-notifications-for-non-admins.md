@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Custom Notifications for non-admins
+thumbnail: "assets/img/portfolio/Custom Notifications - Result.png"
 img: "assets/img/portfolio/Custom Notifications - Result.png"
 tags: [ServiceNow,Enhancement]
 ---

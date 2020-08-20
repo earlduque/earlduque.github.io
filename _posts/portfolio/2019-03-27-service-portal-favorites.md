@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Service Portal Favorites
+thumbnail: "assets/img/portfolio/Service Portal Favorites 3.PNG"
 img: "assets/img/portfolio/Service Portal Favorites 3.PNG"
 tags: [ServiceNow,Service Portal]
 ---

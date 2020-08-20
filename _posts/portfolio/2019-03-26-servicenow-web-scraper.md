@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ServiceNow Web Scraper
+thumbnail: "assets/img/portfolio/Web Scraper After.png"
 img: "assets/img/portfolio/Web Scraper After.png"
 date: March, 26 2019
 tags: [App,ServiceNow]

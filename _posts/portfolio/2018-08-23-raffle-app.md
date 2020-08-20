@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Raffle App
+thumbnail: "assets/img/portfolio/raffle.png"
 img: "assets/img/portfolio/raffle.png"
 date: August, 23 2018
 tags: [App,ServiceNow,Service Portal]

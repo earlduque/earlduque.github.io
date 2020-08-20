@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Strong Password Generator (inspired by XKCD)
+thumbnail: "https://imgs.xkcd.com/comics/password_strength.png"
 img: "https://imgs.xkcd.com/comics/password_strength.png"
 tags: [ServiceNow,App]
 ---
