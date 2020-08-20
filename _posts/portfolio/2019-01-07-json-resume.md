@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JSON Résumé 
-thumbnail: assets/img/portfolio/JSON Resume.png"
+thumbnail: "assets/img/portfolio/JSON Resume.png"
 img: "assets/img/portfolio/JSON Resume.png"
 date: January, 07 2019
 tags: [App,ServiceNow,Scripted REST API,Service Portal]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: D&D Podcast
+thumbnail: "http://d20fantasy.com/assets/img/gallery/PodcastAnnouncement.png"
 img: "http://d20fantasy.com/assets/img/gallery/PodcastAnnouncement.png"
 tags: [Misc]
 ---
