@@ -2,6 +2,7 @@
 layout: post
 title: Knowledge Recommendations upon ticket creation
 img: "assets/img/portfolio/ticket-knowledge-1.png"
+thumbnail: "assets/img/portfolio/ticket-knowledge-1.png"
 date: August, 17 2020
 tags: [Enhancement,ServiceNow]
 ---
