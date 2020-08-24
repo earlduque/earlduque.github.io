@@ -3,7 +3,7 @@ layout: post
 title: Creating good API documentation
 img: "assets/img/postmanscreenshot.PNG"
 thumbnail: "assets/img/postmanscreenshot.PNG"
-tags: [ServiceNow,Documentation]
+tags: [ServiceNow,Documentation,API,Scripted REST API,Integration]
 ---
 
 ![Documentation Example](/assets/img/postmanscreenshot.PNG)
@@ -154,3 +154,8 @@ In new tabs, repeat this process of creating new requests and saving them to you
 - Include an example body in your request, especially if it's required.
 - This is an overview, did I miss something that you need in Postman? I'm sure google will know!
 - Remember security
+
+### Results ###
+
+That's it! If you want to see the end-result of the documentation I made for this walkthrough/tutorial you can find it here:
+![https://documenter.getpostman.com/view/7548206/TVCY5rkX#58e7a9cc-2b13-4554-8290-0f66c861eab0](https://documenter.getpostman.com/view/7548206/TVCY5rkX#58e7a9cc-2b13-4554-8290-0f66c861eab0)
