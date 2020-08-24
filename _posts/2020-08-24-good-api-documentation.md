@@ -6,7 +6,7 @@ thumbnail: "assets/img/postmanscreenshot.PNG"
 tags: [ServiceNow,Documentation]
 ---
 
-![Documentation Example](assets/img/postmanscreenshot.PNG)
+![Documentation Example](/assets/img/postmanscreenshot.PNG)
 
 Every ServiceNow admin/dev should have a good documentation workflow in general, even moreso when they are creating or exposing APIs to other teams. In fact, most people would say that an API is only as good as the documentation that is provided for it. I'm sure anyone who has tried to consume a badly documented API would quickly agree<!--endexcerpt-->
 
