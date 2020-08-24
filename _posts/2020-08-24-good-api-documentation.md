@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Creating good API documentation
-img: "assets/img/postmanscreenshot.png"
-thumbnail: "assets/img/postmanscreenshot.png"
+img: "assets/img/postmanscreenshot.PNG"
+thumbnail: "assets/img/postmanscreenshot.PNG"
 tags: [ServiceNow,Documentation]
 ---
 
-![Documentation Example](/assets/img/postmanscreenshot.png)
+![Documentation Example](/assets/img/postmanscreenshot.PNG)
 
 Every ServiceNow admin/dev should have a good documentation workflow in general, even moreso when they are creating or exposing APIs to other teams. In fact, most people would say that an API is only as good as the documentation that is provided for it. I'm sure anyone who has tried to consume a badly documented API would quickly agree<!--endexcerpt-->
 
@@ -53,7 +53,7 @@ Once published, you will see a link to "public documentation" or if you go back 
 
 ### For Scripted REST APIs: Providing the documentation link ###
 
-![ServiceNow API Doc link field](/assets/img/servicenowapidocfield.png)
+![ServiceNow API Doc link field](/assets/img/servicenowapidocfield.PNG)
 
 Navigate to your scripted REST API and paste the URL to the documentation field. This link appears on the REST API Explorer and if clicked on by the user will send them to the documentation you have built.
 
@@ -75,19 +75,19 @@ In the "Params" tab and "Query Params" section, type in a key and value.
 
 Our example looks like this:
 
-![New request in Postman](/assets/img/postmannewrequest.png)
+![New request in Postman](/assets/img/postmannewrequest.PNG)
 
 Don't worry about sending it right now, but rather, next to the send button, click the save dropdown arrow and click "Save As...".
 
 In the Save Request window, under "Select a collection or folder to save to:" select the collection you created earlier. When done, select "Save to Postman Documentation"
 
-![Save request](/assets/img/postmansaverequest.png)
+![Save request](/assets/img/postmansaverequest.PNG)
 
 ### Run in Postman ###
 
 Now, do you still have that "public documentation" link from earlier? Try going to it now and you'll see that the documentation has been updated to reflect your new request endpoint!
 
-![Run in Postman](/assets/img/postmanrun.png)
+![Run in Postman](/assets/img/postmanrun.PNG)
 
 One of the _biggest_ benefits of doing API documenation through Postman is that anyone who has access to the documentation, will be able to click "Run in Postman" and their Postman will open up with the exact set-up that you just made so that they can immediately start running tests and designing their system's requests and response handling.
 
@@ -118,7 +118,7 @@ In postman, click the cog wheel on the top right to open the Manage Environments
 
 Name the environment (I name mine based on the instance and the persona. eg. my PDI name and my test account profile). Create two variables, one called username and one called password. You can leave the Initial Values as blank. In the "Current value" column, put the username and password you will be using to authenticate the endpoint. It should look like this:
 
-![New environment](/assets/img/postmannewenvironment.png)
+![New environment](/assets/img/postmannewenvironment.PNG)
 
 _In case you want to know, initial value is the value that is saved as the permanent value for that variable for this environment. The current value is the temporary value. If you were to ever share this environment to another Postman user, they would have access to the initial value but the current value would be wiped. If a current value is missing, it defaults to the initial value._
 
@@ -130,7 +130,7 @@ On your requests Authorization tab, change the type to your desired authenticati
 
 Now if you created an environment earlier with variables, all you need to do now is type: `{{username}}` for the Username and `{{password}}` for the password and it will subtitute the private values in for you. Save your endpoint (so that the documentation updates to show what authorization is needed). And now, try sending and see if you get through.
 
-![Success](/assets/img/postmansuccess.png)
+![Success](/assets/img/postmansuccess.PNG)
 
 At the bottom of the screenshot, you can see a 200 OK status and an expected response... Success!
 
@@ -142,7 +142,7 @@ In the response section (the bottom half) of your request, there is a "Save Resp
 
 Now if you go back to your public documentation, you will see that the example response is provided for the endpoint!
 
-![Example response](/assets/img/postmanexampleresponse.png)
+![Example response](/assets/img/postmanexampleresponse.PNG)
 
 Remember that APIs are only as good as their documentation! Example responses are just as helpful as example requests, as it lets developers start creating response handlers even before they gain access to your API/system.
 
