@@ -158,4 +158,4 @@ In new tabs, repeat this process of creating new requests and saving them to you
 ### Results ###
 
 That's it! If you want to see the end-result of the documentation I made for this walkthrough/tutorial you can find it here:
-![https://documenter.getpostman.com/view/7548206/TVCY5rkX#58e7a9cc-2b13-4554-8290-0f66c861eab0](https://documenter.getpostman.com/view/7548206/TVCY5rkX#58e7a9cc-2b13-4554-8290-0f66c861eab0)
+[https://documenter.getpostman.com/view/7548206/TVCY5rkX#58e7a9cc-2b13-4554-8290-0f66c861eab0](https://documenter.getpostman.com/view/7548206/TVCY5rkX#58e7a9cc-2b13-4554-8290-0f66c861eab0)
