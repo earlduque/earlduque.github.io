@@ -8,7 +8,7 @@ tags: [ServiceNow,Documentation,API,Scripted REST API,Integration]
 
 ![Documentation Example](/assets/img/postmanscreenshot.PNG)
 
-Every ServiceNow admin/dev should have a good documentation workflow in general, even moreso when they are creating or exposing APIs to other teams. In fact, most people would say that an API is only as good as the documentation that is provided for it. I'm sure anyone who has tried to consume a badly documented API would quickly agree!<!--endexcerpt-->
+Every ServiceNow admin/dev should have a good documentation workflow in general, even more so when they are creating or exposing APIs. In fact, most would say that an API is only as good as the documentation that is provided. I'm sure anyone who has tried to consume a badly documented API would quickly agree!<!--endexcerpt-->
 
 ## What ##
 
@@ -125,7 +125,7 @@ Alright, let's get authenticated.
 
 On your requests Authorization tab, change the type to your desired authentication method (in our example, we are using Basic Auth).
 
-Now if you created an environment earlier with variables, all you need to do now is type: `{{username}}` for the Username and `{{password}}` for the password and it will subtitute the private values in for you. Save your endpoint (so that the documentation updates to show what authorization is needed). And now, try sending your request and see if you get through.
+Now if you created an environment earlier with variables, all you need to do now is type: {{username}} for the Username and {{password}} for the password and it will subtitute the private values in for you. Save your endpoint (so that the documentation updates to show what authorization is needed). And now, try sending your request and see if you get through.
 
 ![Success](/assets/img/postmansuccess.PNG)
 
