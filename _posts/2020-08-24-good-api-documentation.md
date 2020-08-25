@@ -125,7 +125,7 @@ Alright, let's get authenticated.
 
 On your requests Authorization tab, change the type to your desired authentication method (in our example, we are using Basic Auth).
 
-Now if you created an environment earlier with variables, all you need to do now is type: {{username}} for the Username and {{password}} for the password and it will subtitute the private values in for you. Save your endpoint (so that the documentation updates to show what authorization is needed). And now, try sending your request and see if you get through.
+Now if you created an environment earlier with variables, all you need to do now is type: {% raw %}{{username}}{% endraw %} for the Username and {% raw %}{{password}}{% endraw %} for the password and it will subtitute the private values in for you. Save your endpoint (so that the documentation updates to show what authorization is needed). And now, try sending your request and see if you get through.
 
 ![Success](/assets/img/postmansuccess.PNG)
 
