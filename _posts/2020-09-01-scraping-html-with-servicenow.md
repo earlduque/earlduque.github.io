@@ -38,7 +38,9 @@ First, a command like `!xkcd wisdom of the ancients` is broken down to just `wis
 
 To explain this part we have to talk about REST GET messages and HTML parsing. For most integrations, you'd send a GET request to an API and you receive back an intentional message (like a string or a JSON object), but we don't have an API this time. So instead, I found the website [explainxkcd.com](https://www.explainxkcd.com/) and am utilizing its search page.
 
-For those who don't know, when you use your internet brower and type in a new URL, you're basically sending a GET request and it's returning an HTML payload for your browser to display (this is simplified). So when you send a GET message via REST to a regular website, your respone body is basically a the entire webpage itself (minus any dynamic content).
+For those who don't know, when you use your internet brower and type in a new URL, you're basically sending a GET request and it's returning an HTML payload for your browser to display (this is simplified). So when you send a GET message via REST to a regular website, your respone body is basically the entire webpage itself (minus any dynamic content).
+
+![scrape example](/assets/img/scrapeexample.PNG)
 
 So what we're doing here is intentionally requesting the HTML of a webpage, specifically a search page that hopefully has a comic for us.
 
@@ -59,7 +61,7 @@ Now that we have an HTML payload, it's a matter of figuring out a good regex to 
         var body2 = JSON.parse(response2.getBody());
 ```
 
-Now as long as my result was an integer, I knew I was in business. From there xkcd.com indeed as a JSON API if you know the exact comic you are looking for (they don't have one for searching by keywords). I took the number I got earlier and plugged it in and received this [JSON payload](https://xkcd.com/979/info.0.json): 
+Now as long as my result was an integer, I knew I was in business. From there, xkcd.com indeed has a JSON API if you know the exact comic number you are looking for (they don't have one for searching by keywords). I took the number I got earlier and plugged it in and received this [JSON payload](https://xkcd.com/979/info.0.json): 
 
 ```json
 {
