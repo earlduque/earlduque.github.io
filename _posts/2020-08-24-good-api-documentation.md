@@ -3,6 +3,7 @@ layout: post
 title: Creating good API documentation
 img: "assets/img/postmanscreenshot.PNG"
 thumbnail: "assets/img/postmanscreenshot.PNG"
+date: August, 24 2020
 tags: [ServiceNow,Documentation,API,Scripted REST API,Integration]
 ---
 

@@ -3,7 +3,8 @@ layout: post
 title: Scraping HTML with ServiceNow
 img: "assets/img/postmanscreenshot.PNG"
 thumbnail: "assets/img/slackerxkcd.PNG"
-tags: [ServiceNow,Documentation,API,Scripted REST API,Integration]
+date: September, 01 2020
+tags: [ServiceNow,API]
 ---
 
 ![Using ServiceNow to find relevant XKCD comics](/assets/img/slackerxkcd.PNG)
