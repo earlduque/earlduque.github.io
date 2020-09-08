@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Animating the ServiceNow logo (and adding it to your banner)
-img: "/assets/images/snlogos/ui16demo.gif"
-thumbnail: "/assets/images/snlogos/ui16demo.gif"
+img: "assets/img/snlogos/ui16demo.gif"
+thumbnail: "assets/img/snlogos/ui16demo.gif"
 date: September, 08 2020
 tags: [ServiceNow]
 ---
 
-![The animated logo in my personal developer instnace](/assets/images/snlogos/ui16demo.gif)
+![The animated logo in my personal developer instnace](/assets/img/snlogos/ui16demo.gif)
 
 A couple weeks ago, I needed to practice some sprite-work and for fun, I animated the ServiceNow logo. As you can see from the above screen recording, it adds a little charm to my personal developer instance!
 
@@ -20,24 +20,24 @@ A repo of all the images can be found in this github repo: [earlduque/Animated-S
 ### Transparent background, bouncing O, formatted for UI 16 ###
 
 <div style="background-color:#2a3e41">
-    <img src="/assets/images/snlogos/servicenowbouncetransparentlogoui16.gif">
+    <img src="/assets/img/snlogos/servicenowbouncetransparentlogoui16.gif">
 </div>
 
 ### Transparent background, bouncing O ###
 
-![img](/assets/images/snlogos/servicenowbouncetransparentlogo.gif)
+![img](/assets/img/snlogos/servicenowbouncetransparentlogo.gif)
 
 ### White background, bouncing O ###
 
-![img](/assets/images/snlogos/servicenowbouncewhitebglogo.gif)
+![img](/assets/img/snlogos/servicenowbouncewhitebglogo.gif)
 
 ### Transparent background, non-bouncing O ###
 
-![img](/assets/images/snlogos/servicenowtransparentlogo.gif)
+![img](/assets/img/snlogos/servicenowtransparentlogo.gif)
 
 ### White Background, non-bouncing O ###
 
-![img](/assets/images/snlogos/servicenowwhitebglogo.gif)
+![img](/assets/img/snlogos/servicenowwhitebglogo.gif)
 
 ## Adding it to your PDI ##
 
