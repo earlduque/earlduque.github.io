@@ -9,7 +9,9 @@ tags: [ServiceNow]
 
 ![The animated logo in my personal developer instnace](/assets/img/snlogos/ui16demo.gif)
 
-A couple weeks ago, I needed to practice some sprite-work and for fun, I animated the ServiceNow logo. As you can see from the above screen recording, it adds a little charm to my personal developer instance!
+A couple weeks ago, I needed to practice some sprite-work and for fun, I animated the ServiceNow logo. As you can see from the above screen recording, it adds a little charm to my personal developer instance!<!--endexcerpt-->
+
+Details: made in [Asesprite](https://www.aseprite.org/) pixel by pixel, frame by frame, by me. Feel free to use, no attribution needed.
 
 ## Link to images ##
 
