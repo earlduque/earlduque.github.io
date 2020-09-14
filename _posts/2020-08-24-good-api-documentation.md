@@ -48,7 +48,7 @@ Once created, you're going to hover over the collection and click the right arro
 
 (At some point, Postman will want you to make an account, you will need to do this eventually in this process workflow so just do so when it prompts you.)
 
-In your brower, on the top right you will see a button that says "Publish", click that. Follow the instructions and decide on some configurations (I typically disable collection discovery so that it doesn't appear in public listings). When you're done, click "Publish Collection".
+In your browser, on the top right you will see a button that says "Publish", click that. Follow the instructions and decide on some configurations (I typically disable collection discovery so that it doesn't appear in public listings). When you're done, click "Publish Collection".
 
 Once published, you will see a link to "public documentation" or if you go back to the "View on web" step, you can click on the green "Published" button and click on the "This collection is published at:" link. Copy that URL and let's take a quick detour back to ServiceNow.
 
