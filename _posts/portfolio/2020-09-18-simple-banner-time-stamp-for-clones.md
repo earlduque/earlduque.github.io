@@ -9,7 +9,7 @@ tags: [ServiceNow]
 
 ![Image of an instance banner with a "Last Cloned" time stamp](/assets/img/clonecleanup.PNG)
 
-We found that it is helpful to add the timestamp to the banner of our subproduction instances so that users will know when the data on that instance was last refreshed.
+We found that it is helpful to add the timestamp to the banner of our subproduction instances so that users will know when the data on that instance was last refreshed.<!--endexcerpt-->
 
 [On Share](https://developer.servicenow.com/connect.do#!/share/contents/1655773_automatically_add_last_cloned_date_to_banner_when_cloning_to_subproduction_instances?t=PRODUCT_DETAILS) you can find an update set I loaded that has a post-clone cleanup script that will automate this for you.
 
