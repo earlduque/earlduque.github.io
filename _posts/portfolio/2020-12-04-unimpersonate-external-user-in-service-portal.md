@@ -11,7 +11,7 @@ tags: [ServiceNow]
 
 On share, there is a great project by Phuong Nguyen for implementing a great impersonate dialog window into the Service Portal, found [here](https://developer.servicenow.com/connect.do#!/share/contents/6416148_service_portal_impersonate_dialog?t=PRODUCT_DETAILS). Unfortunately, it uses a NOW API to handle a lot of the impersonating and end impersonation functionality, which snc_external users (from the Explicit Roles plugin) aren't able to access. Until Phuong implements functionality to handle this into his share project, this small update will at least add an "unimpersonate" button to the service portal for specifically snc_external users.<!--endexcerpt-->
 
-After installing the update set, to implement, choose either of these methods:
+After installing [the update set from share](https://developer.servicenow.com/connect.do#!/share/contents/1655773_service_portal_unimpersonate_external_user_for_instances_with_explicit_roles?t=PRODUCT_DETAILS), to implement, choose either of these methods:
 
 #### If you are using the "Service Portal - Impersonate Dialog" feature by Phuong Nguyen from share.servicenow.com OR if you are using an already customized sp\_header\_footer record:
 
