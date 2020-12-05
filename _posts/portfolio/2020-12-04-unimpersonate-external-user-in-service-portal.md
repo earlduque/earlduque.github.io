@@ -4,7 +4,7 @@ title: Unimpersonate external user in Service Portal
 img: "assets/img/portfolio/UnimpersonateExternalUser.PNG"
 thumbnail: "assets/img/portfolio/UnimpersonateExternalUser.PNG"
 date: December, 04 2020
-tags: [ServiceNow]
+tags: [ServiceNow, Service Portal, QoL]
 ---
 
 ![Image of unimpersonating an external user](/assets/img/portfolio/UnimpersonateExternalUser.PNG)
