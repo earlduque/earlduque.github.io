@@ -12,7 +12,7 @@ Does your development team have a testing task baked into your development pipel
 ## Why ##
 
 - Quality assurance
-- Colloboration without disrupting individual autonomy
+- Collaboration without disrupting individual autonomy
 - Forces developers to remember someone will use their creation
 - Easy to convert to techncial documentation or end-user how-to guides
 - A mean of communication to other members of the team and stakeholders
