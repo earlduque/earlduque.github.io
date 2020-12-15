@@ -3,7 +3,7 @@ layout: post
 title: Test Plans and Test Scripts
 img: "assets/img/portfolio/TestingScript.PNG"
 thumbnail: "assets/img/portfolio/TestingScript.PNG"
-date: December, 15 2020
+date: December, 05 2020
 tags: [ServiceNow, Documentation]
 ---
 
