@@ -11,9 +11,9 @@ tags: [ServiceNow, Documentation]
 
 Paige Duffey and Maria Gabriela Waechter has rebranded and redeployed the [WomenNow.dev](https://www.womennow.dev/) website/blog. 
 
-```
-Our purpose is to provide a spotlight for female identifying developers in our community. We want to show the world the great ideas and minds that tend to be quieted and put down by not only society in general, but maybe by even their own work environments. 
-```
+> Our purpose is to provide a spotlight for female identifying developers in our community. 
+> We want to show the world the great ideas and minds that tend to be quieted and put down by not only society in general, 
+> but maybe by even their own work environments. 
 
 I also had the honor of contributing a post about being an ally to women.
 
