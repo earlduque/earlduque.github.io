@@ -17,4 +17,4 @@ Paige Duffey and Maria Gabriela Waechter has rebranded and redeployed the [Women
 
 I also had the honor of contributing a post about being an ally to women.
 
-Please, check it out: [On being an ally](https://www.womennow.dev/home/emg5pyee3r4bigtso9v8qciu9a6gx1), as it's a very important topic to me, and should be a very important topic for everyone in this industry.
+Please, check it out: [On being an ally](https://www.womennow.dev/posts/being-an-ally), as it's a very important topic to me, and should be a very important topic for everyone in this industry.
