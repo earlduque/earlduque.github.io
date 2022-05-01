@@ -18,9 +18,9 @@ Often, it's easier to think of these things separately, but for ease of use, the
 
 Script Include:
 
-<pre>
-var <span style="color:blue">My_Functions</span> = Class.create();
-<span style="color:blue">My_Functions</span>.prototype = {
+<pre style="background-color:#263238">
+var <span style="color:cornflowerblue">My_Functions</span> = Class.create();
+<span style="color:cornflowerblue">My_Functions</span>.prototype = {
     initialize: function() {
     },
 
@@ -31,14 +31,12 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 	
     type: 'My_Functions'
 };
-
 </pre>
 
-Code that calls script include function:
+<br>Code that calls script include function:
 
-<pre>
-var y = new <span style="color:blue">My_Functions()</span>.<span style="color:green">log_info</span>(<span style="color:red">'Testing'</span>);
-
+<pre style="background-color:#263238">
+var y = new <span style="color:cornflowerblue">My_Functions()</span>.<span style="color:green">log_info</span>(<span style="color:red">'Testing'</span>);
 </pre>
 
 - `y` would be set to <span style="color:orange">'success'</span>
@@ -48,12 +46,12 @@ var y = new <span style="color:blue">My_Functions()</span>.<span style="color:gr
 
 Script Include (Set `Client callable` to true):
 
-<pre>
-var <span style="color:blue">My_Functions</span> = Class.create();
-<span style="color:blue">My_Functions</span>.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+<pre style="background-color:#263238">
+var <span style="color:cornflowerblue">My_Functions</span> = Class.create();
+<span style="color:cornflowerblue">My_Functions</span>.prototype = Object.extendsObject(AbstractAjaxProcessor, {
 	<span style="color:green">log_info</span>: function(){
 		var results = {};
-		var <span style="color:red">x</span> = this.getParameter('<span style="color:purple">sysparm_x</span>');
+		var <span style="color:red">x</span> = this.getParameter('<span style="color:yellow">sysparm_x</span>');
 		gs.info(<span style="color:red">x</span>);
 		<span style="color:darkgray">results.message</span> = <span style="color:orange">'success'</span>;
 		return JSON.stringify(results);
@@ -61,20 +59,19 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 	
     type: 'My_Functions'
 });
-
 </pre>
 
-Code that calls the script include function:
+<br>Code that calls the script include function:
 
-<pre>
+<pre style="background-color:#263238">
 function onChange(control, oldValue, newValue, isLoading) {
 	if (isLoading || newValue == '') {
 		return;
 	}
 
-	var ga = new GlideAjax('<span style="color:blue">My_Functions</span>'); 
+	var ga = new GlideAjax('<span style="color:cornflowerblue">My_Functions</span>'); 
 	ga.addParam('sysparm_name','<span style="color:green">log_info</span>'); 
-	ga.addParam('<span style="color:purple">sysparm_x</span>', <span style="color:red">'Testing'</span>); 
+	ga.addParam('<span style="color:yellow">sysparm_x</span>', <span style="color:red">'Testing'</span>); 
 	ga.getXML(ResponseFunction); 
 	
 	function ResponseFunction(response) { 
@@ -83,7 +80,6 @@ function onChange(control, oldValue, newValue, isLoading) {
 		alert(<span style="color:darkgray">results.message</span>);
 	}
 }
-
 </pre>
 
 - An alert window would appear with the value of <span style="color:darkgray">results.message</span> which would be <span style="color:orange">'success'</span>
@@ -94,12 +90,12 @@ function onChange(control, oldValue, newValue, isLoading) {
 
 Script include (note the small changes in bold from the example client-callable script include):
 
-<pre>
-var <span style="color:blue">My_Functions</span> = Class.create();
-<span style="color:blue">My_Functions</span>.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+<pre style="background-color:#263238">
+var <span style="color:cornflowerblue">My_Functions</span> = Class.create();
+<span style="color:cornflowerblue">My_Functions</span>.prototype = Object.extendsObject(AbstractAjaxProcessor, {
 	<span style="color:green">log_info</span>: function(<b>x0</b>){
 		var results = {};
-		var <span style="color:red">x</span> = this.getParameter('<span style="color:purple">sysparm_x</span>') <b>|| x0</b>;
+		var <span style="color:red">x</span> = this.getParameter('<span style="color:yellow">sysparm_x</span>') <b>|| x0</b>;
 		gs.info(<span style="color:red">x</span>);
 		<span style="color:darkgray">results.message</span> = <span style="color:orange">'success'</span>;
 		return JSON.stringify(results);
@@ -107,9 +103,8 @@ var <span style="color:blue">My_Functions</span> = Class.create();
 	
     type: 'My_Functions'
 });
-
 </pre>
-
+<br>
 Because of the small changes:
 - When called from client, it still sets `x` according to the `.getParameter()` function
 - When called from server, if passed a parameter, it first passes to the function then gets set to `x` because of the lack of parameters to retrieve.

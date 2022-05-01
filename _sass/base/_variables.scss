@@ -1,7 +1,8 @@
 // Typography
-$font-family-main: 'Proxima Nova', Helvetica, 'Source Sans Pro', Arial, sans-serif;
-$font-family-headings: 'Proxima Nova', Helvetica, 'Source Sans Pro', Arial, sans-serif;
-$font-family-logo: 'Proxima Nova', Helvetica, 'Source Sans Pro', Arial, sans-serif;
+$font-master: 'Roboto'; //'Promixa Nova'
+$font-family-main: $font-master, 'Promixa Nova', Helvetica, 'Source Sans Pro', Arial, sans-serif;
+$font-family-headings: $font-master, 'Promixa Nova', Helvetica, 'Source Sans Pro', Arial, sans-serif;
+$font-family-logo: $font-master, 'Promixa Nova', Helvetica, 'Source Sans Pro', Arial, sans-serif;
 $font-size: 1.1em;
 
 
@@ -14,14 +15,14 @@ $padding-x-small: 3%;
 
 // Brand colours
 $theme-color: #337ab7;
-$brand-color: #fff;
-$background-color: #fff;
+$brand-color: #121212;
+$background-color: #121212;
 $border-color: rgba(0, 0, 0, 0.1); // rgba recommended if using feature images
 
 // Typography colours
-$text-color: #262626;
-$meta: #595959; //lowest gray for accessible color
-$link-color: $theme-color; // #1ABC9C;
+$text-color: #EEE;
+$meta: #86ed78; //lowest gray for accessible color
+$link-color: #c3c3c3; //$theme-color; // #1ABC9C;
 $selection-color: #D4D4D4; // visible when highlighting text
 $blockquote-color: #EEF7FA; // $background-color;
 
@@ -31,7 +32,7 @@ $text-shadow: #3f3f3f;
 $search-color: #999;
 
 // Header colours
-$header-link-color: #383838;
+$header-link-color: #FFF;
 $navbar-separator-opacity: 0;
 
 // Feature image for articles
