@@ -13,11 +13,11 @@
         </p>
       </header>
       {% if post.thumbnail %}
-      <div class="post-img">
+      <!--div class="post-img">
         <a aria-label="{{ post.title }}" href="{{ post.url | relative_url }}">
           <img alt="{{ post.title }}" src="{{ post.thumbnail | relative_url }}">
         </a>
-      </div>
+      </div-->
       {% endif %}
       <div class="excerpt">
         {{ post.excerpt | strip_html | escape }}
