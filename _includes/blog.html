@@ -19,6 +19,16 @@
         </a>
       </div-->
       {% endif %}
+      {% if post.show %}
+      <span class="blog-key">
+        {{ post.show }}
+      </span><br>
+      {% endif %}
+      {% if post.tags %}
+      <p class="blog-key">
+        {{ post.tags | join:", "}}
+      </p>
+      {% endif %}
       <div class="excerpt">
         {{ post.excerpt | strip_html | escape }}
       </div>

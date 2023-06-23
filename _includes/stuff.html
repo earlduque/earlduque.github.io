@@ -1,0 +1,19 @@
+<!-- Portfolio Grid Section -->
+
+<div class="portfolio-grid">
+    {% for item in site.posts %}
+		{% if item.path contains '_posts/stuff/' %}
+		<div class="portfolio-cell" style="display: flex; flex-direction: column; justify-content: center;">
+			<a href="{{ item.url | relative_url }}" class="portfolio-link" data-keyboard="true">
+				<div class="caption" title="{{ item.title }} | {{ item.show }}">
+					<div class="caption-content">
+						<i class="fa fa-search-plus fa-3x"></i>
+					</div>
+				</div>
+				<img src="{{ item.img | relative_url }}" class="" alt="">
+				<div style="text-align: center;"><span class="portfolio-key">TOPIC</span> {{ item.title }}<br><span class="portfolio-key">DATE</span> {{ item.date | date: "%B %-d, %Y"}}<br><span class="portfolio-key">SHOW</span> {{ item.show }}<br><span class="portfolio-key">ROLE</span> {{ item.tags | join:", "}}</div>
+			</a>
+		</div>
+		{% endif %}
+    {% endfor %}
+</div>

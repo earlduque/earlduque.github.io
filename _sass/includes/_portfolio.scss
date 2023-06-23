@@ -44,8 +44,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
 }
+
+.portfolio-key {
+    color: grey;
+    font-size: 0.75rem;
+}
+
+.blog-key {
+    color: grey;
+}
+
 .portfolio-cell {
   flex: 0 0 32%;
   margin-bottom: 10px;
