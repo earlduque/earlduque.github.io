@@ -1,0 +1,84 @@
+/* styles.css */
+
+body {
+    background-color: #121212;
+    color: #e4e4e4;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    color: #ff6f61; /* Pop of color */
+}
+
+.about-me {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 50px;
+}
+
+.links h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.links li {
+    margin: 10px 20px;
+}
+
+.links a {
+    color: #e4e4e4;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #ff6f61; /* Pop of color on hover */
+}
+
+.links i {
+    margin-right: 8px;
+    color: #ff6f61; /* Icon color */
+    transition: color 0.3s;
+}
+
+.links a:hover i {
+    color: #ffa07a; /* Lighter color on hover */
+}
+
+@media (max-width: 600px) {
+    .links ul {
+        flex-direction: column;
+    }
+    .links li {
+        margin: 10px 0;
+    }
+}
