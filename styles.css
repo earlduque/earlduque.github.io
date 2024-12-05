@@ -146,8 +146,30 @@ h1 + p, p + p {
   color: var(--primary-text-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 940px) {
   .card {
       height: 160px; /* Half of the original height */
   }
 }
+
+/* Add media query for mobile */
+@media (max-width: 932px) {
+  .fade-in-card {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.6s ease-in-out forwards;
+  }
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+

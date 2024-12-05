@@ -44,31 +44,31 @@
 
     <div id="app" class="container">
         <a href="https://www.linkedin.com/in/earlduque/" target="_blank" class="card-link">
-            <card data-image="images/linkedin.png">
+            <card data-image="images/linkedin.png" class="fade-in-card">
                 <h1 slot="header"><i class="fab fa-linkedin"></i> LinkedIn</h1>
                 <p slot="content">Best place to contact me. Résumé. Announcements</p>
             </card>
         </a>
         <a href="https://www.youtube.com/@ServiceNowDevProgram" target="_blank" class="card-link">
-            <card data-image="images/youtube.png">
+            <card data-image="images/youtube.png" class="fade-in-card">
                 <h1 slot="header"><i class="fab fa-youtube"></i> YouTube</h1>
                 <p slot="content">Most of my YouTube stuff can be found here</p>
             </card>
         </a>
         <a href="https://bsky.app/profile/earlduque.com" target="_blank" class="card-link">
-            <card data-image="images/github.png">
+            <card data-image="images/github.png" class="fade-in-card">
                 <h1 slot="header"><i class="fab fa-github"></i> GitHub</h1>
                 <p slot="content">My code repos and link to the SN org I host</p>
             </card>
         </a>
         <a href="https://www.tiktok.com/@earlioessen" target="_blank" class="card-link">
-            <card data-image="images/tiktok.png">
+            <card data-image="images/tiktok.png" class="fade-in-card">
                 <h1 slot="header"><i class="fab fa-tiktok"></i> TikTok</h1>
                 <p slot="content">Semi-viral but not really. Mostly skits</p>
             </card>
         </a>
         <a href="https://github.com/earlduque" target="_blank" class="card-link">
-            <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=">
+            <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=" class="fade-in-card">
                 <h1 slot="header"><i class="fab fa-bluesky"></i> Bluesky</h1>
                 <p slot="content">Microblogging and random thoughts</p>
             </card>
@@ -150,6 +150,7 @@
         
         const app = new Vue({
           el: '#app'
-        });</script>
+        });
+    </script>
 </body>
 </html>
