@@ -145,3 +145,9 @@ h1 + p, p + p {
   font-size: 1.2em;
   color: var(--primary-text-color);
 }
+
+@media (max-width: 768px) {
+  .card {
+      height: 160px; /* Half of the original height */
+  }
+}
