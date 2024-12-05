@@ -151,6 +151,23 @@
         const app = new Vue({
           el: '#app'
         });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".card-wrap");
+            let activeIndex = 0;
+
+            if (window.innerWidth <= 932) { // Adjust for small screens
+                setInterval(() => {
+                // Remove "active" class from all cards
+                cards.forEach((card) => card.classList.remove("active"));
+                // Add "active" class to the current card
+                cards[activeIndex].classList.add("active");
+                // Move to the next card in sequence
+                activeIndex = (activeIndex + 1) % cards.length;
+                }, 3000); // Adjust timing (e.g., 3 seconds per card)
+            }
+            });
+
     </script>
 </body>
 </html>

@@ -173,3 +173,15 @@ h1 + p, p + p {
   }
 }
 
+.card-wrap.active .card-info {
+  transform: translateY(0);
+}
+.card-wrap.active .card-info p {
+  opacity: 1;
+}
+.card-wrap.active .card-bg {
+  opacity: 0.8;
+}
+.card-wrap.active .card {
+  box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, var(--card-shadow-color) 0 30px 60px 0, inset var(--card-shadow-inner-color) 0 0 0 5px, inset white 0 0 0 6px;
+}
