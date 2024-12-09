@@ -189,8 +189,8 @@ h1 + p, p + p {
 /* @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100'; */
 .text {
   font-family: var(--primary-font);
-  color: #fafafa !important;
-  text-align: center !important;
+  color: #fafafa;
+  text-align: center;
 }
 .dud {
   color: #757575;
