@@ -1,83 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6PMQVM9VX"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-H6PMQVM9VX"
+    ></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-H6PMQVM9VX');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-H6PMQVM9VX");
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="description" content="Links and portfolio for Earl Duque, Developer Advocate for ServiceNow. Explore my projects, social links, and tech resources.">
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Links and portfolio for Earl Duque, Developer Advocate for ServiceNow. Explore my projects, social links, and tech resources."
+    />
 
     <title>Earl Duque - Links</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <!-- Link to the CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Open Graph metadata -->
-    <meta property="og:title" content="Earl Duque - Developer Advocate">
-    <meta property="og:description" content="Explore my portfolio, social media links, and tech projects.">
-    <meta property="og:image" content="images/earlwind.JPEG">
-    <meta property="og:url" content="https://earlduque.com">
-    <meta property="og:type" content="website">    
+    <meta property="og:title" content="Earl Duque - Developer Advocate" />
+    <meta
+      property="og:description"
+      content="Explore my portfolio, social media links, and tech projects."
+    />
+    <meta property="og:image" content="images/earlwind.JPEG" />
+    <meta property="og:url" content="https://earlduque.com" />
+    <meta property="og:type" content="website" />
 
     <!-- Link to the JS file -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 
     <!-- Include Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Include Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <h1 class="title">Earl Duque</h1>
-    <p class="title subtitle">Developer Advocate for ServiceNow + Random Tech Stuff</p>
+    <div class="text"></div>
 
     <div id="app" class="container">
-        <a href="https://www.linkedin.com/in/earlduque/" target="_blank" class="card-link">
-            <card data-image="images/linkedin.png" class="fade-in-card">
-                <h1 slot="header"><i class="fab fa-linkedin"></i> LinkedIn</h1>
-                <p slot="content">Best place to contact me. Résumé. Announcements</p>
-            </card>
-        </a>
-        <a href="https://www.youtube.com/@ServiceNowDevProgram" target="_blank" class="card-link">
-            <card data-image="images/youtube.png" class="fade-in-card">
-                <h1 slot="header"><i class="fab fa-youtube"></i> YouTube</h1>
-                <p slot="content">Most of my YouTube stuff can be found here</p>
-            </card>
-        </a>
-        <a href="https://github.com/earlduque" target="_blank" class="card-link">
-            <card data-image="images/github.png" class="fade-in-card">
-                <h1 slot="header"><i class="fab fa-github"></i> GitHub</h1>
-                <p slot="content">My code repos and link to the SN org I host</p>
-            </card>
-        </a>
-        <a href="https://www.tiktok.com/@earlioessen" target="_blank" class="card-link">
-            <card data-image="images/tiktok.png" class="fade-in-card">
-                <h1 slot="header"><i class="fab fa-tiktok"></i> TikTok</h1>
-                <p slot="content">Semi-viral but not really. Mostly skits</p>
-            </card>
-        </a>
-        <a href="https://bsky.app/profile/earlduque.com" target="_blank" class="card-link">
-            <card data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=" class="fade-in-card">
-                <h1 slot="header"><i class="fab fa-bluesky"></i> Bluesky</h1>
-                <p slot="content">Microblogging and random thoughts</p>
-            </card>
-        </a>
+      <a
+        href="https://www.linkedin.com/in/earlduque/"
+        target="_blank"
+        class="card-link"
+      >
+        <card data-image="images/linkedin.png" class="fade-in-card">
+          <h1 slot="header"><i class="fab fa-linkedin"></i> LinkedIn</h1>
+          <p slot="content">Best place to contact me. Résumé. Announcements</p>
+        </card>
+      </a>
+      <a
+        href="https://www.youtube.com/@ServiceNowDevProgram"
+        target="_blank"
+        class="card-link"
+      >
+        <card data-image="images/youtube.png" class="fade-in-card">
+          <h1 slot="header"><i class="fab fa-youtube"></i> YouTube</h1>
+          <p slot="content">Most of my YouTube stuff can be found here</p>
+        </card>
+      </a>
+      <a href="https://github.com/earlduque" target="_blank" class="card-link">
+        <card data-image="images/github.png" class="fade-in-card">
+          <h1 slot="header"><i class="fab fa-github"></i> GitHub</h1>
+          <p slot="content">My code repos and link to the SN org I host</p>
+        </card>
+      </a>
+      <a
+        href="https://www.tiktok.com/@earlioessen"
+        target="_blank"
+        class="card-link"
+      >
+        <card data-image="images/tiktok.png" class="fade-in-card">
+          <h1 slot="header"><i class="fab fa-tiktok"></i> TikTok</h1>
+          <p slot="content">Semi-viral but not really. Mostly skits</p>
+        </card>
+      </a>
+      <a
+        href="https://bsky.app/profile/earlduque.com"
+        target="_blank"
+        class="card-link"
+      >
+        <card
+          data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop="
+          class="fade-in-card"
+        >
+          <h1 slot="header"><i class="fab fa-bluesky"></i> Bluesky</h1>
+          <p slot="content">Microblogging and random thoughts</p>
+        </card>
+      </a>
     </div>
-    <script>Vue.config.devtools = true;
+    <script>
+      Vue.config.devtools = true;
 
-        Vue.component('card', {
-          template: `
+      Vue.component("card", {
+        template: `
             <div class="card-wrap"
               @mousemove="handleMouseMove"
               @mouseenter="handleMouseEnter"
@@ -92,82 +129,168 @@
                 </div>
               </div>
             </div>`,
-          mounted() {
-            this.width = this.$refs.card.offsetWidth;
-            this.height = this.$refs.card.offsetHeight;
+        mounted() {
+          this.width = this.$refs.card.offsetWidth;
+          this.height = this.$refs.card.offsetHeight;
+        },
+        props: ["dataImage"],
+        data: () => ({
+          width: 0,
+          height: 0,
+          mouseX: 0,
+          mouseY: 0,
+          mouseLeaveDelay: null,
+        }),
+        computed: {
+          mousePX() {
+            return this.mouseX / this.width;
           },
-          props: ['dataImage'],
-          data: () => ({
-            width: 0,
-            height: 0,
-            mouseX: 0,
-            mouseY: 0,
-            mouseLeaveDelay: null
-          }),
-          computed: {
-            mousePX() {
-              return this.mouseX / this.width;
-            },
-            mousePY() {
-              return this.mouseY / this.height;
-            },
-            cardStyle() {
-              const rX = this.mousePX * 30;
-              const rY = this.mousePY * -30;
-              return {
-                transform: `rotateY(${rX}deg) rotateX(${rY}deg)`
-              };
-            },
-            cardBgTransform() {
-              const tX = this.mousePX * -40;
-              const tY = this.mousePY * -40;
-              return {
-                transform: `translateX(${tX}px) translateY(${tY}px)`
-              }
-            },
-            cardBgImage() {
-              return {
-                backgroundImage: `url(${this.dataImage})`
-              }
-            }
+          mousePY() {
+            return this.mouseY / this.height;
           },
-          methods: {
-            handleMouseMove(e) {
-              this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width/2;
-              this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height/2;
-            },
-            handleMouseEnter() {
-              clearTimeout(this.mouseLeaveDelay);
-            },
-            handleMouseLeave() {
-              this.mouseLeaveDelay = setTimeout(()=>{
-                this.mouseX = 0;
-                this.mouseY = 0;
-              }, 1000);
+          cardStyle() {
+            const rX = this.mousePX * 30;
+            const rY = this.mousePY * -30;
+            return {
+              transform: `rotateY(${rX}deg) rotateX(${rY}deg)`,
+            };
+          },
+          cardBgTransform() {
+            const tX = this.mousePX * -40;
+            const tY = this.mousePY * -40;
+            return {
+              transform: `translateX(${tX}px) translateY(${tY}px)`,
+            };
+          },
+          cardBgImage() {
+            return {
+              backgroundImage: `url(${this.dataImage})`,
+            };
+          },
+        },
+        methods: {
+          handleMouseMove(e) {
+            this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width / 2;
+            this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height / 2;
+          },
+          handleMouseEnter() {
+            clearTimeout(this.mouseLeaveDelay);
+          },
+          handleMouseLeave() {
+            this.mouseLeaveDelay = setTimeout(() => {
+              this.mouseX = 0;
+              this.mouseY = 0;
+            }, 1000);
+          },
+        },
+      });
+
+      const app = new Vue({
+        el: "#app",
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".card-wrap");
+        let activeIndex = 0;
+
+        if (window.innerWidth <= 932) {
+          // Adjust for small screens
+          setInterval(() => {
+            // Remove "active" class from all cards
+            cards.forEach((card) => card.classList.remove("active"));
+            // Add "active" class to the current card
+            cards[activeIndex].classList.add("active");
+            // Move to the next card in sequence
+            activeIndex = (activeIndex + 1) % cards.length;
+          }, 3000); // Adjust timing (e.g., 3 seconds per card)
+        }
+      });
+    </script>
+    <script>
+      // ——————————————————————————————————————————————————
+      // TextScramble
+      // ——————————————————————————————————————————————————
+
+      class TextScramble {
+        constructor(el) {
+          this.el = el;
+          this.chars = "!<>-_\\/[]{}—=+*^?#________";
+          this.update = this.update.bind(this);
+        }
+        setText(newText) {
+          const oldText = this.el.innerText;
+          const length = Math.max(oldText.length, newText.length);
+          const promise = new Promise((resolve) => (this.resolve = resolve));
+          this.queue = [];
+          for (let i = 0; i < length; i++) {
+            const from = oldText[i] || "";
+            const to = newText[i] || "";
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end });
+          }
+          cancelAnimationFrame(this.frameRequest);
+          this.frame = 0;
+          this.update();
+          return promise;
+        }
+        update() {
+          let output = "";
+          let complete = 0;
+          for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+              complete++;
+              output += to;
+            } else if (this.frame >= start) {
+              if (!char || Math.random() < 0.28) {
+                char = this.randomChar();
+                this.queue[i].char = char;
+              }
+              output += `<span class="dud">${char}</span>`;
+            } else {
+              output += from;
             }
           }
+          this.el.innerHTML = output;
+          if (complete === this.queue.length) {
+            this.resolve();
+          } else {
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+          }
+        }
+        randomChar() {
+          return this.chars[Math.floor(Math.random() * this.chars.length)];
+        }
+      }
+
+      // ——————————————————————————————————————————————————
+      // Example
+      // ——————————————————————————————————————————————————
+
+      const phrases = [
+        "ServiceNow Developer Advocate",
+        "Random Tech Stuff",
+        "#GirlDad",
+        "ServiceNow Developer",
+        "Ally to those seeking allies",
+        "Nerd",
+      ];
+
+      const el = document.querySelector(".text");
+      const fx = new TextScramble(el);
+
+      let counter = 0;
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 2000);
         });
-        
-        const app = new Vue({
-          el: '#app'
-        });
+        counter = (counter + 1) % phrases.length;
+        // counter = Math.floor(Math.random() * phrases.length);
+      };
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const cards = document.querySelectorAll(".card-wrap");
-            let activeIndex = 0;
-
-            if (window.innerWidth <= 932) { // Adjust for small screens
-                setInterval(() => {
-                // Remove "active" class from all cards
-                cards.forEach((card) => card.classList.remove("active"));
-                // Add "active" class to the current card
-                cards[activeIndex].classList.add("active");
-                // Move to the next card in sequence
-                activeIndex = (activeIndex + 1) % cards.length;
-                }, 3000); // Adjust timing (e.g., 3 seconds per card)
-            }
-            });
-
+      next();
     </script>
-</body>
+  </body>
 </html>

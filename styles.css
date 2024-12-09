@@ -10,7 +10,7 @@
   --card-info-shadow: rgba(0, 0, 0, 0.8) 0 2px 3px; /* Slightly stronger shadow */
   --card-info-gradient: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%); /* Darker gradient */
   
-  --primary-font: 'Roboto', sans-serif;
+  --primary-font: 'Seb Neue', sans-serif;
   --secondary-font: 'Poppins', sans-serif;
 }
 
@@ -185,3 +185,25 @@ h1 + p, p + p {
 .card-wrap.active .card {
   box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, var(--card-shadow-color) 0 30px 60px 0, inset var(--card-shadow-inner-color) 0 0 0 5px, inset white 0 0 0 6px;
 }
+
+/* @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100'; */
+.text {
+  font-family: var(--primary-font);
+  color: #fafafa;
+  text-align: center;
+}
+.dud {
+  color: #757575;
+}
+
+/* .title {
+  font-family: var(--primary-font);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  text-align: center;
+}
+.subtitle {
+  font-size: 1.2em;
+  color: var(--primary-text-color);
+} */
