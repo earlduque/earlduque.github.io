@@ -136,7 +136,7 @@ h1 + p, p + p {
 
 .card-info h1 {
   font-family: var(--secondary-font);
-  font-size: 36px;
+  font-size: 2em;
   font-weight: 700;
   text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
 }
