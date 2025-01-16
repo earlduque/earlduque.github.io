@@ -177,3 +177,26 @@ const next = () => {
 };
 
 next();
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     // URL of your public API
+//     const apiUrl = "https://earl.service-now.com/api/x_snc_earlduque_0/earlduquedotcom";
+
+//     // Perform the GET request
+//     fetch(apiUrl)
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error(`Network response was not ok (${response.status})`);
+//         }
+//         return response.json(); // Parse JSON data
+//       })
+//       .then((data) => {
+//         console.log("API Response:", data); // Handle the response data
+//         // Update your UI based on the data
+//         const textElement = document.querySelector(".text");
+//         textElement.textContent = `API Data: ${JSON.stringify(data, null, 2)}`;
+//       })
+//       .catch((error) => {
+//         console.error("There was a problem with the fetch operation:", error);
+//       });
+//   });
