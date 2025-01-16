@@ -77,6 +77,41 @@ const app = new Vue({
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const cardContainer = document.getElementById("card-container");
+
+  // Path to the folder containing JSON files
+  const linksFolder = "links/";
+
+  // Fetch all JSON files in the folder
+  fetch(linksFolder + "index.json")
+    .then(response => response.json())
+    .then(fileList => {
+      fileList.forEach(fileName => {
+        fetch(linksFolder + fileName)
+          .then(response => response.json())
+          .then(data => {
+            // Create a card element
+            const card = document.createElement("span");
+            // card.className = "card";
+            card.innerHTML = `
+              <a
+                href="${data.url}"
+                target="_blank"
+                class="card-link"
+              >
+                <card data-image="${data.imagePath}" class="fade-in-card">
+                  <h1 slot="header"><i class="${data.icon}"></i> ${data.title}</h1>
+                  <p slot="content">${data.description}</p>
+                </card>
+              </a>
+            `;
+            cardContainer.appendChild(card);
+          })
+          .catch(err => console.error("Error loading card:", err));
+      });
+    })
+    .catch(err => console.error("Error loading file list:", err));
+
   const cards = document.querySelectorAll(".card-wrap");
   let activeIndex = 0;
 
@@ -91,6 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
       activeIndex = (activeIndex + 1) % cards.length;
     }, 3000); // Adjust timing (e.g., 3 seconds per card)
   }
+
+
 });
 
 // ——————————————————————————————————————————————————
@@ -178,25 +215,42 @@ const next = () => {
 
 next();
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     // URL of your public API
-//     const apiUrl = "https://earl.service-now.com/api/x_snc_earlduque_0/earlduquedotcom";
+// document.addEventListener("DOMContentLoaded", () => {
+//   const cardContainer = document.getElementById("card-container");
 
-//     // Perform the GET request
-//     fetch(apiUrl)
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error(`Network response was not ok (${response.status})`);
-//         }
-//         return response.json(); // Parse JSON data
-//       })
-//       .then((data) => {
-//         console.log("API Response:", data); // Handle the response data
-//         // Update your UI based on the data
-//         const textElement = document.querySelector(".text");
-//         textElement.textContent = `API Data: ${JSON.stringify(data, null, 2)}`;
-//       })
-//       .catch((error) => {
-//         console.error("There was a problem with the fetch operation:", error);
+//   // Path to the folder containing JSON files
+//   const linksFolder = "links/";
+
+//   // Fetch all JSON files in the folder
+//   fetch(linksFolder + "index.json")
+//     .then(response => response.json())
+//     .then(fileList => {
+//       fileList.forEach(fileName => {
+//         fetch(linksFolder + fileName)
+//           .then(response => response.json())
+//           .then(data => {
+//             // Create a card element
+//             const card = document.createElement("div");
+//             card.className = "card";
+//             card.innerHTML = `
+//               <a
+//                 href="${data.url}"
+//                 target="_blank"
+//                 class="card-link"
+//               >
+//                 <card data-image="${data.imagePath}" class="fade-in-card">
+//                   <h1 slot="header"><i class="${data.icon}"></i> ${data.title}</h1>
+//                   <p slot="content">${data.description}</p>
+//                 </card>
+//               </a>
+//             `;
+//             card.style.backgroundImage = `url(${data.imagePath})`;
+//             card.style.backgroundSize = "cover"; // Ensure the image covers the card
+//             card.style.backgroundPosition = "center"; // Center the image
+//             cardContainer.appendChild(card);
+//           })
+//           .catch(err => console.error("Error loading card:", err));
 //       });
-//   });
+//     })
+//     .catch(err => console.error("Error loading file list:", err));
+// });
