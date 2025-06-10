@@ -74,6 +74,25 @@ Vue.component("card", {
 
 const app = new Vue({
   el: "#app",
+  data: {
+    links: []
+  },
+  created() {
+    this.loadLinks();
+  },
+  methods: {
+    async loadLinks() {
+      try {
+        const response = await fetch('links/index.json');
+        if (!response.ok) throw new Error('Failed to fetch links manifest');
+        let links = await response.json();
+        links = links.filter(link => link.active).sort((a, b) => a.order - b.order);
+        this.links = links;
+      } catch (e) {
+        console.error('Error loading links:', e);
+      }
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", () => {

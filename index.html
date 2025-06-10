@@ -60,85 +60,14 @@
     <div class="text" style="color: #fafafa; text-align: center"></div>
 
     <div id="app" class="container">
-      <a
-        href="https://www.linkedin.com/in/earlduque/"
-        target="_blank"
-        class="card-link"
-      >
-        <card data-image="images/linkedin.png" class="fade-in-card">
-          <h1 slot="header"><i class="fab fa-linkedin"></i> LinkedIn</h1>
-          <p slot="content">Best place to contact me. Résumé. Announcements</p>
-        </card>
-      </a>
-      <a
-        href="https://www.youtube.com/@ServiceNowDevProgram"
-        target="_blank"
-        class="card-link"
-      >
-        <card data-image="images/youtube.png" class="fade-in-card">
-          <h1 slot="header"><i class="fab fa-youtube"></i> YouTube</h1>
-          <p slot="content">Most of my YouTube stuff can be found here</p>
-        </card>
-      </a>
-      <a href="https://github.com/earlduque" target="_blank" class="card-link">
-        <card data-image="images/github.png" class="fade-in-card">
-          <h1 slot="header"><i class="fab fa-github"></i> GitHub</h1>
-          <p slot="content">My code repos and link to the SN org I host</p>
-        </card>
-      </a>
-      <a
-        href="https://www.tiktok.com/@earlioessen"
-        target="_blank"
-        class="card-link"
-      >
-        <card data-image="images/tiktok2.png" class="fade-in-card">
-          <h1 slot="header"><i class="fab fa-tiktok"></i> TikTok</h1>
-          <p slot="content">Semi-viral but not really. Mostly skits</p>
-        </card>
-      </a>
-      <a
-        href="https://bsky.app/profile/earlduque.com"
-        target="_blank"
-        class="card-link"
-      >
-        <card
-          data-image="https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop="
-          class="fade-in-card"
-        >
-          <h1 slot="header"><i class="fab fa-bluesky"></i> Bluesky</h1>
-          <p slot="content">Microblogging and random thoughts</p>
-        </card>
-      </a>
-      <a
-        href="https://www.instagram.com/earlioessen"
-        target="_blank"
-        class="card-link"
-      >
-        <card data-image="images/instagram2.png" class="fade-in-card">
-          <h1 slot="header"><i class="fab fa-instagram"></i> Instagram</h1>
-          <p slot="content">TikTok but with like no followers lol</p>
-        </card>
-      </a>
-      <a
-        href="https://calendar.earlduque.com/"
-        target="_blank"
-        class="card-link"
-      >
-        <card data-image="images/calendly.png" class="fade-in-card">
-          <h1 slot="header"><i class="fa-solid fa-calendar"></i> Calendly</h1>
-          <p slot="content">Schedule a 25-minute coffee chat with Earl</p>
-        </card>
-      </a>
-      <a
-        href="https://kit.co/earlio"
-        target="_blank"
-        class="card-link"
-      >
-        <card data-image="images/kitco.png" class="fade-in-card">
-          <h1 slot="header"><i class="fa-solid fa-computer"></i> Kit</h1>
-          <p slot="content">"What keyboard do you use?" and "What's your coffee setup?"</p>
-        </card>
-      </a>
+      <div v-for="link in links" v-if="link.active" :key="link.order">
+        <a :href="link.href" target="_blank" class="card-link">
+          <card :data-image="link.image" class="fade-in-card">
+            <h1 slot="header"><i :class="link.icon"></i> {{ link.title }}</h1>
+            <p slot="content">{{ link.description }}</p>
+          </card>
+        </a>
+      </div>
     </div>
     <!-- Includes javascript file -->
     <script src="scripts.js"></script>

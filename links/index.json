@@ -1,0 +1,74 @@
+[
+  {
+    "order": 1,
+    "active": true,
+    "href": "https://www.linkedin.com/in/earlduque/",
+    "image": "images/linkedin.png",
+    "icon": "fab fa-linkedin",
+    "title": "LinkedIn",
+    "description": "Best place to contact me. Résumé. Announcements"
+  },
+  {
+    "order": 2,
+    "active": true,
+    "href": "https://www.youtube.com/@ServiceNowDevProgram",
+    "image": "images/youtube.png",
+    "icon": "fab fa-youtube",
+    "title": "YouTube",
+    "description": "Most of my YouTube stuff can be found here"
+  },
+  {
+    "order": 3,
+    "active": true,
+    "href": "https://github.com/earlduque",
+    "image": "images/github.png",
+    "icon": "fab fa-github",
+    "title": "GitHub",
+    "description": "My code repos and link to the SN org I host"
+  },
+  {
+    "order": 4,
+    "active": true,
+    "href": "https://www.tiktok.com/@earlioessen",
+    "image": "images/tiktok2.png",
+    "icon": "fab fa-tiktok",
+    "title": "TikTok",
+    "description": "Semi-viral but not really. Mostly skits"
+  },
+  {
+    "order": 5,
+    "active": true,
+    "href": "https://bsky.app/profile/earlduque.com",
+    "image": "https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=",
+    "icon": "fab fa-bluesky",
+    "title": "Bluesky",
+    "description": "Microblogging and random thoughts"
+  },
+  {
+    "order": 6,
+    "active": true,
+    "href": "https://www.instagram.com/earlioessen",
+    "image": "images/instagram2.png",
+    "icon": "fab fa-instagram",
+    "title": "Instagram",
+    "description": "TikTok but with like no followers lol"
+  },
+  {
+    "order": 7,
+    "active": false,
+    "href": "https://calendar.earlduque.com/",
+    "image": "images/calendly.png",
+    "icon": "fa-solid fa-calendar",
+    "title": "Calendly",
+    "description": "Schedule a 25-minute coffee chat with Earl"
+  },
+  {
+    "order": 8,
+    "active": true,
+    "href": "https://kit.co/earlio",
+    "image": "images/kitco.png",
+    "icon": "fa-solid fa-computer",
+    "title": "Kit",
+    "description": "\"What keyboard do you use?\" and \"What's your coffee setup?\""
+  }
+]
