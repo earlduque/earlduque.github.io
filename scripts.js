@@ -74,8 +74,6 @@ Vue.component("card", {
 
 const app = new Vue({
   el: "#app",
-<<<<<<< Updated upstream
-=======
   data: {
     links: []
   },
@@ -118,7 +116,6 @@ const app = new Vue({
       }
     }
   }
->>>>>>> Stashed changes
 });
 
 document.addEventListener("DOMContentLoaded", () => {

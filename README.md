@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-# earlduque.github.io
-=======
 # earlduque.github.io
 
 # Earl Duque - Links
@@ -54,4 +51,3 @@ node generate_links_manifest.js
 ```
 
 This creates a `links/index.json` file that serves as a fallback if the GitHub API is unavailable.
->>>>>>> Stashed changes
