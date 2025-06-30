@@ -119,20 +119,159 @@ const app = new Vue({
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card-wrap");
-  let activeIndex = 0;
+  setTimeout(() => {
+    const cards = document.querySelectorAll(".card-wrap");
+    let activeIndex = 0;
 
-  if (window.innerWidth <= 932) {
-    // Adjust for small screens
-    setInterval(() => {
-      // Remove "active" class from all cards
-      cards.forEach((card) => card.classList.remove("active"));
-      // Add "active" class to the current card
-      cards[activeIndex].classList.add("active");
-      // Move to the next card in sequence
-      activeIndex = (activeIndex + 1) % cards.length;
-    }, 3000); // Adjust timing (e.g., 3 seconds per card)
-  }
+    // Function to check if two elements overlap
+    function isOverlapping(el1, el2) {
+      const rect1 = el1.getBoundingClientRect();
+      const rect2 = el2.getBoundingClientRect();
+      
+      return !(rect1.right < rect2.left || 
+               rect1.left > rect2.right || 
+               rect1.bottom < rect2.top || 
+               rect1.top > rect2.bottom);
+    }
+
+    // Function to pause all cards and move overlapping ones away
+    function handleCardHover(hoveredCard) {
+      // Pause all cards
+      cards.forEach(card => {
+        card.style.animationPlayState = 'paused';
+      });
+
+      // Move overlapping cards away
+      cards.forEach(card => {
+        if (card !== hoveredCard) {
+          const isOverlap = isOverlapping(hoveredCard, card);
+          if (isOverlap) {
+            card.classList.add('avoiding');
+            
+            // Calculate direction to move away from hovered card
+            const hoveredRect = hoveredCard.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            
+            const centerX1 = hoveredRect.left + hoveredRect.width / 2;
+            const centerY1 = hoveredRect.top + hoveredRect.height / 2;
+            const centerX2 = cardRect.left + cardRect.width / 2;
+            const centerY2 = cardRect.top + cardRect.height / 2;
+            
+            // Calculate direction vector
+            const dx = centerX2 - centerX1;
+            const dy = centerY2 - centerY1;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Avoid division by zero
+            if (distance > 0) {
+              // Normalize and scale the movement (reduced from 300 to 150)
+              const moveDistance = 150;
+              const normalizedDx = (dx / distance) * moveDistance;
+              const normalizedDy = (dy / distance) * moveDistance;
+              
+              // Apply the avoidance transform while preserving the animation transform
+              const currentLeft = parseInt(card.style.left) || 0;
+              const currentTop = parseInt(card.style.top) || 0;
+              
+              // Calculate new position
+              let newLeft = currentLeft + normalizedDx;
+              let newTop = currentTop + normalizedDy;
+              
+              // Keep within window boundaries
+              const cardWidth = 240;
+              const cardHeight = 320;
+              newLeft = Math.max(0, Math.min(window.innerWidth - cardWidth, newLeft));
+              newTop = Math.max(100, Math.min(window.innerHeight - cardHeight, newTop)); // 100px top margin for title
+              
+              card.style.left = newLeft + 'px';
+              card.style.top = newTop + 'px';
+            }
+          }
+        }
+      });
+    }
+
+    // Function to resume animations from current positions
+    function handleCardLeave() {
+      cards.forEach(card => {
+        // Resume animations from current position
+        card.style.animationPlayState = 'running';
+        card.classList.remove('avoiding');
+        // Don't reset positions - let them continue floating from where they are
+      });
+    }
+
+    // Function to reposition cards within bounds
+    function repositionCards() {
+      cards.forEach((card, index) => {
+        // Set random initial position within bounds
+        const randomX = Math.random() * Math.max(0, window.innerWidth - 240);
+        const randomY = 100 + Math.random() * Math.max(0, window.innerHeight - 320 - 100); // 100px top margin
+        card.style.left = randomX + 'px';
+        card.style.top = randomY + 'px';
+      });
+    }
+
+    cards.forEach((card, index) => {
+      // Set random initial position within bounds
+      const randomX = Math.random() * Math.max(0, window.innerWidth - 240);
+      const randomY = 100 + Math.random() * Math.max(0, window.innerHeight - 320 - 100); // 100px top margin
+      card.style.left = randomX + 'px';
+      card.style.top = randomY + 'px';
+      
+      // Randomly assign different animation types
+      const animations = ['float', 'float-alt', 'float-slow'];
+      const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+      card.style.animationName = randomAnimation;
+      
+      // Add random animation delay to make movement more organic
+      card.style.animationDelay = (Math.random() * 5) + 's';
+      
+      // Vary animation duration for each card (slower)
+      card.style.animationDuration = (20 + Math.random() * 15) + 's';
+
+      // Add hover event listeners
+      card.addEventListener('mouseenter', () => {
+        handleCardHover(card);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        handleCardLeave();
+      });
+    });
+
+    if (window.innerWidth <= 932) {
+      // Adjust for small screens
+      setInterval(() => {
+        // Remove "active" class from all cards
+        cards.forEach((card) => card.classList.remove("active"));
+        // Add "active" class to the current card
+        if (cards[activeIndex]) {
+          cards[activeIndex].classList.add("active");
+        }
+        // Move to the next card in sequence
+        activeIndex = (activeIndex + 1) % cards.length;
+      }, 3000); // Adjust timing (e.g., 3 seconds per card)
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      cards.forEach(card => {
+        const currentLeft = parseInt(card.style.left) || 0;
+        const currentTop = parseInt(card.style.top) || 0;
+        
+        // Keep cards within new window bounds
+        const cardWidth = 240;
+        const cardHeight = 320;
+        const newLeft = Math.max(0, Math.min(window.innerWidth - cardWidth, currentLeft));
+        const newTop = Math.max(100, Math.min(window.innerHeight - cardHeight, currentTop));
+        
+        card.style.left = newLeft + 'px';
+        card.style.top = newTop + 'px';
+      });
+    });
+
+  }, 1000); // Wait for Vue to render the cards
 });
 
 // ——————————————————————————————————————————————————

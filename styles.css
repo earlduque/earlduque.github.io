@@ -15,12 +15,16 @@
 }
 
 body {
-  margin: 40px 0;
+  margin: 0;
+  padding: 0;
   font-family: var(--primary-font);
   font-size: 14px;
   font-weight: 500;
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 .title {
@@ -29,6 +33,12 @@ body {
   font-weight: 700;
   color: var(--primary-text-color);
   text-align: center;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  margin: 0;
 }
 
 p {
@@ -40,20 +50,108 @@ h1 + p, p + p {
 }
 
 .container {
-  max-width: 1440px;
-  padding: 40px 80px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 
 .card-wrap {
-  margin: 10px;
+  position: absolute;
   transform: perspective(800px);
   transform-style: preserve-3d;
   cursor: pointer;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+.card-wrap:hover {
+  animation-play-state: paused;
+  z-index: 100;
+}
+
+.card-wrap:hover .card {
+  transform: rotateY(0deg) rotateX(0deg) !important;
+}
+
+.card-wrap.avoiding {
+  z-index: 2;
+}
+
+.floating-card {
+  animation-name: float;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  12.5% {
+    transform: translate(150px, -80px) rotate(8deg);
+  }
+  25% {
+    transform: translate(200px, -100px) rotate(15deg);
+  }
+  37.5% {
+    transform: translate(100px, -180px) rotate(5deg);
+  }
+  50% {
+    transform: translate(-100px, -200px) rotate(-10deg);
+  }
+  62.5% {
+    transform: translate(-180px, -80px) rotate(-15deg);
+  }
+  75% {
+    transform: translate(-200px, 100px) rotate(-8deg);
+  }
+  87.5% {
+    transform: translate(-80px, 150px) rotate(12deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes float-alt {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-120px, 80px) rotate(-12deg);
+  }
+  40% {
+    transform: translate(80px, 150px) rotate(8deg);
+  }
+  60% {
+    transform: translate(180px, -50px) rotate(-5deg);
+  }
+  80% {
+    transform: translate(-80px, -120px) rotate(15deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(100px, -150px) rotate(10deg) scale(1.05);
+  }
+  66% {
+    transform: translate(-150px, 80px) rotate(-12deg) scale(0.95);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
 }
 .card-wrap:hover .card-info {
   transform: translateY(0);
@@ -194,6 +292,11 @@ h1 + p, p + p {
   font-family: var(--primary-font);
   color: #fafafa;
   text-align: center;
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 .dud {
   color: #757575;
