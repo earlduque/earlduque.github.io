@@ -1,5 +1,8 @@
 Vue.config.devtools = true;
 
+// Global animation state
+let animationsEnabled = false;
+
 Vue.component("card", {
   template: `
         <div class="card-wrap"
@@ -57,13 +60,16 @@ Vue.component("card", {
   },
   methods: {
     handleMouseMove(e) {
+      if (!animationsEnabled) return;
       this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width / 2;
       this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height / 2;
     },
     handleMouseEnter() {
+      if (!animationsEnabled) return;
       clearTimeout(this.mouseLeaveDelay);
     },
     handleMouseLeave() {
+      if (!animationsEnabled) return;
       this.mouseLeaveDelay = setTimeout(() => {
         this.mouseX = 0;
         this.mouseY = 0;
@@ -118,7 +124,80 @@ const app = new Vue({
   }
 });
 
+// Animation toggle functionality
+function toggleAnimations() {
+  animationsEnabled = !animationsEnabled;
+  const toggleButton = document.getElementById('animation-toggle');
+  const cards = document.querySelectorAll(".card-wrap");
+  
+  if (animationsEnabled) {
+    toggleButton.textContent = '🎯 Static Mode';
+    toggleButton.classList.add('active');
+    enableAnimations(cards);
+  } else {
+    toggleButton.textContent = '🎭 Fun Mode';
+    toggleButton.classList.remove('active');
+    disableAnimations(cards);
+  }
+}
+
+function enableAnimations(cards) {
+  // Remove static mode class
+  document.body.classList.remove('static-mode');
+  
+  // Enable floating animations
+  cards.forEach((card, index) => {
+    // Set random initial position within bounds
+    const randomX = Math.random() * Math.max(0, window.innerWidth - 240);
+    const randomY = 100 + Math.random() * Math.max(0, window.innerHeight - 320 - 100);
+    card.style.left = randomX + 'px';
+    card.style.top = randomY + 'px';
+    card.style.position = 'absolute';
+    
+    // Randomly assign different animation types
+    const animations = ['float', 'float-alt', 'float-slow'];
+    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+    card.style.animationName = randomAnimation;
+    card.style.animationDelay = (Math.random() * 5) + 's';
+    card.style.animationDuration = (20 + Math.random() * 15) + 's';
+    card.style.animationPlayState = 'running';
+  });
+  
+  // Enable text scramble animation
+  if (window.textScrambleInterval) clearInterval(window.textScrambleInterval);
+  next();
+}
+
+function disableAnimations(cards) {
+  // Add static mode class
+  document.body.classList.add('static-mode');
+  
+  // Disable floating animations and reset positioning
+  cards.forEach((card, index) => {
+    card.style.animationName = 'none';
+    card.style.animationPlayState = 'paused';
+    card.classList.remove('avoiding');
+    card.style.position = 'relative';
+    card.style.left = 'auto';
+    card.style.top = 'auto';
+    card.style.transform = 'none';
+  });
+  
+  // Stop text scramble animation
+  const textElement = document.querySelector(".text");
+  if (textElement && window.textScrambleFx) {
+    if (window.textScrambleInterval) clearInterval(window.textScrambleInterval);
+    textElement.innerHTML = "ServiceNow Developer Advocate";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Add toggle button event listener
+  const toggleButton = document.getElementById('animation-toggle');
+  if (toggleButton) {
+    toggleButton.addEventListener('click', toggleAnimations);
+  }
+  
   setTimeout(() => {
     const cards = document.querySelectorAll(".card-wrap");
     let activeIndex = 0;
@@ -136,6 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to pause all cards and move overlapping ones away
     function handleCardHover(hoveredCard) {
+      if (!animationsEnabled) return;
       // Pause all cards
       cards.forEach(card => {
         card.style.animationPlayState = 'paused';
@@ -193,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to resume animations from current positions
     function handleCardLeave() {
+      if (!animationsEnabled) return;
       cards.forEach(card => {
         // Resume animations from current position
         card.style.animationPlayState = 'running';
@@ -212,24 +293,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Initialize in static mode by default
+    disableAnimations(cards);
+    
     cards.forEach((card, index) => {
-      // Set random initial position within bounds
-      const randomX = Math.random() * Math.max(0, window.innerWidth - 240);
-      const randomY = 100 + Math.random() * Math.max(0, window.innerHeight - 320 - 100); // 100px top margin
-      card.style.left = randomX + 'px';
-      card.style.top = randomY + 'px';
-      
-      // Randomly assign different animation types
-      const animations = ['float', 'float-alt', 'float-slow'];
-      const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-      card.style.animationName = randomAnimation;
-      
-      // Add random animation delay to make movement more organic
-      card.style.animationDelay = (Math.random() * 5) + 's';
-      
-      // Vary animation duration for each card (slower)
-      card.style.animationDuration = (20 + Math.random() * 15) + 's';
-
       // Add hover event listeners
       card.addEventListener('mouseenter', () => {
         handleCardHover(card);
@@ -347,17 +414,28 @@ const phrases = [
 
 const el = document.querySelector(".text");
 const fx = new TextScramble(el);
+window.textScrambleFx = fx;
+
+// Set initial static text
+if (el) {
+  el.innerHTML = "ServiceNow Developer Advocate";
+}
 
 let counter = 0;
 const next = () => {
+  if (!animationsEnabled) return;
   fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 2000);
+    if (animationsEnabled) {
+      window.textScrambleInterval = setTimeout(next, 2000);
+    }
   });
   counter = (counter + 1) % phrases.length;
-  // counter = Math.floor(Math.random() * phrases.length);
 };
 
-next();
+// Store the next function globally so it can be called from toggle
+window.next = next;
+
+// Don't start text scramble automatically - wait for animation toggle
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     // URL of your public API

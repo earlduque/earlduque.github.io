@@ -55,9 +55,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-  <body>
+  <body class="static-mode">
     <h1 class="title">Earl Duque</h1>
     <div class="text" style="color: #fafafa; text-align: center"></div>
+    <button id="animation-toggle" class="animation-toggle">🎭 Fun Mode</button>
 
     <div id="app" class="container">
       <div v-for="link in links" v-if="link.active" :key="link.order">
