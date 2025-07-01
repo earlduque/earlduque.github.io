@@ -353,6 +353,48 @@ body.static-mode .card-wrap {
   animation: none !important;
   transform: none !important;
 }
+
+/* Mobile responsive fixes */
+@media (max-width: 932px) {
+  .animation-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  body.static-mode .container {
+    padding: 120px 10px 20px;
+    gap: 15px;
+  }
+  
+  body.static-mode .card {
+    height: 160px;
+  }
+  
+  /* Ensure cards are visible in static mode on mobile */
+  body.static-mode .card-wrap {
+    opacity: 1 !important;
+    transform: none !important;
+    position: relative !important;
+  }
+  
+  /* Fix for mobile fun mode positioning */
+  body:not(.static-mode) .card-wrap {
+    position: absolute !important;
+  }
+  
+  /* Mobile title positioning */
+  .title {
+    font-size: 20px;
+    top: 15px;
+  }
+  
+  .text {
+    top: 50px;
+    font-size: 12px;
+  }
+}
 .dud {
   color: #757575;
 }

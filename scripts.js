@@ -166,6 +166,11 @@ function enableAnimations(cards) {
   // Enable text scramble animation
   if (window.textScrambleInterval) clearInterval(window.textScrambleInterval);
   next();
+  
+  // Start mobile animation if on mobile
+  if (window.startMobileAnimation) {
+    window.startMobileAnimation();
+  }
 }
 
 function disableAnimations(cards) {
@@ -188,6 +193,11 @@ function disableAnimations(cards) {
   if (textElement && window.textScrambleFx) {
     if (window.textScrambleInterval) clearInterval(window.textScrambleInterval);
     textElement.innerHTML = "ServiceNow Developer Advocate";
+  }
+  
+  // Stop mobile animation
+  if (window.stopMobileAnimation) {
+    window.stopMobileAnimation();
   }
 }
 
@@ -307,19 +317,34 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    if (window.innerWidth <= 932) {
-      // Adjust for small screens
-      setInterval(() => {
-        // Remove "active" class from all cards
-        cards.forEach((card) => card.classList.remove("active"));
-        // Add "active" class to the current card
-        if (cards[activeIndex]) {
-          cards[activeIndex].classList.add("active");
-        }
-        // Move to the next card in sequence
-        activeIndex = (activeIndex + 1) % cards.length;
-      }, 3000); // Adjust timing (e.g., 3 seconds per card)
+    // Mobile-specific behavior for fun mode only
+    let mobileInterval;
+    function startMobileAnimation() {
+      if (window.innerWidth <= 932 && animationsEnabled) {
+        mobileInterval = setInterval(() => {
+          // Remove "active" class from all cards
+          cards.forEach((card) => card.classList.remove("active"));
+          // Add "active" class to the current card
+          if (cards[activeIndex]) {
+            cards[activeIndex].classList.add("active");
+          }
+          // Move to the next card in sequence
+          activeIndex = (activeIndex + 1) % cards.length;
+        }, 3000);
+      }
     }
+    
+    function stopMobileAnimation() {
+      if (mobileInterval) {
+        clearInterval(mobileInterval);
+        mobileInterval = null;
+        cards.forEach((card) => card.classList.remove("active"));
+      }
+    }
+    
+    // Store these functions globally so toggle can access them
+    window.startMobileAnimation = startMobileAnimation;
+    window.stopMobileAnimation = stopMobileAnimation;
 
     // Handle window resize
     window.addEventListener('resize', () => {
