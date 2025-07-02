@@ -83,36 +83,13 @@ const app = new Vue({
   methods: {
     async loadLinks() {
       try {
-        // Use GitHub API to list files in the links directory
-        const response = await fetch('https://api.github.com/repos/earlduque/earlduque.github.io/contents/links');
-        if (!response.ok) throw new Error('Failed to fetch links directory from GitHub API');
-        
-        const files = await response.json();
-        
-        // Filter for JSON files (excluding index.json)
-        const jsonFiles = files
-          .filter(file => file.name.endsWith('.json') && file.name !== 'index.json')
-          .map(file => file.download_url);
-        
-        // Fetch each JSON file
-        const linkPromises = jsonFiles.map(url => fetch(url).then(res => res.json()));
-        let links = await Promise.all(linkPromises);
-        
-        // Filter active links and sort by order
+        const response = await fetch('links/index.json');
+        if (!response.ok) throw new Error('Failed to fetch links manifest');
+        let links = await response.json();
         links = links.filter(link => link.active).sort((a, b) => a.order - b.order);
         this.links = links;
-      } catch (e) {
-        console.error('Error loading links:', e);
-        // Fallback to manifest file if GitHub API fails
-        try {
-          const manifestResponse = await fetch('links/index.json');
-          if (!manifestResponse.ok) throw new Error('Failed to fetch links manifest');
-          let links = await manifestResponse.json();
-          links = links.filter(link => link.active).sort((a, b) => a.order - b.order);
-          this.links = links;
-        } catch (fallbackError) {
-          console.error('Fallback also failed:', fallbackError);
-        }
+      } catch (error) {
+        console.error('Error loading links:', error);
       }
     }
   }
