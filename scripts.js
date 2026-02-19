@@ -1,81 +1,192 @@
-Vue.config.devtools = true;
+// ============================================
+// Particle Constellation Background
+// ============================================
+class ParticleNetwork {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
+    this.particles = [];
+    this.mouse = { x: null, y: null };
+    this.config = {
+      particleCount: window.innerWidth < 768 ? 25 : 55,
+      maxDistance: 140,
+      particleColor: "rgba(0, 212, 255, 0.25)",
+      lineColor: [0, 212, 255],
+      maxLineOpacity: 0.1,
+      speed: 0.3,
+      mouseRadius: 120,
+      mouseForce: 0.02,
+    };
+    this.init();
+  }
 
-Vue.component("card", {
-  template: `
-        <div class="card-wrap"
-            @mousemove="handleMouseMove"
-            @mouseenter="handleMouseEnter"
-            @mouseleave="handleMouseLeave"
-            ref="card">
-            <div class="card"
-            :style="cardStyle">
-            <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
-            <div class="card-info">
-                <slot name="header"></slot>
-                <slot name="content"></slot>
-            </div>
-            </div>
-        </div>`,
-  mounted() {
-    this.width = this.$refs.card.offsetWidth;
-    this.height = this.$refs.card.offsetHeight;
-  },
-  props: ["dataImage"],
-  data: () => ({
-    width: 0,
-    height: 0,
-    mouseX: 0,
-    mouseY: 0,
-    mouseLeaveDelay: null,
-  }),
-  computed: {
-    mousePX() {
-      return this.mouseX / this.width;
-    },
-    mousePY() {
-      return this.mouseY / this.height;
-    },
-    cardStyle() {
-      const rX = this.mousePX * 30;
-      const rY = this.mousePY * -30;
-      return {
-        transform: `rotateY(${rX}deg) rotateX(${rY}deg)`,
-      };
-    },
-    cardBgTransform() {
-      const tX = this.mousePX * -40;
-      const tY = this.mousePY * -40;
-      return {
-        transform: `translateX(${tX}px) translateY(${tY}px)`,
-      };
-    },
-    cardBgImage() {
-      return {
-        backgroundImage: `url(${this.dataImage})`,
-      };
-    },
-  },
-  methods: {
-    handleMouseMove(e) {
-      this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width / 2;
-      this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height / 2;
-    },
-    handleMouseEnter() {
-      clearTimeout(this.mouseLeaveDelay);
-    },
-    handleMouseLeave() {
-      this.mouseLeaveDelay = setTimeout(() => {
-        this.mouseX = 0;
-        this.mouseY = 0;
-      }, 1000);
-    },
-  },
-});
+  init() {
+    this.resize();
+    this.createParticles();
+    this.bindEvents();
+    this.animate();
+  }
 
+  resize() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+  }
+
+  createParticles() {
+    this.particles = [];
+    for (let i = 0; i < this.config.particleCount; i++) {
+      this.particles.push({
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        vx: (Math.random() - 0.5) * this.config.speed,
+        vy: (Math.random() - 0.5) * this.config.speed,
+        radius: Math.random() * 1.5 + 0.5,
+      });
+    }
+  }
+
+  bindEvents() {
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        this.resize();
+        this.config.particleCount = window.innerWidth < 768 ? 25 : 55;
+        this.createParticles();
+      }, 250);
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    });
+
+    window.addEventListener("mouseleave", () => {
+      this.mouse.x = null;
+      this.mouse.y = null;
+    });
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    for (const p of this.particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // Wrap around edges
+      if (p.x < 0) p.x = this.canvas.width;
+      if (p.x > this.canvas.width) p.x = 0;
+      if (p.y < 0) p.y = this.canvas.height;
+      if (p.y > this.canvas.height) p.y = 0;
+
+      // Subtle mouse repulsion
+      if (this.mouse.x !== null) {
+        const dx = p.x - this.mouse.x;
+        const dy = p.y - this.mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < this.config.mouseRadius) {
+          p.x += dx * this.config.mouseForce;
+          p.y += dy * this.config.mouseForce;
+        }
+      }
+
+      // Draw particle
+      this.ctx.beginPath();
+      this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      this.ctx.fillStyle = this.config.particleColor;
+      this.ctx.fill();
+    }
+
+    // Draw connecting lines
+    const { maxDistance, lineColor, maxLineOpacity } = this.config;
+    for (let i = 0; i < this.particles.length; i++) {
+      for (let j = i + 1; j < this.particles.length; j++) {
+        const dx = this.particles[i].x - this.particles[j].x;
+        const dy = this.particles[i].y - this.particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDistance) {
+          const opacity = (1 - dist / maxDistance) * maxLineOpacity;
+          this.ctx.beginPath();
+          this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+          this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+          this.ctx.strokeStyle = `rgba(${lineColor[0]}, ${lineColor[1]}, ${lineColor[2]}, ${opacity})`;
+          this.ctx.lineWidth = 0.5;
+          this.ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+// ============================================
+// Cursor Glow
+// ============================================
+function initCursorGlow() {
+  const glow = document.getElementById("cursor-glow");
+  if (!glow || window.matchMedia("(hover: none)").matches) return;
+
+  let targetX = 0,
+    targetY = 0;
+  let currentX = 0,
+    currentY = 0;
+
+  window.addEventListener("mousemove", (e) => {
+    targetX = e.clientX - 200;
+    targetY = e.clientY - 200;
+  });
+
+  function update() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+    glow.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(update);
+  }
+  update();
+}
+
+// ============================================
+// Card Interactivity (spotlight + tilt)
+// ============================================
+function initCardEffects() {
+  if (window.matchMedia("(hover: none)").matches) return;
+
+  document.querySelectorAll(".link-card").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      // Spotlight follows mouse
+      card.style.setProperty("--mouse-x", `${x}%`);
+      card.style.setProperty("--mouse-y", `${y}%`);
+
+      // Subtle 3D tilt
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((e.clientY - rect.top - centerY) / centerY) * -4;
+      const rotateY = ((e.clientX - rect.left - centerX) / centerX) * 4;
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+      card.style.setProperty("--mouse-x", "50%");
+      card.style.setProperty("--mouse-y", "50%");
+    });
+  });
+}
+
+// ============================================
+// Vue App
+// ============================================
 const app = new Vue({
   el: "#app",
   data: {
-    links: []
+    links: [],
   },
   created() {
     this.loadLinks();
@@ -83,68 +194,55 @@ const app = new Vue({
   methods: {
     async loadLinks() {
       try {
-        // Use GitHub API to list files in the links directory
-        const response = await fetch('https://api.github.com/repos/earlduque/earlduque.github.io/contents/links');
-        if (!response.ok) throw new Error('Failed to fetch links directory from GitHub API');
-        
+        // Primary: GitHub API for dynamic link loading
+        const response = await fetch(
+          "https://api.github.com/repos/earlduque/earlduque.github.io/contents/links"
+        );
+        if (!response.ok) throw new Error("GitHub API failed");
+
         const files = await response.json();
-        
-        // Filter for JSON files (excluding index.json)
         const jsonFiles = files
-          .filter(file => file.name.endsWith('.json') && file.name !== 'index.json')
-          .map(file => file.download_url);
-        
-        // Fetch each JSON file
-        const linkPromises = jsonFiles.map(url => fetch(url).then(res => res.json()));
+          .filter((f) => f.name.endsWith(".json") && f.name !== "index.json")
+          .map((f) => f.download_url);
+
+        const linkPromises = jsonFiles.map((url) =>
+          fetch(url).then((res) => res.json())
+        );
         let links = await Promise.all(linkPromises);
-        
-        // Filter active links and sort by order
-        links = links.filter(link => link.active).sort((a, b) => a.order - b.order);
+        links = links.filter((l) => l.active).sort((a, b) => a.order - b.order);
         this.links = links;
       } catch (e) {
-        console.error('Error loading links:', e);
-        // Fallback to manifest file if GitHub API fails
+        console.error("GitHub API error, using fallback:", e);
+        // Fallback: local manifest
         try {
-          const manifestResponse = await fetch('links/index.json');
-          if (!manifestResponse.ok) throw new Error('Failed to fetch links manifest');
-          let links = await manifestResponse.json();
-          links = links.filter(link => link.active).sort((a, b) => a.order - b.order);
+          const res = await fetch("links/index.json");
+          if (!res.ok) throw new Error("Manifest fetch failed");
+          let links = await res.json();
+          links = links.filter((l) => l.active).sort((a, b) => a.order - b.order);
           this.links = links;
-        } catch (fallbackError) {
-          console.error('Fallback also failed:', fallbackError);
+        } catch (fallbackErr) {
+          console.error("Fallback also failed:", fallbackErr);
         }
       }
-    }
-  }
+
+      // Init card effects after Vue renders the cards
+      this.$nextTick(() => {
+        initCardEffects();
+      });
+    },
+  },
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card-wrap");
-  let activeIndex = 0;
-
-  if (window.innerWidth <= 932) {
-    // Adjust for small screens
-    setInterval(() => {
-      // Remove "active" class from all cards
-      cards.forEach((card) => card.classList.remove("active"));
-      // Add "active" class to the current card
-      cards[activeIndex].classList.add("active");
-      // Move to the next card in sequence
-      activeIndex = (activeIndex + 1) % cards.length;
-    }, 3000); // Adjust timing (e.g., 3 seconds per card)
-  }
-});
-
-// ——————————————————————————————————————————————————
+// ============================================
 // TextScramble
-// ——————————————————————————————————————————————————
-
+// ============================================
 class TextScramble {
   constructor(el) {
     this.el = el;
-    this.chars = "!<>-_\\/[]{}—=+*^?#________";
+    this.chars = "!<>-_\\/[]{}--=+*^?#________";
     this.update = this.update.bind(this);
   }
+
   setText(newText) {
     const oldText = this.el.innerText;
     const length = Math.max(oldText.length, newText.length);
@@ -162,6 +260,7 @@ class TextScramble {
     this.update();
     return promise;
   }
+
   update() {
     let output = "";
     let complete = 0;
@@ -188,15 +287,15 @@ class TextScramble {
       this.frame++;
     }
   }
+
   randomChar() {
     return this.chars[Math.floor(Math.random() * this.chars.length)];
   }
 }
 
-// ——————————————————————————————————————————————————
-// Example
-// ——————————————————————————————————————————————————
-
+// ============================================
+// Subtitle Rotation
+// ============================================
 const phrases = [
   "ServiceNow Developer Advocate",
   "Random Tech Stuff",
@@ -215,30 +314,17 @@ const next = () => {
     setTimeout(next, 2000);
   });
   counter = (counter + 1) % phrases.length;
-  // counter = Math.floor(Math.random() * phrases.length);
 };
-
 next();
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     // URL of your public API
-//     const apiUrl = "https://earl.service-now.com/api/x_snc_earlduque_0/earlduquedotcom";
+// ============================================
+// Initialize on DOM Ready
+// ============================================
+document.addEventListener("DOMContentLoaded", () => {
+  // Particle constellation
+  const canvas = document.getElementById("particle-canvas");
+  if (canvas) new ParticleNetwork(canvas);
 
-//     // Perform the GET request
-//     fetch(apiUrl)
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error(`Network response was not ok (${response.status})`);
-//         }
-//         return response.json(); // Parse JSON data
-//       })
-//       .then((data) => {
-//         console.log("API Response:", data); // Handle the response data
-//         // Update your UI based on the data
-//         const textElement = document.querySelector(".text");
-//         textElement.textContent = `API Data: ${JSON.stringify(data, null, 2)}`;
-//       })
-//       .catch((error) => {
-//         console.error("There was a problem with the fetch operation:", error);
-//       });
-//   });
+  // Cursor glow
+  initCursorGlow();
+});

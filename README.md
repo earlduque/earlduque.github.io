@@ -1,12 +1,21 @@
 # earlduque.github.io
 
-# Earl Duque - Links
+Personal link hub for [earlduque.com](https://earlduque.com).
+
+## Tech Stack
+
+- **Vue.js 2** - Dynamic link rendering from JSON data
+- **CSS Houdini** (`@property`) - Animated gradient borders and avatar ring
+- **Canvas API** - Particle constellation background with mouse interaction
+- **Inter + JetBrains Mono** - Typography
+- **Font Awesome 6** - Icons
+- **GitHub Pages** - Hosting with custom domain
 
 ## Dynamic Links System
 
-Links are now managed as individual JSON files in the `links/` folder. Each file represents a link and must have the following structure:
+Links are managed as individual JSON files in the `links/` folder. Each file represents a link:
 
-```
+```json
 {
   "order": 1,
   "active": true,
@@ -18,36 +27,34 @@ Links are now managed as individual JSON files in the `links/` folder. Each file
 }
 ```
 
-- **order**: Controls the display order (lower numbers appear first).
-- **active**: Set to `false` to hide a link without deleting it.
-- **href**: The URL the link points to.
-- **image**: Path or URL to the image for the card.
-- **icon**: Font Awesome icon class for the card header.
-- **title**: The display title.
-- **description**: The card description.
+| Field | Purpose |
+|-------|---------|
+| `order` | Display order (lower = first). First link spans full width as "featured" |
+| `active` | Set `false` to hide without deleting |
+| `href` | Destination URL |
+| `image` | Card image (kept for backwards compatibility) |
+| `icon` | Font Awesome class (e.g. `fab fa-github`) |
+| `title` | Display title |
+| `description` | Short description |
 
 ## How It Works
 
-The site automatically loads all JSON files from the `links/` folder using the GitHub API. Simply add, remove, or edit JSON files in the `links/` folder and the changes will appear on the website immediately (no build step required).
+The site loads all JSON files from `links/` via the GitHub API at runtime. No build step required.
 
-**To add a new link:**
-1. Create a new JSON file in the `links/` folder (e.g., `09-newlink.json`)
-2. Follow the structure above
-3. Commit and push to GitHub
-4. The link appears on the website automatically
+**Add a link:** Create a new JSON file (e.g. `09-newlink.json`), commit, push. It appears automatically.
 
-**To disable a link:**
-- Set `"active": false` in the JSON file
+**Disable a link:** Set `"active": false`.
 
-**To reorder links:**
-- Change the `"order"` value in the JSON files
+**Reorder links:** Change the `"order"` values.
 
-## Development Tools
+## Local Development
 
-For local development or if you prefer manual control, you can still use the manifest generation script:
+Open `index.html` directly in a browser. Links will load from the GitHub API.
+
+For offline development, generate the fallback manifest:
 
 ```sh
 node generate_links_manifest.js
 ```
 
-This creates a `links/index.json` file that serves as a fallback if the GitHub API is unavailable.
+This creates `links/index.json` which is used when the GitHub API is unavailable.
