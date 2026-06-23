@@ -72,15 +72,6 @@
     "description": "Schedule a 25-minute coffee chat with Earl"
   },
   {
-    "order": 9,
-    "active": true,
-    "href": "https://kit.co/earlio",
-    "image": "images/kitco.png",
-    "icon": "fa-solid fa-computer",
-    "title": "Kit",
-    "description": "\"What keyboard do you use?\" and \"What's your coffee setup?\""
-  },
-  {
     "order": 10,
     "active": true,
     "href": "https://apps.apple.com/us/app/yayfood/id6748315621",
@@ -88,5 +79,14 @@
     "icon": "fa-solid fa-utensils",
     "title": "YayFood!",
     "description": "An app I made, available on the App Store"
+  },
+  {
+    "order": 11,
+    "active": true,
+    "href": "https://store.steampowered.com/app/4542630/Roller_Coaster_Looper",
+    "image": "",
+    "icon": "fab fa-steam",
+    "title": "Roller Coaster Looper",
+    "description": "A game I made, available on Steam"
   }
 ]
