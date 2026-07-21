@@ -88,5 +88,14 @@
     "icon": "fab fa-steam",
     "title": "Roller Coaster Looper",
     "description": "A game I made, available on Steam"
+  },
+  {
+    "order": 12,
+    "active": true,
+    "href": "https://apps.apple.com/us/app/hex7/id6789032539",
+    "image": "",
+    "icon": "fa-solid fa-gamepad",
+    "title": "Hex7",
+    "description": "My iOS hex chaining game, available on the App Store"
   }
 ]
