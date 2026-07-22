@@ -36,6 +36,8 @@ console.log(`Manifest generated with ${links.length} links.`);
 const indexPath = path.join(__dirname, 'index.html');
 const START = '<!-- links:start -->';
 const END = '<!-- links:end -->';
+const JSONLD_START = '<!-- jsonld:start -->';
+const JSONLD_END = '<!-- jsonld:end -->';
 
 const esc = (value) =>
   String(value == null ? '' : value)
@@ -78,27 +80,97 @@ const renderCard = (link, index) => `        <a
           </div>
         </a>`;
 
-const html = fs.readFileSync(indexPath, 'utf8');
-const start = html.indexOf(START);
-const end = html.indexOf(END);
-
-if (start === -1 || end === -1 || end < start) {
-  console.error(
-    `Could not find the ${START} / ${END} markers in index.html — cards not pre-rendered.`
+// Replace everything between two marker comments, keeping `indent` before the
+// closing marker so index.html stays tidy.
+function replaceBetween(html, startMarker, endMarker, content, indent) {
+  const start = html.indexOf(startMarker);
+  const end = html.indexOf(endMarker);
+  if (start === -1 || end === -1 || end < start) {
+    console.error(
+      `Could not find the ${startMarker} / ${endMarker} markers in index.html.`
+    );
+    process.exit(1);
+  }
+  return (
+    html.slice(0, start + startMarker.length) +
+    '\n' +
+    content +
+    '\n' +
+    indent +
+    html.slice(end)
   );
-  process.exit(1);
 }
+
+// ============================================
+// Structured data (JSON-LD)
+// ============================================
+// Tells search engines that the profile links are all the same person, and that
+// the products are software this person made. Driven by the `kind` field on each
+// link: `profile` -> Person.sameAs, `product` -> its own SoftwareApplication,
+// `contact` -> Person.email if it's a mailto:, and `other` -> left out.
+
+const PERSON_ID = 'https://earlduque.com/#earl';
+
+const buildJsonLd = (activeLinks) => {
+  const byKind = (kind) => activeLinks.filter((l) => l.kind === kind);
+
+  const mailto = byKind('contact').find((l) => l.href.startsWith('mailto:'));
+
+  const person = {
+    '@type': 'Person',
+    '@id': PERSON_ID,
+    name: 'Earl Duque',
+    url: 'https://earlduque.com',
+    image: 'https://earlduque.com/images/earlwind.JPEG',
+    jobTitle: 'Developer Advocate',
+    worksFor: { '@type': 'Organization', name: 'ServiceNow' },
+    sameAs: byKind('profile').map((l) => l.href),
+  };
+  if (mailto) person.email = mailto.href.replace(/^mailto:/, '');
+
+  const products = byKind('product').map((l) => ({
+    '@type': 'SoftwareApplication',
+    '@id': l.href,
+    name: l.title,
+    url: l.href,
+    description: l.description,
+    ...(l.schema || {}),
+    author: { '@id': PERSON_ID },
+  }));
+
+  return { '@context': 'https://schema.org', '@graph': [person, ...products] };
+};
 
 // Same filter and sort scripts.js applies, so the signatures match
 const activeLinks = links.filter((l) => l.active);
+
+let html = fs.readFileSync(indexPath, 'utf8');
+
 const cards = activeLinks.map(renderCard).join('\n');
+html = replaceBetween(html, START, END, cards, '        ');
 
-const updated =
-  html.slice(0, start + START.length) +
-  '\n' +
-  cards +
-  '\n        ' +
-  html.slice(end);
+const jsonLd = JSON.stringify(buildJsonLd(activeLinks), null, 2)
+  .split('\n')
+  .map((l) => '      ' + l)
+  .join('\n');
+const script = `    <script type="application/ld+json">\n${jsonLd}\n    </script>`;
+html = replaceBetween(html, JSONLD_START, JSONLD_END, script, '    ');
 
-fs.writeFileSync(indexPath, updated);
+fs.writeFileSync(indexPath, html);
+
+const counts = activeLinks.reduce((acc, l) => {
+  acc[l.kind || 'unset'] = (acc[l.kind || 'unset'] || 0) + 1;
+  return acc;
+}, {});
 console.log(`Pre-rendered ${activeLinks.length} active links into index.html.`);
+console.log(
+  `Structured data: ${counts.profile || 0} profiles, ${counts.product || 0} products` +
+    ` (kinds: ${JSON.stringify(counts)}).`
+);
+
+const unset = activeLinks.filter((l) => !l.kind).map((l) => l.title);
+if (unset.length) {
+  console.warn(
+    `  Warning: no "kind" set, omitted from structured data: ${unset.join(', ')}`
+  );
+}

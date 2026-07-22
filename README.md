@@ -19,6 +19,7 @@ Links are managed as individual JSON files in the `links/` folder. Each file rep
 {
   "order": 1,
   "active": true,
+  "kind": "profile",
   "href": "https://example.com/",
   "image": "images/example.png",
   "icon": "fab fa-example",
@@ -31,11 +32,37 @@ Links are managed as individual JSON files in the `links/` folder. Each file rep
 |-------|---------|
 | `order` | Display order (lower = first). First link spans full width as "featured" |
 | `active` | Set `false` to hide without deleting |
+| `kind` | What the link *is*, for structured data (see below) |
 | `href` | Destination URL |
 | `image` | Card image (kept for backwards compatibility) |
 | `icon` | Font Awesome class (e.g. `fab fa-github`) |
 | `title` | Display title |
 | `description` | Short description |
+| `schema` | Products only — extra schema.org fields (see below) |
+
+### `kind`
+
+Only affects the JSON-LD in `<head>`; every link renders as a tile regardless.
+
+| `kind` | Structured data |
+|--------|-----------------|
+| `profile` | Added to `Person.sameAs` — tells search engines this profile is *you* |
+| `product` | Gets its own `SoftwareApplication` node, credited to you via `author` |
+| `contact` | Left out, except a `mailto:` link becomes `Person.email` |
+| `other` | Left out entirely |
+
+Use `other` for links that are neither your profile nor your product — the YouTube tile points at the ServiceNow Dev Program channel, which is an organization's, so claiming it as a personal profile would be inaccurate.
+
+For `kind: "product"`, the optional `schema` object is merged into that node. Keep it factual:
+
+```json
+"schema": {
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "iOS"
+}
+```
+
+A link with no `kind` still renders, but the generator warns and omits it from the structured data.
 
 ## How It Works
 
@@ -60,7 +87,7 @@ node generate_links_manifest.js
 Writes two files:
 
 - `links/index.json` — the manifest, used as a fallback when the GitHub API is unavailable
-- `index.html` — the pre-rendered cards, between the markers
+- `index.html` — the pre-rendered cards (between `<!-- links:start/end -->`) and the JSON-LD structured data (between `<!-- jsonld:start/end -->`)
 
 The generated markup mirrors the `#links-template` in `index.html`; if you change one, change the other, or the runtime comparison will see a mismatch and re-render on every load.
 

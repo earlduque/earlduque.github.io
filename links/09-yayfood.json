@@ -1,9 +1,14 @@
 {
   "order": 10,
   "active": true,
+  "kind": "product",
   "href": "https://apps.apple.com/us/app/yayfood/id6748315621",
   "image": "",
   "icon": "fa-solid fa-utensils",
   "title": "YayFood!",
-  "description": "An app I made, available on the App Store"
+  "description": "An app I made, available on the App Store",
+  "schema": {
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "iOS"
+  }
 }

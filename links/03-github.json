@@ -1,6 +1,7 @@
 {
   "order": 5,
   "active": true,
+  "kind": "profile",
   "href": "https://github.com/earlduque",
   "image": "images/github.png",
   "icon": "fab fa-github",

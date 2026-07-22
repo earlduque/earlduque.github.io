@@ -1,6 +1,7 @@
 {
   "order": 2,
   "active": true,
+  "kind": "contact",
   "href": "mailto:questions@earlduque.com",
   "image": "",
   "icon": "fa-solid fa-envelope",

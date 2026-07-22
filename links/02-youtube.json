@@ -1,6 +1,7 @@
 {
   "order": 4,
   "active": true,
+  "kind": "other",
   "href": "https://www.youtube.com/@ServiceNowDevProgram",
   "image": "images/youtube.png",
   "icon": "fab fa-youtube",

@@ -2,6 +2,7 @@
   {
     "order": 1,
     "active": true,
+    "kind": "profile",
     "href": "https://www.linkedin.com/in/earlduque/",
     "image": "images/linkedin.png",
     "icon": "fab fa-linkedin",
@@ -11,6 +12,7 @@
   {
     "order": 2,
     "active": true,
+    "kind": "contact",
     "href": "mailto:questions@earlduque.com",
     "image": "",
     "icon": "fa-solid fa-envelope",
@@ -20,6 +22,7 @@
   {
     "order": 3,
     "active": true,
+    "kind": "profile",
     "href": "https://www.tiktok.com/@earlioessen",
     "image": "images/tiktok2.png",
     "icon": "fab fa-tiktok",
@@ -29,6 +32,7 @@
   {
     "order": 4,
     "active": true,
+    "kind": "other",
     "href": "https://www.youtube.com/@ServiceNowDevProgram",
     "image": "images/youtube.png",
     "icon": "fab fa-youtube",
@@ -38,6 +42,7 @@
   {
     "order": 5,
     "active": true,
+    "kind": "profile",
     "href": "https://github.com/earlduque",
     "image": "images/github.png",
     "icon": "fab fa-github",
@@ -47,6 +52,7 @@
   {
     "order": 6,
     "active": true,
+    "kind": "profile",
     "href": "https://www.instagram.com/earlioessen",
     "image": "images/instagram2.png",
     "icon": "fab fa-instagram",
@@ -56,6 +62,7 @@
   {
     "order": 7,
     "active": true,
+    "kind": "profile",
     "href": "https://bsky.app/profile/earlduque.com",
     "image": "https://images.unsplash.com/photo-1479621051492-5a6f9bd9e51a?dpr=2&auto=compress,format&fit=crop&w=1199&h=811&q=80&cs=tinysrgb&crop=",
     "icon": "fab fa-bluesky",
@@ -65,6 +72,7 @@
   {
     "order": 8,
     "active": false,
+    "kind": "contact",
     "href": "https://calendar.earlduque.com/",
     "image": "images/calendly.png",
     "icon": "fa-solid fa-calendar",
@@ -74,37 +82,57 @@
   {
     "order": 10,
     "active": true,
+    "kind": "product",
     "href": "https://apps.apple.com/us/app/yayfood/id6748315621",
     "image": "",
     "icon": "fa-solid fa-utensils",
     "title": "YayFood!",
-    "description": "An app I made, available on the App Store"
+    "description": "An app I made, available on the App Store",
+    "schema": {
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS"
+    }
   },
   {
     "order": 11,
     "active": true,
+    "kind": "product",
     "href": "https://store.steampowered.com/app/4542630/Roller_Coaster_Looper",
     "image": "",
     "icon": "fab fa-steam",
     "title": "Roller Coaster Looper",
-    "description": "A game I made, available on Steam"
+    "description": "A game I made, available on Steam",
+    "schema": {
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Windows, macOS"
+    }
   },
   {
     "order": 12,
     "active": true,
+    "kind": "product",
     "href": "https://apps.apple.com/us/app/hex7/id6789032539",
     "image": "",
     "icon": "fa-solid fa-gamepad",
     "title": "Hex7",
-    "description": "My iOS hex chaining game, available on the App Store"
+    "description": "My iOS hex chaining game, available on the App Store",
+    "schema": {
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "iOS"
+    }
   },
   {
     "order": 13,
     "active": true,
+    "kind": "product",
     "href": "https://apps.apple.com/us/app/letterladder-word-climb/id6789980818",
     "image": "",
     "icon": "fa-solid fa-spell-check",
     "title": "LetterLadder",
-    "description": "My iOS word game, available on the App Store"
+    "description": "My iOS word game, available on the App Store",
+    "schema": {
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "iOS"
+    }
   }
 ]
