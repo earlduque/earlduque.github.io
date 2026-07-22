@@ -34,16 +34,20 @@ This repo renders one tile per JSON file in `links/`. See `README.md` for the sc
    }
    ```
 
-5. **Regenerate the manifest**:
+5. **Regenerate the manifest and pre-rendered cards**:
    ```sh
    node generate_links_manifest.js
    ```
-   This rewrites `links/index.json`, the fallback used when the GitHub API is unavailable. Confirm the new tile shows up in the diff.
+   This rewrites two files, and **both must be committed**:
+   - `links/index.json` — the manifest, used as a fallback when the GitHub API is unavailable.
+   - `index.html` — the static link cards between the `<!-- links:start -->` / `<!-- links:end -->` markers. Crawlers and social unfurlers don't run JS, so this is the only version of the links they ever see.
+
+   Confirm the new tile shows up in both diffs. Never hand-edit the markup between the markers — regenerate instead.
 
 6. **Commit and push**:
    - Run `git status` first to see what's actually changed/untracked.
    - If the local branch is behind `origin/main`, `git pull` (fast-forward) before committing.
-   - Stage only the new link file and `links/index.json` — don't sweep up unrelated changes.
+   - Stage the new link file, `links/index.json`, and `index.html` — don't sweep up unrelated changes.
    - Commit message style: `Add <Title> link` (short, imperative — check `git log` for the pattern).
    - Push to `origin main`.
 
@@ -52,4 +56,5 @@ This repo renders one tile per JSON file in `links/`. See `README.md` for the sc
 ## Notes
 
 - Never reorder or edit *other* link files — only add the new one and regenerate the manifest.
+- If you change the card markup, update it in **both** places: the `#links-template` in `index.html` and `renderCard()` in `generate_links_manifest.js`. If they drift, `scripts.js` sees a signature mismatch and re-renders the grid on every page load.
 - If an icon choice is ambiguous, pick the closest sensible Font Awesome 6 class and just say what you chose — don't block on asking.

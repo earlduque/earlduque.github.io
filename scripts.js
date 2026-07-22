@@ -181,57 +181,75 @@ function initCardEffects() {
 }
 
 // ============================================
-// Vue App
+// Links
 // ============================================
-const app = new Vue({
-  el: "#app",
-  data: {
-    links: [],
-  },
-  created() {
-    this.loadLinks();
-  },
-  methods: {
-    async loadLinks() {
-      try {
-        // Primary: GitHub API for dynamic link loading
-        const response = await fetch(
-          "https://api.github.com/repos/earlduque/earlduque.github.io/contents/links"
-        );
-        if (!response.ok) throw new Error("GitHub API failed");
+// index.html ships the link cards pre-rendered (by generate_links_manifest.js)
+// so crawlers and social unfurlers, which don't run JS, see the real links. The
+// fetch below is a background reconciliation rather than the critical path: Vue
+// only takes over if the live JSON has drifted from what was pre-rendered, e.g.
+// a link edited on github.com since the last manifest regeneration.
 
-        const files = await response.json();
-        const jsonFiles = files
-          .filter((f) => f.name.endsWith(".json") && f.name !== "index.json")
-          .map((f) => f.download_url);
+async function fetchLinks() {
+  try {
+    // Primary: GitHub API, so edits to links/*.json land without a regeneration
+    const response = await fetch(
+      "https://api.github.com/repos/earlduque/earlduque.github.io/contents/links"
+    );
+    if (!response.ok) throw new Error("GitHub API failed");
 
-        const linkPromises = jsonFiles.map((url) =>
-          fetch(url).then((res) => res.json())
-        );
-        let links = await Promise.all(linkPromises);
-        links = links.filter((l) => l.active).sort((a, b) => a.order - b.order);
-        this.links = links;
-      } catch (e) {
-        console.error("GitHub API error, using fallback:", e);
-        // Fallback: local manifest
-        try {
-          const res = await fetch("links/index.json");
-          if (!res.ok) throw new Error("Manifest fetch failed");
-          let links = await res.json();
-          links = links.filter((l) => l.active).sort((a, b) => a.order - b.order);
-          this.links = links;
-        } catch (fallbackErr) {
-          console.error("Fallback also failed:", fallbackErr);
-        }
-      }
+    const files = await response.json();
+    const jsonFiles = files
+      .filter((f) => f.name.endsWith(".json") && f.name !== "index.json")
+      .map((f) => f.download_url);
 
-      // Init card effects after Vue renders the cards
-      this.$nextTick(() => {
-        initCardEffects();
-      });
-    },
-  },
-});
+    return await Promise.all(
+      jsonFiles.map((url) => fetch(url).then((res) => res.json()))
+    );
+  } catch (e) {
+    console.error("GitHub API error, using fallback:", e);
+    // Fallback: local manifest
+    const res = await fetch("links/index.json");
+    if (!res.ok) throw new Error("Manifest fetch failed");
+    return await res.json();
+  }
+}
+
+// Compare fetched links against what's already in the DOM, so the common case
+// (they match) skips the re-render and its entrance animation entirely.
+const linksSignature = (links) =>
+  links.map((l) => [l.href, l.title, l.description].join("\n")).join("\n\n");
+
+const prerenderedSignature = () =>
+  Array.from(document.querySelectorAll("#app .link-card"))
+    .map((card) =>
+      [
+        card.getAttribute("href"),
+        card.querySelector(".card-title").textContent.trim(),
+        card.querySelector(".card-desc").textContent.trim(),
+      ].join("\n")
+    )
+    .join("\n\n");
+
+(async () => {
+  // Pre-rendered cards are interactive immediately, before any fetch resolves
+  initCardEffects();
+
+  let links;
+  try {
+    links = (await fetchLinks())
+      .filter((l) => l.active)
+      .sort((a, b) => a.order - b.order);
+  } catch (e) {
+    console.error("Link fetch failed, keeping pre-rendered links:", e);
+    return;
+  }
+
+  if (!links.length || linksSignature(links) === prerenderedSignature()) return;
+
+  console.info("Links drifted from the pre-rendered markup — re-rendering.");
+  new Vue({ el: "#app", template: "#links-template", data: { links } });
+  Vue.nextTick(initCardEffects);
+})();
 
 // ============================================
 // TextScramble

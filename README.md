@@ -39,22 +39,31 @@ Links are managed as individual JSON files in the `links/` folder. Each file rep
 
 ## How It Works
 
-The site loads all JSON files from `links/` via the GitHub API at runtime. No build step required.
+The link cards are **pre-rendered into `index.html`** between the `<!-- links:start -->` and `<!-- links:end -->` markers. Crawlers and social unfurlers don't run JavaScript, so this is the only version of the links they ever see — and it means the grid paints before any network request.
 
-**Add a link:** Create a new JSON file (e.g. `09-newlink.json`), commit, push. It appears automatically.
+At runtime `scripts.js` still fetches the links (GitHub API first, `links/index.json` as fallback) and compares them against what's already in the DOM. If they match — the normal case — nothing happens. If they've drifted, Vue mounts over `#app` using the `#links-template` and re-renders. So editing a JSON file directly on github.com still updates the live site, without the fetch being on the critical path.
 
-**Disable a link:** Set `"active": false`.
+**Add a link:** Create a new JSON file (e.g. `14-newlink.json`), run `node generate_links_manifest.js`, then commit and push *both* `links/index.json` and `index.html`.
 
-**Reorder links:** Change the `"order"` values.
+**Disable a link:** Set `"active": false` and regenerate.
 
-## Local Development
+**Reorder links:** Change the `"order"` values and regenerate.
 
-Open `index.html` directly in a browser. Links will load from the GitHub API.
+> Skipping the regeneration still works for visitors (the runtime fetch catches the drift), but crawlers will keep seeing the stale list. Always regenerate.
 
-For offline development, generate the fallback manifest:
+## Generating
 
 ```sh
 node generate_links_manifest.js
 ```
 
-This creates `links/index.json` which is used when the GitHub API is unavailable.
+Writes two files:
+
+- `links/index.json` — the manifest, used as a fallback when the GitHub API is unavailable
+- `index.html` — the pre-rendered cards, between the markers
+
+The generated markup mirrors the `#links-template` in `index.html`; if you change one, change the other, or the runtime comparison will see a mismatch and re-render on every load.
+
+## Local Development
+
+Open `index.html` directly in a browser — the pre-rendered links show up with no server or network needed.
