@@ -97,5 +97,14 @@
     "icon": "fa-solid fa-gamepad",
     "title": "Hex7",
     "description": "My iOS hex chaining game, available on the App Store"
+  },
+  {
+    "order": 13,
+    "active": true,
+    "href": "https://apps.apple.com/us/app/letterladder-word-climb/id6789980818",
+    "image": "",
+    "icon": "fa-solid fa-spell-check",
+    "title": "LetterLadder",
+    "description": "My iOS word game, available on the App Store"
   }
 ]
