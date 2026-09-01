@@ -217,6 +217,50 @@ body:hover #cursor-glow {
 }
 
 /* ============================================
+   Stats Banner
+   ============================================ */
+.stats-banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 14px 8px;
+  margin-bottom: 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardEnter 0.6s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ============================================
    Links Grid
    ============================================ */
 .links-grid {
@@ -488,6 +532,14 @@ body:hover #cursor-glow {
 
   .card-inner {
     padding: 16px;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
   }
 
   .orb {
