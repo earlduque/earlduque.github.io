@@ -134,5 +134,15 @@
       "applicationCategory": "GameApplication",
       "operatingSystem": "iOS"
     }
+  },
+  {
+    "order": 14,
+    "active": true,
+    "kind": "profile",
+    "href": "https://www.facebook.com/earlioessen",
+    "image": "",
+    "icon": "fab fa-facebook",
+    "title": "Facebook",
+    "description": "Same stuff as my Instagram, for the Facebook crowd"
   }
 ]
