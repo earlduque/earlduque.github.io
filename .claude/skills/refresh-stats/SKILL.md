@@ -56,3 +56,5 @@ Copy from the Total column. Views and likes get one decimal in millions (`62.3M`
 - `git push origin main`.
 
 The user set this skill up to run end-to-end, so commit and push without asking again. Stop and ask only if something looks wrong: unrelated pending changes, a merge conflict, a filter that won't switch, or a big unexplained drop in a metric.
+
+If the date-range dropdown shows **All Time** with an "Upgrade" lock (clicking it redirects to `/billing`), the Buzzlytics plan has lapsed. Don't start a trial. Switch to `/manual-refresh-stats`, which reads the same numbers from the platforms' own dashboards.
