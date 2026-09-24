@@ -1,0 +1,10 @@
+{
+  "order": 9,
+  "active": true,
+  "kind": "other",
+  "href": "kits/",
+  "image": "images/kitco.png",
+  "icon": "fa-solid fa-computer",
+  "title": "Kits",
+  "description": "Some people ask about my Office and Coffee setups"
+}

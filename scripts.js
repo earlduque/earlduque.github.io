@@ -189,8 +189,14 @@ function initCardEffects() {
 // only takes over if the live JSON has drifted from what was pre-rendered, e.g.
 // a link edited on github.com since the last manifest regeneration.
 
+// Local testing should reflect local, unpushed edits — not the pushed repo
+const isLocal =
+  location.protocol === "file:" ||
+  ["localhost", "127.0.0.1", ""].includes(location.hostname);
+
 async function fetchLinks() {
   try {
+    if (isLocal) throw new Error("Local dev, skipping GitHub API");
     // Primary: GitHub API, so edits to links/*.json land without a regeneration
     const response = await fetch(
       "https://api.github.com/repos/earlduque/earlduque.github.io/contents/links"
@@ -233,6 +239,9 @@ const prerenderedSignature = () =>
 (async () => {
   // Pre-rendered cards are interactive immediately, before any fetch resolves
   initCardEffects();
+
+  // Only the homepage has a links grid to reconcile (the kits page doesn't)
+  if (!document.getElementById("app")) return;
 
   let links;
   try {
@@ -314,26 +323,32 @@ class TextScramble {
 // ============================================
 // Subtitle Rotation
 // ============================================
-const phrases = [
-  "ServiceNow Developer Advocate",
-  "Random Tech Stuff",
-  "#GirlDad",
-  "ServiceNow Developer",
-  "Ally to those seeking allies",
-  "Nerd",
-];
+// A page can supply its own phrases via data-phrases on .subtitle
+const subtitle = document.querySelector(".subtitle");
+const phrases = subtitle && subtitle.dataset.phrases
+  ? JSON.parse(subtitle.dataset.phrases)
+  : [
+      "ServiceNow Developer Advocate",
+      "Random Tech Stuff",
+      "#GirlDad",
+      "ServiceNow Developer",
+      "Ally to those seeking allies",
+      "Nerd",
+    ];
 
 const el = document.querySelector(".text");
-const fx = new TextScramble(el);
+if (el) {
+  const fx = new TextScramble(el);
 
-let counter = 0;
-const next = () => {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 2000);
-  });
-  counter = (counter + 1) % phrases.length;
-};
-next();
+  let counter = 0;
+  const next = () => {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout(next, 2000);
+    });
+    counter = (counter + 1) % phrases.length;
+  };
+  next();
+}
 
 // ============================================
 // Initialize on DOM Ready

@@ -1,0 +1,115 @@
+[
+  {
+    "slug": "home-office",
+    "title": "Earl's Home Office",
+    "nav": "home office",
+    "groups": [
+      {
+        "name": "Desk & Input",
+        "icon": "fa-solid fa-keyboard",
+        "items": [
+          { "name": "UPLIFT V2 Bamboo Standing Desk", "href": "https://www.upliftdesk.com/uplift-v2-bamboo-standing-desk/" },
+          { "name": "Herman Miller Embody Gaming Chair", "href": "https://store.hermanmiller.com/gaming-chairs/embody-gaming-chair/2517590.html" },
+          { "name": "Keychron K2 HE", "href": "https://www.amazon.com/dp/B0DCVPGB9N" },
+          { "name": "Logitech MX Master 3S", "href": "https://www.amazon.com/dp/B09HM94VDS" },
+          { "name": "Wacom Intuos Pro (Medium)", "href": "https://www.amazon.com/dp/B01MQU5LW7" },
+          { "name": "Elgato Stream Deck", "href": "https://www.amazon.com/dp/B06W2KLM3S" },
+          { "name": "Elgato Stream Deck Pedal", "href": "https://www.amazon.com/dp/B09PRMCTGB" }
+        ]
+      },
+      {
+        "name": "Displays",
+        "icon": "fa-solid fa-display",
+        "items": [
+          { "name": "LG 27GP850-B UltraGear 27\"", "href": "https://www.amazon.com/dp/B093MTSTKD" },
+          { "name": "Acer GN276HL 27\" 144Hz", "href": "https://pcpartpicker.com/product/sZJkcf/acer-gn276hl-bid-270-144hz-monitor-gn276hl-bid" },
+          { "name": "LG IPS235V-BN 23\"", "href": "https://pcpartpicker.com/product/sNMFf7/lg-monitor-ips235vbn" },
+          { "name": "ECHOGEAR Triple Monitor Stand", "href": "https://www.amazon.com/dp/B079NNC2YQ" },
+          { "name": "Samsung 55\" Q60A QLED TV", "href": "https://www.amazon.com/dp/B08VWBF7C1" }
+        ]
+      },
+      {
+        "name": "Audio",
+        "icon": "fa-solid fa-microphone",
+        "items": [
+          { "name": "Elgato Wave:3", "href": "https://www.amazon.com/dp/B088HHWC47" },
+          { "name": "Elgato Wave Mic Arm LP", "href": "https://www.amazon.com/dp/B097376LKF" },
+          { "name": "DJI Mic", "href": "https://www.amazon.com/dp/B09GYD55JF" },
+          { "name": "Edifier R1280T Speakers", "href": "https://www.amazon.com/dp/B016P9HJIA" },
+          { "name": "Apple AirPods Max", "href": "https://www.amazon.com/dp/B0DGJC52FP" }
+        ]
+      },
+      {
+        "name": "Camera & Streaming",
+        "icon": "fa-solid fa-video",
+        "items": [
+          { "name": "Canon EOS M50 Mark II", "href": "https://www.amazon.com/dp/B08KSKV35C" },
+          { "name": "Canon EF-M 22mm f/2 STM", "href": "https://www.amazon.com/dp/B008NF8BRI" },
+          { "name": "Canon EOS Webcam Accessories Kit", "href": "https://www.amazon.com/dp/B08YP4T8JC" },
+          { "name": "Elgato Prompter", "href": "https://www.elgato.com/us/en/p/prompter" },
+          { "name": "Elgato HD60 S", "href": "https://www.amazon.com/dp/B01DRWCOGA" },
+          { "name": "Elgato Green Screen", "href": "https://www.amazon.com/dp/B0743Z892W" }
+        ]
+      },
+      {
+        "name": "Lighting",
+        "icon": "fa-solid fa-lightbulb",
+        "items": [
+          { "name": "Elgato Key Light Air", "href": "https://www.amazon.com/dp/B082QHRZFW" },
+          { "name": "Elgato Key Light Mini", "href": "https://www.amazon.com/dp/B09PRNHLM7" },
+          { "name": "Elgato Ring Light", "href": "https://www.amazon.com/dp/B08GMDQ87T" },
+          { "name": "Govee RGBIC Floor Lamp", "href": "https://www.amazon.com/dp/B099WTN2TR" }
+        ]
+      },
+      {
+        "name": "Gaming & VR",
+        "icon": "fa-solid fa-gamepad",
+        "items": [
+          { "name": "VKB Gladiator NXT EVO Space Combat Edition", "href": "https://vkbcontrollers.com/?product=gladiator-evo-space-combat-edition" },
+          { "name": "Steam Controller (2026)", "href": "https://store.steampowered.com/hardware/steamcontroller" },
+          { "name": "8BitDo Ultimate 2.4G Controller", "href": "https://www.amazon.com/dp/B00TY8UR2K" },
+          { "name": "Meta Quest 3 (512GB)", "href": "https://www.amazon.com/dp/B0CD1JTBSC" }
+        ]
+      },
+      {
+        "name": "Smart Home",
+        "icon": "fa-solid fa-house-signal",
+        "items": [
+          { "name": "SwitchBot Curtain 3", "href": "https://www.amazon.com/dp/B0F9W85LWF" },
+          { "name": "Sunsa Wand", "href": "https://www.amazon.com/dp/B0B4PJ9V8H" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "coffee",
+    "title": "Coffee",
+    "nav": "coffee",
+    "groups": [
+      {
+        "name": "Espresso",
+        "icon": "fa-solid fa-mug-hot",
+        "items": [
+          { "name": "Breville Bambino Plus", "href": "https://www.amazon.com/dp/B08ZK13CJN" },
+          { "name": "Eureka Mignon Specialita", "href": "https://www.amazon.com/dp/B07XSK2PKN" },
+          { "name": "Fellow Opus Conical Burr Grinder", "href": "https://fellowproducts.com/products/opus-coffee-grinder" },
+          { "name": "Normcore V4 Tamper (53.3mm)", "href": "https://www.amazon.com/dp/B09C5PWJXL" },
+          { "name": "CULIKEM Dual-Head Distributor", "href": "https://www.amazon.com/dp/B09Z69NNP3" },
+          { "name": "IKAPE Mantis WDT Tool", "href": "https://www.amazon.com/dp/B0CSDK4JQP" },
+          { "name": "USEAMIE Tamper Mat", "href": "https://www.amazon.com/dp/B0BB6RDG9J" },
+          { "name": "Dreamfarm Grindenstein Knock Box", "href": "https://www.amazon.com/dp/B0016J7YQM" },
+          { "name": "Escali Primo Digital Scale", "href": "https://www.amazon.com/dp/B0007GAWSC" }
+        ]
+      },
+      {
+        "name": "Drip & Cups",
+        "icon": "fa-solid fa-mug-saucer",
+        "items": [
+          { "name": "Ninja XL DualBrew Coffee Maker", "href": "https://www.costco.com/ninja-xl-dualbrew-coffee-maker.product.100970544.html" },
+          { "name": "Bodum Bistro Double Wall Mugs", "href": "https://www.costco.com/bodum-bistro-double-wall-thermo-mugs%2C-4-piece.product.100822079.html" },
+          { "name": "AOOSY Long Handle Spoons", "href": "https://www.amazon.com/dp/B018VFUKXM" }
+        ]
+      }
+    ]
+  }
+]

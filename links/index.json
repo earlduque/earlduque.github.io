@@ -90,6 +90,16 @@
     "description": "Schedule a 25-minute coffee chat with Earl"
   },
   {
+    "order": 9,
+    "active": true,
+    "kind": "other",
+    "href": "kits/",
+    "image": "images/kitco.png",
+    "icon": "fa-solid fa-computer",
+    "title": "Kits",
+    "description": "Some people ask about my Office and Coffee setups"
+  },
+  {
     "order": 10,
     "active": true,
     "kind": "product",

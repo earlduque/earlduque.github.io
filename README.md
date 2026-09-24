@@ -91,6 +91,16 @@ Writes two files:
 
 The generated markup mirrors the `#links-template` in `index.html`; if you change one, change the other, or the runtime comparison will see a mismatch and re-render on every load.
 
+## Kits Page
+
+`/kits` lists the gear that used to live on kit.co (imported once from its data export). Edit `kits/kits.json`, where each kit has `groups` and each group has an `icon` and `items` (`name`, `href`), then run:
+
+```sh
+node generate_kits.js
+```
+
+This pre-renders the page into `kits/index.html` between `<!-- kits:start/end -->`. The page is fully static, with no fetch and no Vue. The homepage tile for it is `links/08-kits.json`.
+
 ## Local Development
 
 Open `index.html` directly in a browser — the pre-rendered links show up with no server or network needed.
