@@ -33,7 +33,7 @@ JSON.parse(document.getElementById('__UNIVERSAL_DATA_FOR_REHYDRATION__').textCon
 // -> { followerCount, heartCount, videoCount } as exact strings
 ```
 
-**Lifetime views** — scroll the grid to the bottom and sum the tiles. `window.scrollTo(bottom)` works here (grid is not virtualized):
+**Lifetime views** — scroll the grid to the bottom and sum the tiles. The grid is not virtualized, but as of 2026-09-23 `window.scrollTo`/`scrollBy` no longer trigger loading more tiles — use real wheel scrolls (`computer` scroll, 10 ticks, ~2s wait, repeated in a `browser_batch`) until the item count stops growing, then run only the summing part below:
 
 ```js
 for (let i=0;i<40;i++){ window.scrollTo(0,document.body.scrollHeight); await new Promise(r=>setTimeout(r,1200)); }
@@ -114,7 +114,7 @@ Followers stay `(shared account)` and are excluded from the combined total.
 
 ## 5. LinkedIn
 
-Not scriptable. Use the count the user gives; ask if they didn't.
+Navigate to `https://www.linkedin.com/in/earlduque/` and read the follower count from the profile (`get_page_text`, look for `N followers`). Don't ask the user for it.
 
 ## 6. Write the files
 
