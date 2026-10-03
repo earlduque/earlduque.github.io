@@ -7,13 +7,15 @@ description: Refresh earlduque.com's social stats without Buzzlytics — reads l
 
 Same deliverable as `/refresh-stats` (`overall-stats.md` + the `stats-banner` in `index.html`), different source. Buzzlytics locked its All Time filter behind a paid plan on 2026-09-21; this route reads each platform directly. The site only shows three numbers — **views, likes, followers** — so those (plus video count and top video) are the priority. The other table rows (comments, engagement rate, watch time, median/average, sponsored value, Buzz Rank) are not available lifetime from the native dashboards; leave them at their last Buzzlytics values and keep the `†` marker on those rows.
 
-Everything below was verified working on 2026-09-21. The user must already be signed in to each platform in Chrome.
+Everything below was verified working on 2026-09-21 and updated 2026-10-03. The user must already be signed in to each platform in Chrome.
 
 ## Setup
 
 1. Load the browser tools in one `ToolSearch`: `tabs_context_mcp, navigate, computer, get_page_text, find, javascript_tool, browser_batch, tabs_close_mcp`.
 2. `tabs_context_mcp` with `createIfEmpty: true`; use that one tab for everything.
-3. `javascript_tool` calls time out at **45s**, but the loop keeps running in the page. If a call times out, wait a few seconds and re-read the `window.__x` map — don't restart the loop.
+3. `javascript_tool` calls time out at **45s**, but the loop keeps running in the page. If a call times out, wait a few seconds and re-read the `window.__x` map — don't restart the loop. For long loops, start them detached (`(async()=>{...})()`) and poll the map in later calls.
+4. **The tab must be the visible one.** Background/hidden tabs don't render grids or load more items. If a grid is empty, take a `computer` screenshot to activate the tab.
+5. **Only real wheel scrolls load more items** on TikTok, Instagram and Facebook (as of 2026-10-03). `window.scrollBy`/`scrollTop` loops stall. Pattern: a `browser_batch` of `computer` scroll actions (10 ticks each, ~2s wait between), then a `javascript_tool` call to run `grab()` and report the count; repeat until the count stops growing. Keep batches small (~5 scrolls) to stay under the timeout.
 
 Shared helper, used on every platform:
 
@@ -24,6 +26,8 @@ const parse = t => { t=t.trim(); const m=parseFloat(t.replace(/[^0-9.,]/g,'').re
 ## 1. TikTok — public profile (exact followers/likes, summed views)
 
 Navigate to `https://www.tiktok.com/@earlioessen`, wait ~6s.
+
+If a slider CAPTCHA appears, do the other platforms first and come back — it has cleared on its own before. If the grid then shows "Something went wrong", navigate again and wheel-scroll once.
 
 **Exact followers, likes, video count** from the hydration JSON:
 
@@ -50,18 +54,20 @@ Not useful: TikTok Studio analytics (`/tiktokstudio/analytics/overview`) only of
 
 **Followers:** `https://www.instagram.com/earlioessen/` — the `title` attribute on the follower count is rounded (e.g. `34,400`). Instagram Insights shows the same rounded value. Good enough for the banner.
 
-**Lifetime views:** `https://www.instagram.com/earlioessen/reels/`. The grid is **virtualized** (only ~40 anchors in the DOM) and `scrollTo(bottom)` does not load more — step-scroll and accumulate:
+**Lifetime views:** `https://www.instagram.com/earlioessen/reels/`. The grid is **virtualized** (only ~40 anchors in the DOM) — accumulate with `grab()` while scrolling. As of 2026-10-03 the `scrollBy` loop below stalls at ~24 reels; define `window.__ig` and `grab` (keep it on `window`), then drive loading with wheel scrolls per Setup step 5, calling `grab()` after each batch:
 
 ```js
 window.__ig = new Map();
-const grab=()=>[...document.querySelectorAll('a[href*="/reel/"]')].forEach(a=>{ const t=a.innerText.trim().split('\n').filter(Boolean)[0]; if(t) window.__ig.set(a.href, parse(t)); });
-window.scrollTo(0,0); await new Promise(r=>setTimeout(r,1500)); grab();
+window.grab=()=>[...document.querySelectorAll('a[href*="/reel/"]')].forEach(a=>{ const t=a.innerText.trim().split('\n').filter(Boolean)[0]; if(t) window.__ig.set(a.href, parse(t)); });
+window.scrollTo(0,0); await new Promise(r=>setTimeout(r,1500)); window.grab();
 let stall=0,last=0;
-for (let i=0;i<200;i++){ window.scrollBy(0,600); await new Promise(r=>setTimeout(r,900)); grab(); if(window.__ig.size===last){ if(++stall>=12) break;} else stall=0; last=window.__ig.size; }
+for (let i=0;i<200;i++){ window.scrollBy(0,600); await new Promise(r=>setTimeout(r,900)); window.grab(); if(window.__ig.size===last){ if(++stall>=12) break;} else stall=0; last=window.__ig.size; }
 ({count: window.__ig.size, total: [...window.__ig.values()].reduce((a,b)=>a+b,0)})
 ```
 
-Expect the count to match the profile's post count (~142). If it stops at 40, the loop broke early — rerun.
+Expect the count to match the profile's post count (151 on 2026-10-03). If it stops early, keep wheel-scrolling.
+
+Don't use the `web_profile_info` API as a shortcut — it returns 429 (rate-limited).
 
 **Lifetime likes (and comments):** each reel page's `og:description` reads `"220K likes, 1,643 comments - ..."`. Fetch them same-origin from the page context, **40 per call** (stays under the 45s timeout), keeping results in `window.__igLikes`:
 
@@ -89,14 +95,16 @@ Not useful: IG Insights (`/accounts/insights/?timeframe=30`, Content at `/accoun
 ```js
 const num=t=>parseFloat((t||'').replace(/[^0-9.]/g,''))||0;
 window.__fbc=new Map();
-const grab=()=>[...document.querySelectorAll('[role="row"]')].slice(1).forEach(r=>{const c=[...r.querySelectorAll('[role="cell"],[role="gridcell"]')].map(x=>x.innerText.trim()); if(c.length<10||!c[1]) return; window.__fbc.set(c[1],{views:num(c[3]),eng:num(c[5]),comments:num(c[9])});});
-grab(); let el=document.querySelector('[role="row"]'), sc=null; while(el){ const s=getComputedStyle(el); if(/(auto|scroll)/.test(s.overflowY)&&el.scrollHeight>el.clientHeight+50){sc=el;break;} el=el.parentElement; }
+window.grab=()=>[...document.querySelectorAll('[role="row"]')].slice(1).forEach(r=>{const c=[...r.querySelectorAll('[role="cell"],[role="gridcell"]')].map(x=>x.innerText.trim()); if(c.length<10||!c[1]) return; window.__fbc.set(c[1],{views:num(c[3]),eng:num(c[5]),comments:num(c[9])});});
+window.grab(); let el=document.querySelector('[role="row"]'), sc=null; while(el){ const s=getComputedStyle(el); if(/(auto|scroll)/.test(s.overflowY)&&el.scrollHeight>el.clientHeight+50){sc=el;break;} el=el.parentElement; }
 let stall=0,last=0;
-for(let i=0;i<150;i++){ if(sc) sc.scrollTop+=500; window.scrollBy(0,500); await new Promise(r=>setTimeout(r,700)); grab(); if(window.__fbc.size===last){ if(++stall>=10) break;} else stall=0; last=window.__fbc.size; }
+for(let i=0;i<150;i++){ if(sc) sc.scrollTop+=500; window.scrollBy(0,500); await new Promise(r=>setTimeout(r,700)); window.grab(); if(window.__fbc.size===last){ if(++stall>=10) break;} else stall=0; last=window.__fbc.size; }
 const v=[...window.__fbc.values()]; ({count:v.length, views:v.reduce((a,b)=>a+b.views,0), eng:v.reduce((a,b)=>a+b.eng,0), comments:v.reduce((a,b)=>a+b.comments,0)})
 ```
 
-This one usually hits the 45s timeout — wait ~8s and re-read `window.__fbc`. Expect ~74 rows (reels plus a couple of posts).
+As of 2026-10-03 the JS scroll loop stalls at ~10 rows: keep `window.__fbc` and `grab` on `window`, then wheel-scroll over the table per Setup step 5 (~5 new rows per scroll), calling `grab()` after each batch. Expect ~83 rows (reels plus a couple of posts).
+
+Lifetime comments can go *down* between runs (6.6K → 5.8K on 2026-10-03, likely deleted/filtered comments). That's not a scrape error; note it, since it nudges derived likes up.
 
 **Likes are derived:** Engagement = reactions + comments + shares. Take the shares share from Insights → Engagement ("By interaction type", ~4%): `likes ≈ eng − comments − 0.04·eng`. Write it with a `~` and say so in the notes.
 
