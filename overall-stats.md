@@ -3,6 +3,7 @@
 | Metric | [Instagram Reels (@earlioessen)](https://www.tiktokviewcount.com/profile/reels/earlioessen) | [TikTok (@earlioessen)](https://www.tiktokviewcount.com/profile/tiktok/earlioessen) | [Facebook Reels (@earlioessen)](https://www.tiktokviewcount.com/profile/facebook_reels/earlioessen) | [YouTube Shorts (@servicenowdevprogram)](https://www.tiktokviewcount.com/profile/shorts/servicenowdevprogram) | [LinkedIn (/in/earlduque)](https://www.linkedin.com/in/earlduque/) | **Total / Combined** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Total Views** | 39,843,240 | ~14,727,078 | ~10,972,300 | 11,238,787 | — | **~76,781,405** |
+| **Engaged Views** | — | — | — | 6,665,454 | — | **—** |
 | **Total Likes** | 1,582,957 | ~1,361,858 | 214,533 | 332,961 | — | **~3,492,309** |
 | **Comments** | 16,777 | 21,229 | 5,889 | 10,401 | — | **54,296** |
 | **Engagement Rate** | 5.1% | 10.7% | 2.1% | 3.1% | — | **—** |
@@ -25,6 +26,7 @@
 
 * Views, likes, comments and top videos are summed from Buzzlytics' per-video **Export videos to CSV** data, not the rounded summary cards. Instagram and YouTube Shorts are exact. TikTok rounds each video's views and likes to 3 significant figures above 10K, and Facebook rounds each video's views to the nearest 1K, so those cells (marked ~) are good to roughly ±0.5%.
 * Buzzlytics' page no longer shows an "Agency Insights" block, so **Average Views / Post** is computed as views ÷ posts (Instagram's views cover 157 of 161 posts), and **Median Views** comes from the "Organic engagement" card.
+* **Engaged Views** is a YouTube-only metric (views where people kept watching past the first few seconds), read from YouTube Studio's Shorts analytics (Advanced mode → Total row, lifetime through 2026-10-03, channel-wide since it's a shared account). It's 61% of the 10,993,413 views Studio reports for the same period; Buzzlytics' view count runs a day later. The other platforms have no equivalent, so their cells and the total stay `—`.
 * **Watch Time** is Buzzlytics' own estimate (about 100 seconds per view on every platform, longer than the average video), not the platforms' real watch time.
 * Facebook is last-90-days again (the 2026-09-23 → 2026-10-03 native-dashboard pulls used lifetime Facebook numbers, including ~594K derived likes), so combined likes (3.49M) read lower than the 2026-10-03 figure (~3.66M) even though every lifetime platform grew.
 * Followers are exact counts: Instagram 38,694, TikTok 33,592, LinkedIn 13,327. Buzzlytics reports Facebook as 16,000, which looks rounded (the native dashboard showed 16,162 on 2026-10-03).
