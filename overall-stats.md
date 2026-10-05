@@ -9,7 +9,7 @@
 | **Engagement Rate** | 5.1% | 10.7% | 2.1% | 3.1% | — | **—** |
 | **Followers / Subscribers** | 38,694 | 33,592 | ~16,000 | (shared account) | 13,327 | **~101,613** |
 | **Total Videos Analyzed** | 161 | 219 | 71 *(last 90d)* | 326 | — | **777** |
-| **Watch Time** | 1.1M hrs | 393.8K hrs | 299.5K hrs | 372.3K hrs | — | **2.17M hrs** |
+| **Watch Time** | 339.5K hrs | ~189.5K hrs | ~97.8K hrs | 153.8K hrs | — | **~780.6K hrs** |
 | **Median Views / Post** | 7.6K | 3.2K | 53.0K | 2.1K | — | **—** |
 | **Average Views / Post** | 253.8K | 67.2K | 154.5K | 34.5K | — | **—** |
 | **Est. Sponsored Post Value** | $8.51K–$12.76K | $3.55K–$5.33K | $1.11K–$1.67K | $165–$248 | — | **—** |
@@ -27,6 +27,6 @@
 * Views, likes, comments and top videos are summed from Buzzlytics' per-video **Export videos to CSV** data, not the rounded summary cards. Instagram and YouTube Shorts are exact. TikTok rounds each video's views and likes to 3 significant figures above 10K, and Facebook rounds each video's views to the nearest 1K, so those cells (marked ~) are good to roughly ±0.5%.
 * Buzzlytics' page no longer shows an "Agency Insights" block, so **Average Views / Post** is computed as views ÷ posts (Instagram's views cover 157 of 161 posts), and **Median Views** comes from the "Organic engagement" card.
 * **Engaged Views** is a YouTube-only metric (views where people kept watching past the first few seconds), read from YouTube Studio's Shorts analytics (Advanced mode → Total row, lifetime through 2026-10-03, channel-wide since it's a shared account). It's 61% of the 10,993,413 views Studio reports for the same period; Buzzlytics' view count runs a day later. The other platforms have no equivalent, so their cells and the total stay `—`.
-* **Watch Time** is Buzzlytics' own estimate (about 100 seconds per view on every platform, longer than the average video), not the platforms' real watch time.
+* **Watch Time** is real platform watch time, not Buzzlytics' estimate. Buzzlytics assumes ~100 s per view everywhere, which overstated the combined total by ~2.8× (it reported 2.17M hrs). Calibrated against the native dashboards on 2026-10-05: Instagram (Meta Business Suite, lifetime) 339,464 hrs = **31%** of Buzzlytics' figure (~31 s/view); YouTube Shorts (Studio, lifetime) 153,808 hrs = **41%** (~49 s/view); Facebook (Content Library, lifetime) 99,467 hrs on 11.16M views ≈ **33%** (~32 s/view), scaled here to the 90-day views; TikTok (Studio, 125 videos = 90% of views) ~46 s/view ≈ **48%**, extrapolated to all views. Later refreshes multiply Buzzlytics' watch time by these factors (IG 0.31, TT 0.48, FB 0.33, YT 0.41) instead of re-scraping.
 * Facebook is last-90-days again (the 2026-09-23 → 2026-10-03 native-dashboard pulls used lifetime Facebook numbers, including ~594K derived likes), so combined likes (3.49M) read lower than the 2026-10-03 figure (~3.66M) even though every lifetime platform grew.
 * Followers are exact counts: Instagram 38,694, TikTok 33,592, LinkedIn 13,327. Buzzlytics reports Facebook as 16,000, which looks rounded (the native dashboard showed 16,162 on 2026-10-03).

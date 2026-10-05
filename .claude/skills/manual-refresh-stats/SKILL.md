@@ -5,7 +5,7 @@ description: Refresh earlduque.com's social stats without Buzzlytics — reads l
 
 # Refreshing social stats from the native dashboards
 
-Same deliverable as `/refresh-stats` (`overall-stats.md` + the `stats-banner` in `index.html`), different source. Buzzlytics locked its All Time filter behind a paid plan on 2026-09-21; this route reads each platform directly. The site only shows three numbers — **views, likes, followers** — so those (plus video count and top video) are the priority. The other table rows (comments, engagement rate, watch time, median/average, sponsored value, Buzz Rank) are not available lifetime from the native dashboards; leave them at their last Buzzlytics values and keep the `†` marker on those rows.
+Same deliverable as `/refresh-stats` (`overall-stats.md` + the `stats-banner` in `index.html`), different source. Buzzlytics locked its All Time filter behind a paid plan on 2026-09-21; this route reads each platform directly. The site only shows three numbers — **views, likes, followers** — so those (plus video count and top video) are the priority. The other table rows (comments, engagement rate, watch time, median/average, sponsored value, Buzz Rank) are not available lifetime from the native dashboards; leave them at their last Buzzlytics values and keep the `†` marker on those rows. (Watch time is already stored factor-adjusted. See `/refresh-stats` step 1 for the per-platform calibration factors. Never write Buzzlytics' raw watch time.)
 
 Everything below was verified working on 2026-09-21 and updated 2026-10-03. The user must already be signed in to each platform in Chrome.
 

@@ -31,7 +31,7 @@ Don't count on the user's already-open tabs. The tools only see tabs inside Clau
    | Average Views | Not shown any more: CSV views ÷ posts with views (Instagram's Views card says "from 157 of 161 posts") |
    | Est. Sponsored Post Value | "Est. post value" card (round sub-$1K values to whole dollars) |
 
-   Watch Time is Buzzlytics' own estimate (about 100 seconds per view everywhere), not real platform watch time. Keep the note saying so.
+   Watch Time on Buzzlytics is its own estimate (about 100 seconds per view everywhere), roughly 2.8× too high. **Don't write the raw number.** Multiply each platform's Buzzlytics watch time by its calibration factor and write the result with a `~` prefix: **Instagram × 0.31, TikTok × 0.48, Facebook × 0.33, YouTube Shorts × 0.41**. These factors come from native-dashboard totals pulled on 2026-10-05 (see the Watch Time note in `overall-stats.md`; keep that note). Don't re-scrape the native dashboards for watch time. If the adjusted numbers look off, or the user asks, recalibrate on one platform: YouTube Studio Advanced mode with the Shorts filter (Watch time column, Total row) is the quickest.
 7. **YouTube engaged views** aren't on Buzzlytics. Open `https://studio.youtube.com/channel/UCdXorgCT87YlFRN9n8oJ7_A/analytics/tab-content/period-lifetime` (it's already on the ServiceNow Dev Program channel; if not, switch account via the top-right avatar), wait ~20s, check the **Shorts** chip is selected, click **See more**, and zoom on the **Total** row: the exact `Engaged views` (and Studio's `Views`, for the % in the note). It's the only cell in the Engaged Views row; the other platforms and the total stay `—`. Update the date and percentage in the matching note.
 8. **LinkedIn** isn't on Buzzlytics. Read the follower count from https://www.linkedin.com/in/earlduque/ (zoom on the `N followers · 500+ connections` line under the headline; `find` can return stale numbers from the previous page). All other LinkedIn cells stay `—`.
 9. Close the tab when you're done.
@@ -41,7 +41,7 @@ Don't count on the user's already-open tabs. The tools only see tabs inside Clau
 - Set the caption date to today and keep the filter note.
 - Fill the platform cells using the existing formatting: full exact integers from the CSV for views, likes, comments, followers and top video (`39,843,240`, prefixed `~` where the platform rounds); compact form for the rest (`4.9%`, `861.6K hrs`, `44.0K`). Facebook's video count keeps its `*(last 90d)*` suffix.
 - **Total / Combined:**
-  - Views, comments, videos analyzed, watch time: sum of the four video platforms.
+  - Views, comments, videos analyzed, watch time (the factor-adjusted values): sum of the four video platforms.
   - Likes: the same sum. Prefix any total with `~` when one of its inputs carries `~`.
   - **Followers: Instagram + TikTok + Facebook + LinkedIn.** Leave out YouTube Shorts: @servicenowdevprogram is a shared account, so its cell stays `(shared account)`. Sum the exact counts, not the rounded ones.
   - Engagement, median, average, sponsored value, Buzz Rank, top video: `—`.
