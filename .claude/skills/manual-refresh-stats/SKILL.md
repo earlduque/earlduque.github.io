@@ -118,6 +118,8 @@ Fallback for views only: `https://www.facebook.com/earlioessen/reels/`, tiles ar
 
 It takes ~15s to render. Click the **Shorts** chip under the Overview/Content tabs, then `get_page_text`: Views, Likes, Subscribers (lifetime), Top Shorts with views. The "Published content" block on the All view gives the Shorts count. Values are rounded to 0.1M/0.1K.
 
+Also click **See more** (Advanced mode) and zoom on the **Total** row for the exact **Engaged views**. It fills the YouTube cell of the Engaged Views row (other platforms stay `—`).
+
 Followers stay `(shared account)` and are excluded from the combined total.
 
 ## 5. LinkedIn

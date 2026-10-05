@@ -32,8 +32,9 @@ Don't count on the user's already-open tabs. The tools only see tabs inside Clau
    | Est. Sponsored Post Value | "Est. post value" card (round sub-$1K values to whole dollars) |
 
    Watch Time is Buzzlytics' own estimate (about 100 seconds per view everywhere), not real platform watch time. Keep the note saying so.
-7. **LinkedIn** isn't on Buzzlytics. Read the follower count from https://www.linkedin.com/in/earlduque/ (zoom on the `N followers · 500+ connections` line under the headline; `find` can return stale numbers from the previous page). All other LinkedIn cells stay `—`.
-8. Close the tab when you're done.
+7. **YouTube engaged views** aren't on Buzzlytics. Open `https://studio.youtube.com/channel/UCdXorgCT87YlFRN9n8oJ7_A/analytics/tab-content/period-lifetime` (it's already on the ServiceNow Dev Program channel; if not, switch account via the top-right avatar), wait ~20s, check the **Shorts** chip is selected, click **See more**, and zoom on the **Total** row: the exact `Engaged views` (and Studio's `Views`, for the % in the note). It's the only cell in the Engaged Views row; the other platforms and the total stay `—`. Update the date and percentage in the matching note.
+8. **LinkedIn** isn't on Buzzlytics. Read the follower count from https://www.linkedin.com/in/earlduque/ (zoom on the `N followers · 500+ connections` line under the headline; `find` can return stale numbers from the previous page). All other LinkedIn cells stay `—`.
+9. Close the tab when you're done.
 
 ## 2. Update `overall-stats.md`
 
