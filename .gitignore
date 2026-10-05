@@ -1,0 +1,22 @@
+# Buzzlytics / analytics exports: per-video data, kept local only
+stats-exports/
+*.csv
+
+# Browser download leftovers
+*.tmp
+*.crdownload
+
+# Local Claude Code settings (permissions, machine-specific)
+.claude/settings.local.json
+
+# Secrets
+.env
+.env.*
+
+# Tooling
+node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
