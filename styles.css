@@ -221,7 +221,7 @@ body:hover #cursor-glow {
    ============================================ */
 .stats-banner {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 14px 8px;
   margin-bottom: 24px;
   border-radius: var(--radius-md);
@@ -257,6 +257,7 @@ body:hover #cursor-glow {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  text-align: center;
   color: var(--text-secondary);
 }
 
@@ -694,6 +695,7 @@ body:hover #cursor-glow {
 
   .stat-label {
     font-size: 0.6rem;
+    letter-spacing: 0.08em;
   }
 
   .orb {

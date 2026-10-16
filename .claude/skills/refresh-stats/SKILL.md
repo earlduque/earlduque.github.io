@@ -5,7 +5,7 @@ description: Refresh earlduque.com's social stats end-to-end — pulls fresh num
 
 # Refreshing social stats
 
-`overall-stats.md` holds one column per platform plus a **Total / Combined** column. The stats banner in `index.html` (the `stats-banner` section, marked `Source numbers: overall-stats.md`) shows three of those totals. Both files change together.
+`overall-stats.md` holds one column per platform plus a **Total / Combined** column. The stats banner in `index.html` (the `stats-banner` section, marked `Source numbers: overall-stats.md`) shows four of those totals: views, likes, followers and watch hours. Both files change together.
 
 ## 1. Collect the numbers (Claude in Chrome)
 
@@ -49,7 +49,7 @@ Don't count on the user's already-open tabs. The tools only see tabs inside Clau
 
 ## 3. Update the `index.html` banner
 
-Copy from the Total column. Views and likes get one decimal in millions (`62.3M`, `2.9M`); followers round to the nearest thousand (`87K`).
+Copy from the Total column. Views, likes and watch hours get one decimal in millions (`62.3M`, `2.9M`, `1.0M`; watch hours come from the factor-adjusted total, e.g. `~1,006.1K hrs` → `1.0M`); followers round to the nearest thousand (`87K`).
 
 ## 4. Verify, commit, push
 
