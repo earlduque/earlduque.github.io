@@ -16,7 +16,7 @@ Don't count on the user's already-open tabs. The tools only see tabs inside Clau
 3. **Refresh stale profiles.** If a yellow banner says "Showing numbers from <date>", click **Refresh · 1 search** (top right of the banner), then **Confirm**. It costs one unlock credit; reading pages and exporting CSVs costs nothing.
 4. **Set the date filter.** The dropdown next to "Save Filter" **defaults to Last 90 Days**:
    - Instagram, TikTok, YouTube Shorts: **All Time**.
-   - Facebook Reels: **Last 90 Days**. It has no All Time option.
+   - Facebook Reels: **Last 12 Months**, the widest option (it has no All Time). Never leave it on the Last 90 Days default: that drops older posts and undercounts views (13.9M vs 15.1M on 2026-11-02). If the 12-month video count is lower than the post count in the profile header, try **Custom range** to reach back further.
 
    Open the dropdown by clicking its coordinates, screenshot it, then click "All Time" by coordinates. Clicking the `find` ref for that button can silently miss because the page has two date pickers. **Confirm the filter label now says "All Time"** before reading anything. The post count in the profile header also jumps when the filter applies (e.g. 62 → 161).
 5. **Exact views / likes / comments / top video: per-video CSV.** The summary cards are rounded (`39.8M`). Open the second tab (**All content** / **Posts** / **Videos**, depending on platform) with the date filter still set, then capture the **Export videos to CSV** button's output in the page with `javascript_tool`. Don't let it download: Chrome's Save As dialog leaves `.tmp` files in `~/Downloads` and blocks later exports. Hook `URL.createObjectURL` to keep the blob's text in `window.__csv`, make `HTMLAnchorElement.prototype.click` a no-op for `download` links, click `button[aria-label="Export videos to CSV"]`, wait ~3s, then parse the CSV in the page (quoted fields contain newlines) and return the sums of `Views`, `Likes`, `Comments`, the row count, and the top row's `Views` / `Description` / `Create Time`. The hook is lost on navigation, so inject it again on each profile.
@@ -39,7 +39,7 @@ Don't count on the user's already-open tabs. The tools only see tabs inside Clau
 ## 2. Update `overall-stats.md`
 
 - Set the caption date to today and keep the filter note.
-- Fill the platform cells using the existing formatting: full exact integers from the CSV for views, likes, comments, followers and top video (`39,843,240`, prefixed `~` where the platform rounds); compact form for the rest (`4.9%`, `861.6K hrs`, `44.0K`). Facebook's video count keeps its `*(last 90d)*` suffix.
+- Fill the platform cells using the existing formatting: full exact integers from the CSV for views, likes, comments, followers and top video (`39,843,240`, prefixed `~` where the platform rounds); compact form for the rest (`4.9%`, `861.6K hrs`, `44.0K`). Facebook's video count keeps its `*(last 12 mo)*` suffix.
 - **Total / Combined:**
   - Views, comments, videos analyzed, watch time (the factor-adjusted values): sum of the four video platforms.
   - Likes: the same sum. Prefix any total with `~` when one of its inputs carries `~`.
